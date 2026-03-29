@@ -34,18 +34,6 @@ export function HeroIntro() {
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-12">
           {/* Left: text */}
           <div>
-            <motion.div
-              initial={reduce ? false : { opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="mb-5"
-            >
-              <span className="inline-flex items-center gap-2 rounded-full border border-violet-500/20 bg-violet-500/10 px-3.5 py-1.5 text-[11px] font-semibold tracking-wide text-violet-300 uppercase sm:px-4 sm:text-xs">
-                <span className="h-1.5 w-1.5 rounded-full bg-violet-400 animate-pulse" />
-                {t.hero.badge}
-              </span>
-            </motion.div>
-
             <motion.h1
               initial={reduce ? false : { opacity: 0, y: 28 }}
               animate={{ opacity: 1, y: 0 }}
