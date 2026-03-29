@@ -31,8 +31,8 @@ export const metadata: Metadata = {
     "inteligência artificial",
   ],
   icons: {
-    icon: [{ url: "/images/favicon.png", type: "image/png" }],
-    apple: "/images/favicon.png",
+    icon: [{ url: "/site-eav/images/favicon.png", type: "image/png" }],
+    apple: "/site-eav/images/favicon.png",
   },
   openGraph: {
     title: "EAV Bank | Smart Chain — Banco digital à frente do tempo",
