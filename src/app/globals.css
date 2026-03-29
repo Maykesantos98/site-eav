@@ -1,26 +1,183 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --eav-purple: #6336c4;
+  --eav-purple-magenta: #b336c1;
+  --eav-purple-dark: #5228a8;
+  --eav-purple-light: #c4b5fd;
+  --eav-accent: #8e59ff;
+  --eav-bg: #0c0a09;
+  --eav-bg-elevated: #1c1917;
+  --eav-foreground: #fafafa;
+  --eav-muted: #a8a29e;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-eav-purple: var(--eav-purple);
+  --color-eav-purple-dark: var(--eav-purple-dark);
+  --color-eav-purple-light: var(--eav-purple-light);
+  --color-eav-bg: var(--eav-bg);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ── Scrollbar personalizada (estilo eav7.com) ── */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0c0a09;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #6336c4, #8e59ff);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #8e59ff, #b336c1);
+}
+
+@media (max-width: 768px) {
+  ::-webkit-scrollbar { width: 4px; }
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-color: #6336c4 #0c0a09;
+  scrollbar-width: thin;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--eav-bg);
+  color: var(--eav-foreground);
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+/* ── Gradiente de texto ── */
+.eav-gradient-text {
+  background: linear-gradient(135deg, #8e59ff 0%, #b336c1 50%, #6336c4 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* ── Cards com glassmorphism ── */
+.eav-card-gradient {
+  background: linear-gradient(135deg, rgba(99, 54, 196, 0.6) 0%, rgba(179, 54, 193, 0.3) 100%);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(142, 89, 255, 0.15);
+}
+
+.eav-card-glass {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.eav-card-glass:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(142, 89, 255, 0.2);
+}
+
+/* ── Glow do hero ── */
+@keyframes eav-pulse-glow {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.08);
+  }
+}
+
+.eav-hero-glow {
+  animation: eav-pulse-glow 5s ease-in-out infinite;
+}
+
+/* ── Gradiente de borda animada ── */
+@keyframes border-rotate {
+  0% { --angle: 0deg; }
+  100% { --angle: 360deg; }
+}
+
+/* ── Seleção de texto ── */
+::selection {
+  background: rgba(142, 89, 255, 0.35);
+  color: #fff;
+}
+
+/* ── Botão com brilho ── */
+.eav-btn-glow {
+  position: relative;
+  overflow: hidden;
+}
+.eav-btn-glow::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(135deg, transparent, rgba(142, 89, 255, 0.3), transparent);
+  border-radius: inherit;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.eav-btn-glow:hover::after {
+  opacity: 1;
+}
+
+/* ── Divider com gradiente ── */
+.eav-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(142, 89, 255, 0.3), transparent);
+}
+
+/* ── Float animation para imagens ── */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+.eav-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* ── Shimmer loading ── */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.eav-shimmer {
+  background: linear-gradient(90deg, transparent, rgba(142, 89, 255, 0.08), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+/* ── Noise texture overlay for depth ── */
+.eav-noise::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.015;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 128px 128px;
+}
+
+/* ── Section separator glow line ── */
+.eav-glow-line {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(99, 54, 196, 0.2) 15%,
+    rgba(142, 89, 255, 0.5) 50%,
+    rgba(179, 54, 193, 0.2) 85%,
+    transparent 100%
+  );
+  box-shadow: 0 0 12px rgba(142, 89, 255, 0.15);
 }
