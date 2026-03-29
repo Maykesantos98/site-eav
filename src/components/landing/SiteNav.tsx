@@ -87,16 +87,34 @@ export function SiteNav() {
               <a
                 key={link.href}
                 href={link.href}
-                className="rounded-full px-4 py-2 text-sm font-medium text-zinc-400 transition-colors hover:text-white hover:bg-white/5"
+                className="rounded-full px-4 py-2 text-sm font-medium text-zinc-400 transition-colors hover:text-[#8e59ff] hover:bg-violet-500/5"
               >
                 {link.label}
               </a>
             ))}
             <div className="ml-3 h-5 w-px bg-white/10" />
-            {/* Language toggle with flag */}
+            {/* Login */}
+            <a
+              href="https://eav7.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="ml-2 rounded-full border border-white/10 bg-white/[0.03] px-4 py-2.5 text-sm font-medium text-stone-300 transition-all hover:border-white/20 hover:bg-white/[0.06] hover:text-white"
+            >
+              Login
+            </a>
+            {/* Abrir Conta */}
+            <motion.a
+              href="#conta"
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
+              className="ml-1.5 rounded-full bg-gradient-to-r from-[#6336c4] to-[#8e59ff] px-5 py-2.5 text-sm font-bold text-white shadow-lg shadow-violet-950/40 transition-shadow hover:shadow-violet-900/50"
+            >
+              {t.nav.abrirConta}
+            </motion.a>
+            {/* Language toggle — far right */}
             <button
               onClick={toggle}
-              className="ml-2 flex items-center gap-1.5 rounded-full border border-white/10 bg-white/[0.03] px-3 py-2 text-xs font-bold text-stone-400 transition-colors hover:border-violet-500/20 hover:text-white"
+              className="ml-3 flex items-center gap-1.5 rounded-full border border-white/10 bg-white/[0.03] px-3 py-2 text-xs font-bold text-stone-400 transition-colors hover:border-violet-500/20 hover:text-white"
               aria-label="Trocar idioma"
             >
               {lang === "pt" ? (
@@ -105,14 +123,6 @@ export function SiteNav() {
                 <><FlagBR className="h-3.5 w-auto rounded-[2px]" /> PT</>
               )}
             </button>
-            <motion.a
-              href="#conta"
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.97 }}
-              className="ml-2 rounded-full bg-gradient-to-r from-[#6336c4] to-[#8e59ff] px-5 py-2.5 text-sm font-bold text-white shadow-lg shadow-violet-950/40 transition-shadow hover:shadow-violet-900/50"
-            >
-              {t.nav.abrirConta}
-            </motion.a>
           </nav>
 
           {/* Mobile hamburger + lang */}

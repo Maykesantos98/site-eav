@@ -11,12 +11,13 @@ import { useIsMobile } from "@/constants/useIsMobile";
 
 /* ─── Data ─── */
 
+/* Heroicons 20 solid — world/globe feature icons */
 const worldCardIcons = [
-  "M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z",
-  "M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z",
-  "M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1",
-  "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z",
-  "M13 10V3L4 14h7v7l9-11h-7z",
+  "M2.5 4A1.5 1.5 0 001 5.5V6h18v-.5A1.5 1.5 0 0017.5 4h-15zM19 8.5H1v6A1.5 1.5 0 002.5 16h15a1.5 1.5 0 001.5-1.5v-6zM3 13.25a.75.75 0 01.75-.75h1.5a.75.75 0 010 1.5h-1.5a.75.75 0 01-.75-.75zm4.75-.75a.75.75 0 000 1.5h3.5a.75.75 0 000-1.5h-3.5z",
+  "M9.69 18.933l.003.001C9.89 19.02 10 19 10 19s.11.02.308-.066l.002-.001.006-.003.018-.008a5.741 5.741 0 00.281-.145c.182-.1.422-.244.703-.433a13.07 13.07 0 002.196-1.886C15.11 14.78 16.5 12.37 16.5 9.5a6.5 6.5 0 00-13 0c0 2.87 1.39 5.28 2.986 6.958a13.07 13.07 0 002.196 1.886 8.25 8.25 0 00.985.578l.018.008.006.003zM10 11.25a1.75 1.75 0 100-3.5 1.75 1.75 0 000 3.5z",
+  "M10 18a8 8 0 100-16 8 8 0 000 16zM8.798 7.45c.512-.67 1.135-.95 1.702-.95s1.19.28 1.702.95a.75.75 0 001.192-.91C12.637 5.55 11.596 5 10.5 5s-2.137.55-2.894 1.54A5.205 5.205 0 006.83 8H5.75a.75.75 0 000 1.5h.77a6.333 6.333 0 000 1h-.77a.75.75 0 000 1.5h1.08c.183.528.442 1.023.776 1.46C8.363 14.45 9.404 15 10.5 15s2.137-.55 2.894-1.54a.75.75 0 00-1.192-.91c-.512.67-1.135.95-1.702.95s-1.19-.28-1.702-.95a3.505 3.505 0 01-.343-.55h1.795a.75.75 0 000-1.5H8.026a4.835 4.835 0 010-1h2.224a.75.75 0 000-1.5H8.455c.098-.195.212-.38.343-.55z",
+  "M9.661 2.237a.75.75 0 01.678 0 17.683 17.683 0 006.397 2.01.75.75 0 01.592.726c.147 3.256-.373 5.927-1.534 8.014C14.666 15.063 13.03 16.39 10 18c-3.03-1.61-4.666-2.937-5.794-5.013C3.066 10.9 2.546 8.229 2.672 4.973a.75.75 0 01.592-.726 17.683 17.683 0 006.397-2.01z",
+  "M11.983 1.907a.75.75 0 00-1.292-.657l-8.5 9.5A.75.75 0 002.75 12h6.572l-1.305 6.093a.75.75 0 001.292.657l8.5-9.5A.75.75 0 0017.25 8h-6.572l1.305-6.093z",
 ];
 
 /* ─── World Globe Section ─── */
@@ -34,10 +35,11 @@ export function WorldGlobeSection() {
           src={asset("/images/bg-city.jpg")}
           alt=""
           fill
-          className="object-cover object-center opacity-[0.05] sm:opacity-[0.08]"
+          className="object-cover object-center opacity-[0.20] sm:opacity-[0.30] lg:opacity-[0.35]"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0c0a09] via-[#0c0a09]/60 to-[#0c0a09]" />
+        <div className="absolute inset-0 bg-[#0c0a09]/50" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0c0a09]/60 via-transparent to-[#0c0a09]/70" />
       </div>
 
       <div className="relative mx-auto max-w-6xl px-5 sm:px-8">
@@ -96,8 +98,8 @@ export function WorldGlobeSection() {
                   className="flex items-center gap-3 rounded-xl border border-white/[0.04] bg-white/[0.02] p-3 transition-colors hover:border-violet-500/15 hover:bg-violet-500/5 sm:p-3.5"
                 >
                   <div className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg bg-violet-500/10 sm:h-10 sm:w-10">
-                    <svg className="h-4 w-4 text-violet-400 sm:h-5 sm:w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d={card.icon} />
+                    <svg className="h-5 w-5 text-violet-400" viewBox="0 0 20 20" fill="currentColor">
+                      <path fillRule="evenodd" d={card.icon} clipRule="evenodd" />
                     </svg>
                   </div>
                   <span className="text-sm font-medium text-stone-300">{card.label}</span>
@@ -117,24 +119,27 @@ export function SecuritySection() {
   const reduce = useReducedMotion();
   const { t } = useLang();
   const isMobile = useIsMobile();
+
+  /* Heroicons 20 solid — security icons */
+  const securityIcons = [
+    "M10 1a4.5 4.5 0 00-4.5 4.5V9H5a2 2 0 00-2 2v6a2 2 0 002 2h10a2 2 0 002-2v-6a2 2 0 00-2-2h-.5V5.5A4.5 4.5 0 0010 1zm3 8V5.5a3 3 0 10-6 0V9h6z",
+    "M9.661 2.237a.75.75 0 01.678 0 17.683 17.683 0 006.397 2.01.75.75 0 01.592.726c.147 3.256-.373 5.927-1.534 8.014C14.666 15.063 13.03 16.39 10 18c-3.03-1.61-4.666-2.937-5.794-5.013C3.066 10.9 2.546 8.229 2.672 4.973a.75.75 0 01.592-.726 17.683 17.683 0 006.397-2.01z",
+    "M4.25 2A2.25 2.25 0 002 4.25v2.5A2.25 2.25 0 004.25 9h2.5A2.25 2.25 0 009 6.75v-2.5A2.25 2.25 0 006.75 2h-2.5zm0 9A2.25 2.25 0 002 13.25v2.5A2.25 2.25 0 004.25 18h2.5A2.25 2.25 0 009 15.75v-2.5A2.25 2.25 0 006.75 11h-2.5zm9-9A2.25 2.25 0 0011 4.25v2.5A2.25 2.25 0 0013.25 9h2.5A2.25 2.25 0 0018 6.75v-2.5A2.25 2.25 0 0015.75 2h-2.5zm0 9A2.25 2.25 0 0011 13.25v2.5A2.25 2.25 0 0013.25 18h2.5A2.25 2.25 0 0018 15.75v-2.5A2.25 2.25 0 0015.75 11h-2.5z",
+    "M11.983 1.907a.75.75 0 00-1.292-.657l-8.5 9.5A.75.75 0 002.75 12h6.572l-1.305 6.093a.75.75 0 001.292.657l8.5-9.5A.75.75 0 0017.25 8h-6.572l1.305-6.093z",
+  ];
+
   return (
-    <section id="seguranca" className="relative overflow-hidden py-20 sm:py-28">
-      {/* Background: tech network */}
-      <div className="pointer-events-none absolute inset-0" aria-hidden>
-        <Image
-          src={asset("/images/bg-tech.jpg")}
-          alt=""
-          fill
-          className="object-cover object-center opacity-[0.06] sm:opacity-[0.09]"
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0c0a09]/90 via-[#0c0a09]/60 to-[#0c0a09]/90" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0c0a09]/60 via-transparent to-[#0c0a09]/60" />
-      </div>
-      <div className="absolute inset-0 bg-gradient-to-b from-violet-950/8 via-transparent to-violet-950/5" aria-hidden />
-      <div className="absolute inset-0 border-y border-white/[0.04]" aria-hidden />
+    <section id="seguranca" className="relative overflow-hidden py-24 sm:py-32">
+      {/* Background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0c0a09] via-[#150a28] to-[#0c0a09]" aria-hidden />
+      {/* Glow orb */}
+      <div className="pointer-events-none absolute top-1/3 left-1/2 -translate-x-1/2 h-[300px] w-[400px] rounded-full bg-[#8e59ff]/8 blur-[100px] sm:h-[400px] sm:w-[600px]" aria-hidden />
+      {/* Glow lines */}
+      <div className="pointer-events-none absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#8e59ff]/20 to-transparent" aria-hidden />
+      <div className="pointer-events-none absolute bottom-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#6336c4]/15 to-transparent" aria-hidden />
 
       <div className="relative mx-auto grid max-w-6xl items-center gap-14 px-5 sm:px-8 lg:grid-cols-2 lg:gap-20">
+        {/* Left: Eye illustration with enhanced glow */}
         <motion.div
           initial={reduce ? false : { opacity: 0, scale: 0.93 }}
           whileInView={{ opacity: 1, scale: 1 }}
@@ -142,7 +147,7 @@ export function SecuritySection() {
           transition={{ duration: 0.7 }}
           className="relative mx-auto max-w-[480px] lg:mx-0"
         >
-          <div className="absolute inset-0 -m-6 rounded-full bg-[#8e59ff]/10 blur-[40px] sm:-m-12 sm:blur-[80px]" aria-hidden />
+          <div className="absolute inset-0 -m-8 rounded-full bg-[#8e59ff]/12 blur-[50px] sm:-m-14 sm:blur-[90px]" aria-hidden />
           <motion.div
             animate={reduce || isMobile ? {} : { scale: [1, 1.03, 1] }}
             transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
@@ -152,11 +157,12 @@ export function SecuritySection() {
               alt="Segurança e visão"
               width={585}
               height={539}
-              className="relative h-auto w-full object-contain drop-shadow-[0_0_60px_rgba(142,89,255,0.2)]"
+              className="relative h-auto w-full object-contain drop-shadow-[0_0_80px_rgba(142,89,255,0.25)]"
             />
           </motion.div>
         </motion.div>
 
+        {/* Right: text + premium cards */}
         <div>
           <motion.div
             initial={reduce ? false : "hidden"}
@@ -165,8 +171,11 @@ export function SecuritySection() {
             variants={fadeUp}
             custom={0}
           >
-            <span className="text-sm font-semibold tracking-wider text-violet-400 uppercase">{t.security.label}</span>
-            <h2 className="mt-3 text-2xl font-extrabold leading-tight text-white sm:text-3xl lg:text-4xl">
+            <span className="inline-flex items-center gap-2 rounded-full border border-violet-500/20 bg-violet-500/10 px-4 py-1.5 text-xs font-semibold tracking-wider text-violet-300 uppercase">
+              <svg className="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M9.661 2.237a.75.75 0 01.678 0 17.683 17.683 0 006.397 2.01.75.75 0 01.592.726c.147 3.256-.373 5.927-1.534 8.014C14.666 15.063 13.03 16.39 10 18c-3.03-1.61-4.666-2.937-5.794-5.013C3.066 10.9 2.546 8.229 2.672 4.973a.75.75 0 01.592-.726 17.683 17.683 0 006.397-2.01z" clipRule="evenodd" /></svg>
+              {t.security.label}
+            </span>
+            <h2 className="mt-5 text-2xl font-extrabold leading-tight text-white sm:text-3xl lg:text-4xl">
               {t.security.title1}<span className="eav-gradient-text">{t.security.titleHighlight}</span>{t.security.title2}
             </h2>
           </motion.div>
@@ -181,18 +190,16 @@ export function SecuritySection() {
                 variants={fadeUp}
                 custom={i + 1}
                 whileHover={reduce ? {} : { x: 4 }}
-                className="eav-card-glass group rounded-xl p-4 transition-all duration-300"
+                className="group flex items-start gap-4 rounded-2xl border border-white/[0.06] bg-white/[0.02] p-5 backdrop-blur-sm transition-all duration-300 hover:border-violet-500/20 hover:bg-violet-500/5"
               >
-                <div className="flex items-start gap-3">
-                  <span className="mt-0.5 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-violet-500/15 text-violet-400">
-                    <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                    </svg>
-                  </span>
-                  <div>
-                    <span className="font-semibold text-white">{item.text}</span>
-                    <p className="mt-1 text-sm text-stone-500">{item.detail}</p>
-                  </div>
+                <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-violet-500/10 text-violet-400 transition-all duration-300 group-hover:bg-violet-500/20 group-hover:scale-110">
+                  <svg className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path fillRule="evenodd" d={securityIcons[i]} clipRule="evenodd" />
+                  </svg>
+                </div>
+                <div>
+                  <span className="font-semibold text-white">{item.text}</span>
+                  <p className="mt-1 text-sm text-stone-400">{item.detail}</p>
                 </div>
               </motion.div>
             ))}
@@ -216,9 +223,15 @@ export function SpeedCirclesSection() {
   ] as const;
 
   return (
-    <section className="relative overflow-hidden py-20 sm:py-28">
+    <section className="eav-section-violet relative overflow-hidden py-20 sm:py-28">
+      {/* Background photo */}
+      <div className="pointer-events-none absolute inset-0" aria-hidden>
+        <Image src={asset("/images/bg-abstract.jpg")} alt="" fill className="object-cover opacity-[0.20] sm:opacity-[0.30] lg:opacity-[0.35]" sizes="100vw" />
+        <div className="absolute inset-0 bg-[#0c0a09]/50" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#1a0e2e]/50 via-transparent to-[#0c0a09]/70" />
+      </div>
       {/* Background glow */}
-      <div className="absolute left-1/2 top-1/2 h-[250px] w-[300px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#6336c4]/5 blur-[60px] sm:h-[400px] sm:w-[600px] sm:blur-[120px]" aria-hidden />
+      <div className="absolute left-1/2 top-1/2 h-[250px] w-[300px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#6336c4]/8 blur-[60px] sm:h-[400px] sm:w-[600px] sm:blur-[120px]" aria-hidden />
 
       <div className="relative mx-auto max-w-6xl px-5 sm:px-8">
         <motion.div
@@ -282,18 +295,6 @@ export function BeyondFinanceSection() {
   const isMobile = useIsMobile();
   return (
     <section className="relative overflow-hidden py-16 sm:py-24">
-      {/* Background: chicara faded */}
-      <div className="pointer-events-none absolute inset-0" aria-hidden>
-        <EavRemoteImage
-          src={eavImages.chicara}
-          alt=""
-          width={1200}
-          height={1100}
-          className="absolute -right-[20%] top-1/2 h-[80%] w-auto -translate-y-1/2 object-contain opacity-[0.03] sm:right-[-10%] sm:opacity-[0.04]"
-          sizes="50vw"
-        />
-        <div className="absolute inset-0 bg-gradient-to-l from-transparent via-[#0c0a09]/80 to-[#0c0a09]" />
-      </div>
 
       <div className="relative mx-auto max-w-6xl px-5 sm:px-8">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
@@ -314,8 +315,8 @@ export function BeyondFinanceSection() {
             <div className="mt-6 grid grid-cols-1 gap-2 sm:mt-8 sm:grid-cols-2 sm:gap-3">
               {t.beyond.items.map((item) => (
                 <div key={item} className="flex items-center gap-2 text-sm text-stone-300">
-                  <svg className="h-4 w-4 flex-shrink-0 text-violet-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                  <svg className="h-4 w-4 flex-shrink-0 text-violet-400" viewBox="0 0 20 20" fill="currentColor">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clipRule="evenodd" />
                   </svg>
                   {item}
                 </div>
@@ -353,13 +354,14 @@ export function BeyondFinanceSection() {
 
 /* ─── Company / B2B Section ─── */
 
+/* Heroicons 20 solid — B2B feature icons */
 const b2bIcons = [
-  "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4",
-  "M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z",
-  "M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z",
-  "M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z",
-  "M13 10V3L4 14h7v7l9-11h-7z",
-  "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z",
+  "M4 16.5v-13h-.25a.75.75 0 010-1.5h12.5a.75.75 0 010 1.5H16v13h.25a.75.75 0 010 1.5h-3.5a.75.75 0 01-.75-.75v-2.5a.75.75 0 00-.75-.75h-2.5a.75.75 0 00-.75.75v2.5a.75.75 0 01-.75.75h-3.5a.75.75 0 010-1.5H4z",
+  "M1 4.75C1 3.784 1.784 3 2.75 3h14.5c.966 0 1.75.784 1.75 1.75v10.515a1.75 1.75 0 01-1.75 1.75h-1.5v1.19l1.72-.19a.75.75 0 01.166 1.49l-4.25.472a.75.75 0 01-.166-1.49l1.03-.114v-1.358H5.75A1.75 1.75 0 014 15.265V4.75z",
+  "M1 4a1 1 0 011-1h16a1 1 0 011 1v8a1 1 0 01-1 1H2a1 1 0 01-1-1V4zm12 7a3 3 0 100-6 3 3 0 000 6zM2 3.75a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 012 3.75z",
+  "M10 18a8 8 0 100-16 8 8 0 000 16zM8.798 7.45c.512-.67 1.135-.95 1.702-.95s1.19.28 1.702.95a.75.75 0 001.192-.91C12.637 5.55 11.596 5 10.5 5s-2.137.55-2.894 1.54A5.205 5.205 0 006.83 8H5.75a.75.75 0 000 1.5h.77a6.333 6.333 0 000 1h-.77a.75.75 0 000 1.5h1.08c.183.528.442 1.023.776 1.46C8.363 14.45 9.404 15 10.5 15s2.137-.55 2.894-1.54a.75.75 0 00-1.192-.91c-.512.67-1.135.95-1.702.95s-1.19-.28-1.702-.95a3.505 3.505 0 01-.343-.55h1.795a.75.75 0 000-1.5H8.026a4.835 4.835 0 010-1h2.224a.75.75 0 000-1.5H8.455c.098-.195.212-.38.343-.55z",
+  "M11.983 1.907a.75.75 0 00-1.292-.657l-8.5 9.5A.75.75 0 002.75 12h6.572l-1.305 6.093a.75.75 0 001.292.657l8.5-9.5A.75.75 0 0017.25 8h-6.572l1.305-6.093z",
+  "M9.661 2.237a.75.75 0 01.678 0 17.683 17.683 0 006.397 2.01.75.75 0 01.592.726c.147 3.256-.373 5.927-1.534 8.014C14.666 15.063 13.03 16.39 10 18c-3.03-1.61-4.666-2.937-5.794-5.013C3.066 10.9 2.546 8.229 2.672 4.973a.75.75 0 01.592-.726 17.683 17.683 0 006.397-2.01z",
 ];
 
 export function CompanySection() {
@@ -369,10 +371,20 @@ export function CompanySection() {
   return (
     <section
       id="empresas"
-      className="relative py-16 sm:py-24"
+      className="relative py-20 sm:py-28 overflow-hidden"
     >
-      <div className="absolute inset-0 border-y border-white/[0.04]" aria-hidden />
-      <div className="absolute inset-0 bg-gradient-to-b from-violet-950/5 via-transparent to-violet-950/5" aria-hidden />
+      {/* Background: metropolis skyline — highly visible */}
+      <div className="pointer-events-none absolute inset-0" aria-hidden>
+        <Image
+          src={asset("/images/bg-metropolis.jpg")}
+          alt=""
+          fill
+          className="object-cover object-[center_40%] opacity-[0.20] sm:opacity-[0.30] lg:opacity-[0.35]"
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-[#0c0a09]/55" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0c0a09]/70 via-[#0c0a09]/40 to-[#0c0a09]/80" />
+      </div>
 
       <div className="relative mx-auto max-w-6xl px-5 sm:px-8">
         {/* Header */}
@@ -406,8 +418,8 @@ export function CompanySection() {
                   className="flex items-start gap-3 rounded-xl border border-white/[0.04] bg-white/[0.02] p-3.5 transition-colors hover:border-violet-500/15 hover:bg-violet-500/5"
                 >
                   <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-violet-500/10">
-                    <svg className="h-4 w-4 text-violet-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d={feat.icon} />
+                    <svg className="h-4 w-4 text-violet-400" viewBox="0 0 20 20" fill="currentColor">
+                      <path fillRule="evenodd" d={feat.icon} clipRule="evenodd" />
                     </svg>
                   </div>
                   <div>

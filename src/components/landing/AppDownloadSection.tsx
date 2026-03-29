@@ -1,11 +1,13 @@
 "use client";
 
+import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 import { eavImages } from "@/constants/eavMedia";
 import { EavRemoteImage } from "@/components/EavRemoteImage";
 import { fadeUp } from "./motion";
 import { useLang } from "@/constants/LangContext";
 import { useIsMobile } from "@/constants/useIsMobile";
+import { asset } from "@/constants/basePath";
 
 export function AppDownloadSection() {
   const reduce = useReducedMotion();
@@ -14,7 +16,6 @@ export function AppDownloadSection() {
 
   return (
     <section className="relative overflow-hidden py-20 sm:py-28">
-      {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-r from-[#6336c4]/10 via-transparent to-[#8e59ff]/10" aria-hidden />
       <div className="absolute inset-0 border-y border-white/[0.04]" aria-hidden />
 
@@ -41,14 +42,8 @@ export function AppDownloadSection() {
           <div className="mt-8 grid grid-cols-2 gap-3">
             {t.app.features.map((feat) => (
               <div key={feat} className="flex items-center gap-2 text-sm text-stone-300">
-                <svg
-                  className="h-4 w-4 flex-shrink-0 text-violet-400"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                <svg className="h-4 w-4 flex-shrink-0 text-violet-400" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clipRule="evenodd" />
                 </svg>
                 {feat}
               </div>

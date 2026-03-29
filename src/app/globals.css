@@ -195,6 +195,16 @@ body {
   background-size: 128px 128px;
 }
 
+/* ── Violet gradient section (warm dark variation) ── */
+.eav-section-violet {
+  background: linear-gradient(180deg, #1a0e2e 0%, #0f0a1a 50%, #0c0a09 100%);
+}
+
+/* ── Deep purple premium section ── */
+.eav-section-premium {
+  background: linear-gradient(135deg, #1a0533 0%, #0f0620 50%, #150a28 100%);
+}
+
 /* ── Section separator glow line ── */
 .eav-glow-line {
   height: 1px;

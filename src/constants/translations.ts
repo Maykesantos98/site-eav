@@ -11,15 +11,41 @@ export const translations = {
     // Hero
     hero: {
       badge: "Powered by EAV7 Smart Chain",
-      title1: "A ",
-      titleHighlight: "maior sofisticação",
-      title2: " que um banco poderia chegar",
-      desc: "Você decide as moedas (cripto, token ou qualquer ativo), os países e o momento da transação. Nossa rede Smart Chain com inteligência artificial assegura a execução das suas ordens. Sem burocracia.",
       cta1: "Abrir conta gratuita",
       cta2: "Explorar soluções",
       trust1: "Criptografia avançada",
       trust2: "Sem taxas ocultas",
       trust3: "24/7",
+      slides: [
+        {
+          title1: "A ",
+          titleHighlight: "maior sofisticação",
+          title2: " que um banco poderia chegar",
+          desc: "Tecnologia Smart Chain com inteligência artificial para suas transações. Sem burocracia, sem fronteiras.",
+          image: "/images/imagem para tela incial.png",
+        },
+        {
+          title1: "Seu dinheiro em ",
+          titleHighlight: "150+ países",
+          title2: " sem IOF",
+          desc: "Envie e receba em qualquer moeda do mundo. Transferências internacionais em menos de 3 segundos.",
+          image: "/images/person-travel.jpg",
+        },
+        {
+          title1: "Segurança que ",
+          titleHighlight: "protege você",
+          title2: " 24 horas por dia",
+          desc: "Criptografia avançada, detecção de fraudes por IA e blockchain proprietária EAV7 Smart Chain.",
+          image: "/images/bg-tech.jpg",
+        },
+        {
+          title1: "Cripto, tokens e ativos ",
+          titleHighlight: "na palma da mão",
+          title2: "",
+          desc: "Compre, venda e troque entre criptomoedas e moedas fiduciárias na mesma plataforma.",
+          image: "/images/person-phone.jpg",
+        },
+      ],
     },
     // Moedas
     moedas: {
@@ -37,7 +63,7 @@ export const translations = {
       badgeSeg: "Segurança certificada",
       badgeBlock: "Tecnologia blockchain",
       badgeGlobal: "Operação global",
-      badgeCripto: "Criptografia militar",
+      badgeCripto: "Criptografia avançada",
     },
     // Cards
     cards: {
@@ -76,7 +102,7 @@ export const translations = {
       titleHighlight: "inteligência artificial",
       title2: " à prova de falhas",
       items: [
-        { text: "A última geração da criptografia", detail: "Protocolos de segurança de nível militar" },
+        { text: "Criptografia de última geração", detail: "Protocolos avançados de segurança bancária" },
         { text: "Proteja seus dados", detail: "Encriptação ponta a ponta em todas as operações" },
         { text: "IA de auto-aperfeiçoamento", detail: "Detecção de fraudes em tempo real" },
         { text: "EAV7 Smart Chain", detail: "Blockchain proprietária de alta performance" },
@@ -136,7 +162,7 @@ export const translations = {
         { q: "Preciso pagar IOF nas transferências?", a: "Não. O EAV Bank elimina o IOF em transações internacionais, permitindo que você envie e receba dinheiro globalmente sem custos extras ou cobranças ocultas." },
         { q: "Como funciona a Smart Chain?", a: "A EAV7 Smart Chain é nossa rede blockchain proprietária com inteligência artificial integrada. Ela garante a execução das suas ordens com segurança, velocidade e criptografia de última geração." },
         { q: "Posso usar criptomoedas no dia a dia?", a: "Sim! No EAV Bank você pode pagar, receber e converter entre criptomoedas, tokens e moedas tradicionais de forma transparente, direto no app." },
-        { q: "O EAV Bank é seguro?", a: "Absolutamente. Utilizamos criptografia militar, inteligência artificial de auto-aperfeiçoamento para detecção de fraudes em tempo real e a segurança da blockchain EAV7 Smart Chain." },
+        { q: "O EAV Bank é seguro?", a: "Absolutamente. Utilizamos criptografia avançada, inteligência artificial de auto-aperfeiçoamento para detecção de fraudes em tempo real e a segurança da blockchain EAV7 Smart Chain." },
         { q: "Quanto tempo leva uma transferência internacional?", a: "As transferências são processadas em menos de 3 segundos graças à nossa infraestrutura Smart Chain. Disponibilidade 24 horas por dia, 7 dias por semana." },
         { q: "Empresas podem usar o EAV Bank?", a: "Sim! Oferecemos soluções empresariais completas: folha de pagamento internacionalizada, emissão de boletos, gestão financeira, Pix e cartões corporativos." },
         { q: "Como abro minha conta?", a: "É simples e 100% digital. Baixe o app, preencha seus dados e sua conta estará pronta em minutos. Sem burocracia, sem filas, sem papelada." },
@@ -173,7 +199,7 @@ export const translations = {
     marquee: [
       "Cartão Internacional", "Pix Instantâneo", "Cripto & Tokens", "Smart Chain",
       "0% IOF", "Transferências Globais", "IA Avançada", "Folha de Pagamentos",
-      "Câmbio Digital", "Blockchain", "24/7 Online", "Segurança Militar",
+      "Câmbio Digital", "Blockchain", "24/7 Online", "Segurança Avançada",
     ],
   },
 
@@ -187,15 +213,41 @@ export const translations = {
     },
     hero: {
       badge: "Powered by EAV7 Smart Chain",
-      title1: "The ",
-      titleHighlight: "greatest sophistication",
-      title2: " a bank could ever reach",
-      desc: "You choose the currencies (crypto, tokens or any asset), the countries and the timing of the transaction. Our Smart Chain network with artificial intelligence ensures the execution of your orders. No bureaucracy.",
       cta1: "Open free account",
       cta2: "Explore solutions",
       trust1: "Advanced encryption",
       trust2: "No hidden fees",
       trust3: "24/7",
+      slides: [
+        {
+          title1: "The ",
+          titleHighlight: "greatest sophistication",
+          title2: " a bank could ever reach",
+          desc: "Smart Chain technology with artificial intelligence for your transactions. No bureaucracy, no borders.",
+          image: "/images/imagem para tela incial.png",
+        },
+        {
+          title1: "Your money in ",
+          titleHighlight: "150+ countries",
+          title2: " with zero fees",
+          desc: "Send and receive in any currency in the world. International transfers in less than 3 seconds.",
+          image: "/images/person-travel.jpg",
+        },
+        {
+          title1: "Security that ",
+          titleHighlight: "protects you",
+          title2: " 24 hours a day",
+          desc: "Advanced encryption, AI-powered fraud detection and proprietary EAV7 Smart Chain blockchain.",
+          image: "/images/bg-tech.jpg",
+        },
+        {
+          title1: "Crypto, tokens and assets ",
+          titleHighlight: "in your hands",
+          title2: "",
+          desc: "Buy, sell and exchange between cryptocurrencies and fiat currencies on the same platform.",
+          image: "/images/person-phone.jpg",
+        },
+      ],
     },
     moedas: {
       title1: "The freedom you always imagined, ",
@@ -211,7 +263,7 @@ export const translations = {
       badgeSeg: "Certified security",
       badgeBlock: "Blockchain technology",
       badgeGlobal: "Global operation",
-      badgeCripto: "Military encryption",
+      badgeCripto: "Advanced encryption",
     },
     cards: {
       label: "Cards",
@@ -247,7 +299,7 @@ export const translations = {
       titleHighlight: "artificial intelligence",
       title2: " fail-proof",
       items: [
-        { text: "Latest generation cryptography", detail: "Military-grade security protocols" },
+        { text: "Latest generation cryptography", detail: "Advanced banking-grade security protocols" },
         { text: "Protect your data", detail: "End-to-end encryption on all operations" },
         { text: "Self-improving AI", detail: "Real-time fraud detection" },
         { text: "EAV7 Smart Chain", detail: "Proprietary high-performance blockchain" },
@@ -302,7 +354,7 @@ export const translations = {
         { q: "Do I need to pay taxes on transfers?", a: "No. EAV Bank eliminates taxes on international transactions, allowing you to send and receive money globally without extra costs or hidden charges." },
         { q: "How does Smart Chain work?", a: "The EAV7 Smart Chain is our proprietary blockchain network with integrated artificial intelligence. It guarantees the execution of your orders with security, speed and state-of-the-art cryptography." },
         { q: "Can I use cryptocurrencies daily?", a: "Yes! At EAV Bank you can pay, receive and convert between cryptocurrencies, tokens and traditional currencies transparently, directly in the app." },
-        { q: "Is EAV Bank secure?", a: "Absolutely. We use military-grade encryption, self-improving artificial intelligence for real-time fraud detection and the security of the EAV7 Smart Chain blockchain." },
+        { q: "Is EAV Bank secure?", a: "Absolutely. We use advanced encryption, self-improving artificial intelligence for real-time fraud detection and the security of the EAV7 Smart Chain blockchain." },
         { q: "How long does an international transfer take?", a: "Transfers are processed in less than 3 seconds thanks to our Smart Chain infrastructure. Available 24 hours a day, 7 days a week." },
         { q: "Can businesses use EAV Bank?", a: "Yes! We offer complete business solutions: internationalized payroll, invoice generation, financial management, Pix and corporate cards." },
         { q: "How do I open my account?", a: "It's simple and 100% digital. Download the app, fill in your details and your account will be ready in minutes. No bureaucracy, no queues, no paperwork." },
@@ -337,7 +389,7 @@ export const translations = {
     marquee: [
       "International Card", "Instant Pix", "Crypto & Tokens", "Smart Chain",
       "0% Tax", "Global Transfers", "Advanced AI", "Payroll",
-      "Digital FX", "Blockchain", "24/7 Online", "Military Security",
+      "Digital FX", "Blockchain", "24/7 Online", "Advanced Security",
     ],
   },
 } as const;

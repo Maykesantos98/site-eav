@@ -1,9 +1,11 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { fadeUp } from "./motion";
 import { useLang } from "@/constants/LangContext";
+import { asset } from "@/constants/basePath";
 
 function FaqItem({ faq, index }: { faq: { q: string; a: string }; index: number }) {
   const [open, setOpen] = useState(false);
@@ -63,7 +65,8 @@ export function FaqSection() {
   const { t } = useLang();
 
   return (
-    <section className="mx-auto max-w-3xl px-5 py-20 sm:px-8 sm:py-28">
+    <section className="eav-section-violet relative py-20 sm:py-28 overflow-hidden">
+      <div className="relative mx-auto max-w-3xl px-5 sm:px-8">
       <motion.div
         initial={reduce ? false : "hidden"}
         whileInView="visible"
@@ -83,6 +86,7 @@ export function FaqSection() {
         {t.faq.items.map((faq, i) => (
           <FaqItem key={faq.q} faq={faq} index={i} />
         ))}
+      </div>
       </div>
     </section>
   );
