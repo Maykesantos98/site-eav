@@ -1,6 +1,6 @@
 import { HeroIntro, MoedasLibertySection } from "@/components/landing/HeroSection";
 import { MarqueeSection } from "@/components/landing/MarqueeSection";
-import { StatsSection } from "@/components/landing/StatsSection";
+// import { StatsSection } from "@/components/landing/StatsSection";
 import { CardsShowcase } from "@/components/landing/CardsShowcase";
 import {
   BeyondFinanceSection,
@@ -26,7 +26,7 @@ export default function Home() {
         <HeroIntro />
         <MarqueeSection />
         <MoedasLibertySection />
-        <StatsSection />
+        {/* StatsSection removida — info já presente em outras seções */}
         <CardsShowcase />
         <WorldGlobeSection />
         <SecuritySection />

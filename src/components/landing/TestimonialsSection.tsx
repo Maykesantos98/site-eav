@@ -16,7 +16,7 @@ const testimonials = [
   {
     name: "Camila R.",
     role: "Investidora",
-    text: "A possibilidade de trocar entre cripto e moedas fiduciárias na mesma plataforma mudou completamente minha estratégia.",
+    text: "Fazer câmbio pelo app em segundos e sem taxas absurdas mudou completamente a forma como gerencio meu dinheiro.",
     stars: 5,
     avatar: "CR",
   },
@@ -36,8 +36,8 @@ const testimonials = [
   },
   {
     name: "Rafael T.",
-    role: "Trader",
-    text: "A Smart Chain garante execução instantânea. Já testei em horários de pico e nunca falhou. Segurança impressionante.",
+    role: "Empresário",
+    text: "A infraestrutura do EAV Bank garante execução instantânea. Já testei transferências em horários de pico e nunca falhou.",
     stars: 5,
     avatar: "RT",
   },

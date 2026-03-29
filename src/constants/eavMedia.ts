@@ -2,7 +2,6 @@ import { asset } from "./basePath";
 
 /** Imagens do EAV Bank — servidas localmente de /public/images */
 export const eavImages = {
-  moedas: asset("/images/moedas.png"),
   globo: asset("/images/globo.png"),
   olho: asset("/images/olho.png"),
   circleTransacoes: asset("/images/circle-transacoes.png"),

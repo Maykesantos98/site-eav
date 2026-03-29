@@ -3,8 +3,6 @@
 import Image from "next/image";
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
-import { eavImages } from "@/constants/eavMedia";
-import { EavRemoteImage } from "@/components/EavRemoteImage";
 import { useLang } from "@/constants/LangContext";
 import { asset } from "@/constants/basePath";
 import { useIsMobile } from "@/constants/useIsMobile";
@@ -150,21 +148,52 @@ export function MoedasLibertySection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            className="relative mx-auto w-full max-w-[280px] sm:max-w-[420px] lg:mx-0"
+            className="relative mx-auto w-full max-w-[320px] sm:max-w-[380px] lg:mx-0"
           >
             <div className="absolute inset-0 -m-8 rounded-full bg-[#6336c4]/10 blur-[60px]" aria-hidden />
             <motion.div
-              animate={reduce || isMobile ? {} : { y: [0, -12, 0] }}
+              animate={reduce || isMobile ? {} : { y: [0, -10, 0] }}
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+              className="relative"
             >
-              <EavRemoteImage
-                src={eavImages.moedas}
-                alt="Ícones de moedas e ativos"
-                width={420}
-                height={353}
-                className="relative h-auto w-full object-contain drop-shadow-[0_0_60px_rgba(99,54,196,0.3)]"
-                priority
-              />
+              {/* Currency grid — fiat only */}
+              <div className="grid grid-cols-3 gap-3 sm:gap-4">
+                {[
+                  { symbol: "R$", label: "Real" },
+                  { symbol: "€", label: "Euro" },
+                  { symbol: "$", label: "Dólar" },
+                ].map((c) => (
+                  <div key={c.symbol} className="flex aspect-square flex-col items-center justify-center rounded-2xl border border-violet-500/20 bg-gradient-to-br from-[#6336c4]/30 to-[#8e59ff]/10 backdrop-blur-sm">
+                    <span className="text-3xl font-bold text-white sm:text-4xl" style={{ fontFamily: "var(--font-display)" }}>{c.symbol}</span>
+                    <span className="mt-1 text-[10px] font-medium text-stone-500">{c.label}</span>
+                  </div>
+                ))}
+              </div>
+
+              {/* Exchange arrows */}
+              <div className="my-3 flex items-center justify-center gap-2 sm:my-4">
+                <div className="h-px flex-1 bg-gradient-to-r from-transparent to-violet-500/30" />
+                <div className="flex h-8 w-8 items-center justify-center rounded-full border border-violet-500/30 bg-violet-500/10">
+                  <svg className="h-4 w-4 text-violet-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M7.5 21L3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5" />
+                  </svg>
+                </div>
+                <div className="h-px flex-1 bg-gradient-to-l from-transparent to-violet-500/30" />
+              </div>
+
+              {/* Second row */}
+              <div className="grid grid-cols-3 gap-3 sm:gap-4">
+                {[
+                  { symbol: "£", label: "Libra" },
+                  { symbol: "¥", label: "Iene" },
+                  { symbol: "Fr", label: "Franco" },
+                ].map((c) => (
+                  <div key={c.symbol} className="flex aspect-square flex-col items-center justify-center rounded-2xl border border-violet-500/20 bg-gradient-to-br from-[#8e59ff]/15 to-[#b336c1]/10 backdrop-blur-sm">
+                    <span className="text-3xl font-bold text-white sm:text-4xl" style={{ fontFamily: "var(--font-display)" }}>{c.symbol}</span>
+                    <span className="mt-1 text-[10px] font-medium text-stone-500">{c.label}</span>
+                  </div>
+                ))}
+              </div>
             </motion.div>
           </motion.div>
 

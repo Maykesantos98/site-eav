@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Geist_Mono } from "next/font/google";
+import { Inter, Space_Grotesk, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Providers } from "@/components/Providers";
 
@@ -9,6 +9,13 @@ const inter = Inter({
   display: "swap",
 });
 
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-heading",
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["500", "600", "700"],
+});
+
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
@@ -16,19 +23,19 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://eav7.com"),
-  title: "EAV Bank | Smart Chain — Banco digital à frente do tempo",
+  title: "EAV Bank — Banco digital global à frente do tempo",
   description:
-    "Moedas, países e momento da transação sob seu controle. Rede com inteligência artificial e EAV7 Smart Chain. Cartão internacional, Pix e muito mais.",
+    "Conta digital gratuita, cartão internacional Visa, transferências para 150+ países em até 3 segundos. Sem IOF, sem taxas ocultas. Powered by EAV7 Smart Chain.",
   keywords: [
     "EAV Bank",
     "EAV7",
-    "cripto",
     "banco digital",
-    "Smart Chain",
+    "conta digital",
     "cartão internacional",
     "pix",
     "transferência internacional",
-    "blockchain",
+    "câmbio",
+    "conta PJ",
     "inteligência artificial",
   ],
   icons: {
@@ -36,7 +43,7 @@ export const metadata: Metadata = {
     apple: "/site-eav/images/favicon.png",
   },
   openGraph: {
-    title: "EAV Bank | Smart Chain — Banco digital à frente do tempo",
+    title: "EAV Bank — Banco digital global à frente do tempo",
     description:
       "A maior sofisticação que um banco poderia chegar. Moedas, países e momento da transação sob seu controle.",
     url: "https://eav7.com",
@@ -47,7 +54,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "EAV Bank | Smart Chain",
+    title: "EAV Bank — Banco digital global",
     description: "A maior sofisticação que um banco poderia chegar.",
   },
   robots: {
@@ -64,7 +71,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body
-        className={`${inter.variable} ${geistMono.variable} antialiased min-h-screen bg-[#0c0a09] text-zinc-50`}
+        className={`${inter.variable} ${spaceGrotesk.variable} ${geistMono.variable} antialiased min-h-screen bg-[#0c0a09] text-zinc-50`}
       >
         <Providers>{children}</Providers>
       </body>
