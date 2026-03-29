@@ -96,6 +96,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 5rem; /* Compensa navbar fixa nos anchor links */
   scrollbar-color: #6336c4 #0c0a09;
   scrollbar-width: thin;
   -webkit-font-smoothing: antialiased;
@@ -568,6 +569,8 @@ textarea:focus-visible {
 
 .eav-hero-glow {
   animation: eav-pulse-glow 6s ease-in-out infinite;
+  will-change: opacity, transform;
+  contain: layout style;
 }
 
 @keyframes border-rotate {
@@ -581,6 +584,7 @@ textarea:focus-visible {
 }
 .eav-float {
   animation: float 6s ease-in-out infinite;
+  will-change: transform;
 }
 
 @keyframes shimmer {
@@ -601,6 +605,28 @@ textarea:focus-visible {
   50% { transform: translate(-1%, 2%); }
   70% { transform: translate(3%, 1%); }
   90% { transform: translate(2%, -1%); }
+}
+
+/* ══════════════════════════════════════════════════════════
+   GPU compositing & paint optimization
+   ══════════════════════════════════════════════════════════ */
+
+/* Promote glass elements to their own layer for smoother scrolling */
+.eav-card-glass,
+.eav-card-gradient {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Content-visibility: skip painting off-screen sections */
+section {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 800px;
+}
+
+/* Smooth transitions on nav backdrop */
+header {
+  will-change: backdrop-filter, background-color;
 }
 
 /* ══════════════════════════════════════════════════════════

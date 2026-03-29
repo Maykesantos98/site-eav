@@ -72,8 +72,8 @@ export function SiteNav() {
         transition={{ duration: 0.5 }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-400 ${
           scrolled
-            ? "bg-[#0c0a09]/95 backdrop-blur-2xl border-b border-white/[0.06] shadow-lg shadow-black/20"
-            : "bg-[#0c0a09]/70 backdrop-blur-md border-b border-transparent"
+            ? "bg-[#0c0a09]/90 backdrop-blur-xl border-b border-violet-500/10 shadow-lg shadow-black/20"
+            : "bg-[#0c0a09]/60 backdrop-blur-md border-b border-transparent"
         }`}
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between px-5 sm:px-8 h-16">

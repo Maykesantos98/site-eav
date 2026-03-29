@@ -1,32 +1,34 @@
+import dynamic from "next/dynamic";
 import { HeroIntro, MoedasLibertySection } from "@/components/landing/HeroSection";
 import { MarqueeSection } from "@/components/landing/MarqueeSection";
-// import { StatsSection } from "@/components/landing/StatsSection";
-import { CardsShowcase } from "@/components/landing/CardsShowcase";
-import {
-  BeyondFinanceSection,
-  CompanySection,
-  SecuritySection,
-  SpeedCirclesSection,
-  WorldGlobeSection,
-} from "@/components/landing/FeatureSections";
-import { TrustSection } from "@/components/landing/TrustSection";
-import { AppDownloadSection } from "@/components/landing/AppDownloadSection";
-import { FaqSection } from "@/components/landing/FaqSection";
 import { SiteNav } from "@/components/landing/SiteNav";
 import { SiteFooter } from "@/components/landing/SiteFooter";
-import { ScrollToTop } from "@/components/landing/ScrollToTop";
-import { WhatsAppButton } from "@/components/landing/WhatsAppButton";
-import { CookieBanner } from "@/components/landing/CookieBanner";
+
+/* ── Lazy-loaded sections (below the fold) ── */
+const CardsShowcase = dynamic(() => import("@/components/landing/CardsShowcase").then(m => m.CardsShowcase));
+const WorldGlobeSection = dynamic(() => import("@/components/landing/FeatureSections").then(m => m.WorldGlobeSection));
+const SecuritySection = dynamic(() => import("@/components/landing/FeatureSections").then(m => m.SecuritySection));
+const TrustSection = dynamic(() => import("@/components/landing/TrustSection").then(m => m.TrustSection));
+const SpeedCirclesSection = dynamic(() => import("@/components/landing/FeatureSections").then(m => m.SpeedCirclesSection));
+const BeyondFinanceSection = dynamic(() => import("@/components/landing/FeatureSections").then(m => m.BeyondFinanceSection));
+const CompanySection = dynamic(() => import("@/components/landing/FeatureSections").then(m => m.CompanySection));
+const AppDownloadSection = dynamic(() => import("@/components/landing/AppDownloadSection").then(m => m.AppDownloadSection));
+const FaqSection = dynamic(() => import("@/components/landing/FaqSection").then(m => m.FaqSection));
+const ScrollToTop = dynamic(() => import("@/components/landing/ScrollToTop").then(m => m.ScrollToTop));
+const WhatsAppButton = dynamic(() => import("@/components/landing/WhatsAppButton").then(m => m.WhatsAppButton));
+const CookieBanner = dynamic(() => import("@/components/landing/CookieBanner").then(m => m.CookieBanner));
 
 export default function Home() {
   return (
     <>
       <SiteNav />
       <main>
+        {/* Above the fold — loaded immediately */}
         <HeroIntro />
         <MarqueeSection />
         <MoedasLibertySection />
-        {/* StatsSection removida — info já presente em outras seções */}
+
+        {/* Below the fold — lazy loaded */}
         <CardsShowcase />
         <WorldGlobeSection />
         <SecuritySection />

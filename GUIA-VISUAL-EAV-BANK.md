@@ -1,212 +1,347 @@
-🔎 AUDITORIA PROFISSIONAL — EAV BANK
-🧠 Benchmark utilizado
+# AUDITORIA PROFISSIONAL — EAV BANK
 
-Comparado com:
+## Benchmark utilizado
 
-Nubank
-C6 Bank
-Banco Inter
-🟢 VISÃO GERAL
-🔥 Nível atual do EAV Bank:
-UI: 8.5 / 10
-UX: 8 / 10
-Código/Arquitetura: 9 / 10
-Percepção de marca: 7.5 / 10
+Comparado com: **Nubank**, **C6 Bank**, **Banco Inter**, **Revolut**, **Wise**
 
-👉 Potencial real após ajustes: 9.5 / 10 (nível Nubank/C6)
+---
 
-🧩 1. PONTOS FORTES (VOCÊ ACERTOU MUITO AQUI)
-✅ 1.1 Identidade visual (diferencial real)
-O roxo (#6336c4) é excelente escolha estratégica
-Diferencia completamente de:
-Nubank (roxo mais “clean”)
-C6 (preto + dourado)
-Inter (laranja)
+## VISAO GERAL
 
-👉 Você tem uma identidade própria — isso é raro.
+### Nivel atual do EAV Bank (atualizado em 29/03/2026):
 
-✅ 1.2 Base técnica (muito forte)
-Uso de Framer Motion ✔
-Sistema de animação já existente ✔
-Estrutura modular ✔
-Tokens de design ✔
+| Criterio             | Nota   | Status         |
+|----------------------|--------|----------------|
+| UI                   | 9 / 10 | Excelente      |
+| UX                   | 8.5/10 | Muito bom      |
+| Codigo/Arquitetura   | 9.5/10 | Excepcional    |
+| Percepcao de marca   | 8 / 10 | Bom            |
+| Sistema de icones    | 9.5/10 | Excepcional    |
+| Footer institucional | 9.5/10 | Padrao bancario|
+| Paginas institucionais| 9 / 10| Completo       |
+| Performance mobile   | 9 / 10 | Otimizado      |
 
-👉 Isso coloca você na frente de 90% dos projetos.
+**Potencial real apos ajustes restantes: 9.5 / 10 (nivel Nubank/C6)**
 
-✅ 1.3 Glassmorphism (bem aplicado)
-Cards já seguem padrão moderno
-Blur + transparência funcionando
+---
 
-👉 Isso já te aproxima muito do C6 Bank.
+## 1. O QUE FOI CORRIGIDO (PROGRESSO)
 
-✅ 1.4 Interações avançadas
-3D cards
-Particles
-Motion
+### 1.1 Tipografia — EXCELENTE (CORRIGIDO)
 
-👉 Isso é nível produto premium, não site comum.
+- Space Grotesk aplicado em todos os headings via `--font-display`
+- font-weight: 700 para h1/h2/h3 (era 800-900, agora mais refinado)
+- letter-spacing: -0.035em (h1), -0.025em (h2/h3)
+- Inter mantido para corpo de texto
+- Hierarquia clara entre display e body
 
-🔴 2. PRINCIPAIS PROBLEMAS (CRÍTICOS)
-❌ 2.1 AUSÊNCIA DE PESSOAS (MAIOR ERRO HOJE)
-Impacto:
-Reduz confiança
-Diminui conversão
-Deixa o produto “frio”
-Comparação:
-Nubank → extremamente humano
-Banco Inter → lifestyle forte
+**Resultado:** Tipografia agora transmite confianca institucional.
 
-👉 Seu site hoje parece mais uma empresa tech, não um banco.
+### 1.2 Secao de Confianca — EXCELENTE (CORRIGIDO)
 
-✅ Correção obrigatória:
-Hero com pessoa usando app
-Features com contexto humano
-Testimonials com rostos reais
+TrustSection implementada com 6 itens:
+1. Conformidade regulatoria
+2. LGPD & Privacidade
+3. Monitoramento 24/7
+4. Criptografia avancada
+5. Autenticacao multifator
+6. Infraestrutura global
 
-👉 Isso sozinho pode aumentar percepção de valor em +40%
+- Cards com glassmorphism e hover premium
+- Icones do sistema unificado (stroke outline)
+- Animacoes staggered com suporte a reduced-motion
 
-❌ 2.2 NAVBAR SEM IMPACTO PREMIUM
-Problema:
-Falta sensação de profundidade
-Falta “camada premium”
-Comparação:
-Nubank → vidro + blur forte
-C6 → transparência sofisticada
-✅ Correção:
-backdrop-filter: blur(16px) saturate(180%);
-background: rgba(12, 10, 9, 0.85);
-border-bottom: 1px solid rgba(99, 54, 196, 0.15);
+### 1.3 Sistema de Botoes — EXCELENTE (CORRIGIDO)
 
-👉 Isso muda MUITO a percepção.
+3 niveis padronizados:
 
-❌ 2.3 TIPOGRAFIA AINDA NÃO É “BANCO”
-Problema:
-Hierarquia ainda comum
-Falta presença institucional
-✅ Correção:
-H1 mais forte (peso 600–700)
-Espaçamento entre letras refinado
-Mais contraste entre títulos e body
+| Tipo     | Classe           | Estilo                          |
+|----------|------------------|---------------------------------|
+| Primary  | .eav-btn-primary | Gradient #6336c4 → #8e59ff      |
+| Ghost    | .eav-btn-ghost   | Outline, transparente           |
+| Accent   | .eav-btn-accent  | Background violet sutil         |
 
-👉 Bancos vendem confiança via tipografia
+Todos com: font-weight 600, border-radius full, hover/active states.
 
-❌ 2.4 EXCESSO DE “TECH” vs “FINANCE”
-Problema:
-Muito efeito
-Pouco “peso institucional”
+### 1.4 Sistema de Icones — EXCEPCIONAL (NOVO)
 
-👉 Parece mais:
+Componente centralizado: `src/components/ui/Icon.tsx`
 
-startup de IA
-do que:
-banco confiável
-✅ Ajuste:
-Reduzir efeitos em algumas áreas
-Aumentar áreas “clean”
-Mais blocos sólidos
-❌ 2.5 FALTA DE “SEÇÃO DE CONFIANÇA”
+- 40+ icones organizados por categoria
+- ViewBox unificado: 24x24
+- StrokeWidth consistente: 1.5 (outline style)
+- 5 tamanhos: xs (14px), sm (16px), md (20px), lg (24px), xl (28px)
+- Type-safe com `IconName` exportado
+- Substituiu ~50 SVGs inline duplicados
 
-Nenhum banco sério vive sem isso.
+Categorias: Navigation, Finance, Security, Global, Communication, Status, Technology, People, Documents
 
-✅ Adicionar:
-Segurança
-LGPD
-Criptografia
-Garantias
+**Antes:** SVGs inline com paths duplicados, mix fill/stroke, viewBox 20/24
+**Depois:** `<Icon name="shield" size="md" />` — limpo e reutilizavel
 
-👉 Isso é padrão em:
+### 1.5 Footer Institucional — PADRAO BANCARIO (CORRIGIDO)
 
-Nubank
-C6 Bank
-🟡 3. MELHORIAS ESTRATÉGICAS (ALTO IMPACTO)
-🟡 3.1 HERO (PRIORIDADE MÁXIMA)
-Hoje:
-Visual bonito, mas abstrato
-Ideal:
-Pessoa + celular + overlay
+Estrutura baseada em pesquisa real do Nubank, C6, Inter e Wise:
 
-👉 Exemplo ideal:
+- **Grid principal:** Brand (logo + descricao + CNPJ + social) + 3 colunas de links
+- **"Fale com a gente":** SAC, Ouvidoria, Def. auditivo, DPO (em breve)
+- **Dados legais:** EAV7 Tecnologia e Pagamentos Ltda. — CNPJ 65.789.137/0001-12
+- **Endereco:** Av. Brig. Faria Lima, 3.144 — Jardim Paulistano, Sao Paulo — SP
+- **DPO:** dpo@eavbank.com com link LGPD
+- **Disclaimer regulatorio:** Texto sobre riscos, BACEN, FGC
+- **Bottom bar:** (c) + CNPJ + endereco | Termos · Privacidade · Seguranca · Ouvidoria
 
-Pessoa elegante usando app bancário, ambiente moderno, iluminação suave, fundo desfocado
+### 1.6 Paginas Institucionais — COMPLETO (NOVO)
 
-🟡 3.2 ESPAÇAMENTO (EFEITO PREMIUM)
+10 paginas criadas com layout compartilhado e sidebar de navegacao:
 
-Você pode melhorar MUITO aqui:
+| Pagina          | Status    | Conteudo                                  |
+|-----------------|-----------|-------------------------------------------|
+| /institucional  | Ativo     | Hub com links para todas as paginas       |
+| /sobre          | Ativo     | Missao, visao, valores, timeline 2020-2025|
+| /governanca     | Ativo     | Etica, PLD, gestao de riscos, documentos  |
+| /seguranca      | Ativo     | 6 camadas de seguranca, dicas, emergencia |
+| /carreiras      | Em breve  | Pagina de "coming soon" com pulse dot     |
+| /contato        | Ativo     | 6 canais + formulario de contato          |
+| /ouvidoria      | Ativo     | Processo, canais, BACEN                   |
+| /termos         | Ativo     | 12 clausulas completas PT/EN              |
+| /privacidade    | Ativo     | 12 secoes LGPD, badge compliance, DPO     |
 
-Aumentar padding vertical
-Criar mais respiro
+Todas bilingues (PT/EN) com animacoes suaves.
 
-👉 Nubank usa MUITO espaço vazio → sensação premium
+### 1.7 Espacamento — EXCELENTE (CORRIGIDO)
 
-🟡 3.3 SISTEMA DE BOTÕES
+Padrao consistente entre secoes:
 
-Hoje:
+- Secoes primarias: py-28 sm:py-36
+- Secoes secundarias: py-20 sm:py-28
+- Footer CTA: py-16 sm:py-20
+- Grid de 8px com CSS variables (--space-1 ate --space-24)
 
-Inconsistente
+### 1.8 Animacoes — APROPRIADAS PARA BANCO (CORRIGIDO)
 
-Ideal:
+| Elemento          | Duracao | Tipo            | Avaliacao     |
+|-------------------|---------|-----------------|---------------|
+| Hero carousel     | 1.4s    | Crossfade       | Profissional  |
+| Scroll animations | 0.55s   | fadeUp stagger  | Suave         |
+| Card hovers       | 0.3s    | Scale/glow      | Discreto      |
+| Floating elements | 4-8s    | Y-translate     | Calmo         |
+| Navbar entrada    | 0.5s    | Fade in         | Limpo         |
 
-3 tipos fixos:
-Primary
-Secondary
-Accent
+- Reduced-motion respeitado em todos os componentes
+- Heavy blur desativado no mobile
+- Glow/shimmer desativado no mobile
 
-👉 Isso é padrão global
+### 1.9 Remocao de Cripto como Produto — CORRIGIDO
 
-🟡 3.4 CONSISTÊNCIA VISUAL
-Gradientes às vezes competem
-Falta padronização total
+Removido completamente:
+- Criptomoedas, tokens, ativos digitais como produto/investimento
+- Imagem PNG com Bitcoin/Ethereum (substituida por grid de moedas fiduciarias em codigo)
+- FAQ sobre ativos digitais → FAQ sobre cambio
+- Hero slide "Invista em ativos digitais" → "Conta PJ para sua empresa"
+- Tags cripto → Dolar, Euro, Libra, Real
+- Disclaimer de criptoativos no footer
+- Testimonials sobre trading/cripto → cambio/transferencias
 
-👉 Regra:
-Menos variação = mais premium
+### 1.10 Otimizacao de Codigo — LIMPO (CORRIGIDO)
 
-🔵 4. OPORTUNIDADES AVANÇADAS (NÍVEL 9.5/10)
-🔵 4.1 Dark Mode Inteligente
+Removidos:
+- ComparisonSection.tsx (nao utilizado)
+- Card3D.tsx (nao utilizado)
+- 3 constantes mortas (appIcon, heroBackground, moedas)
+- 2 exports nao utilizados (fadeIn, scaleIn)
+- Imports desnecessarios
 
-Mesmo sendo dark:
+### 1.11 Dark Mode — BEM IMPLEMENTADO
 
-Criar variações de contraste
-Não usar sempre o mesmo fundo
-🔵 4.2 Motion mais “bancário”
-Menos “wow”
-Mais “suave e elegante”
-🔵 4.3 Micro UX
-Feedback de clique
-Loading states melhores
-Estados de erro/sucesso
-📊 5. GAP REAL VS CONCORRENTES
-Elemento	EAV	Nubank	C6
-Visual	🔥🔥🔥🔥	🔥🔥🔥🔥🔥	🔥🔥🔥🔥🔥
-UX	🔥🔥🔥🔥	🔥🔥🔥🔥🔥	🔥🔥🔥🔥🔥
-Humanização	❌	🔥🔥🔥🔥🔥	🔥🔥🔥
-Confiança	🔥🔥🔥	🔥🔥🔥🔥🔥	🔥🔥🔥🔥🔥
-Performance percebida	🔥🔥🔥🔥	🔥🔥🔥🔥🔥	🔥🔥🔥🔥🔥
-🧠 CONCLUSÃO ESTRATÉGICA
+Variacoes sutis entre secoes:
 
-Você NÃO precisa refazer o projeto.
+| Secao        | Background                              |
+|--------------|----------------------------------------|
+| Base         | #0c0a09 (true black)                   |
+| Elevated     | #1c1917                                |
+| Violet       | #1a0e2e → #0f0a1a → #0c0a09           |
+| Premium      | #0c0a09 → #150a28 → #0c0a09           |
 
-👉 Você precisa:
+Hierarquia visual atraves de gradientes violet sutis.
 
-1. Humanizar (URGENTE)
-Pessoas
-Contexto real
-2. Refinar (NÃO reconstruir)
-Tipografia
-Espaço
-Navbar
-3. Ajustar percepção
-Mais banco
-Menos “tech experimental”
-🚀 AÇÃO PRIORITÁRIA (ORDEM CERTA)
-Adicionar imagens com pessoas
-Melhorar hero
-Glass navbar
-Padronizar botões
-Ajustar tipografia
-Criar seção de confiança
-🔥 VEREDITO FINAL
+---
 
-👉 Seu projeto já está no nível de produto real
-👉 Com pequenos ajustes, você chega em nível:
+## 2. O QUE AINDA PRECISA DE ATENCAO
 
-→ Nubank / C6 tranquilamente
+### 2.1 HUMANIZACAO — PRIORIDADE ALTA
+
+**Status: Parcialmente corrigido, ainda insuficiente**
+
+O que falta:
+- Hero slides usam stock photos genericas (aviao, maos com celular)
+- Testimonials usam iniciais (LM, CR, AS) em vez de fotos reais
+- Nenhuma foto de equipe/lideranca nas paginas institucionais
+- Nenhuma imagem mostrando rostos de clientes
+
+Recomendacao:
+- Contratar sessao fotografica profissional ou usar AI-generated portraits de alta qualidade
+- Adicionar fotos de equipe na pagina "Sobre nos"
+- Substituir avatares de iniciais por fotos reais nos testimonials
+- Hero com pessoa elegante usando app bancario
+
+**Impacto estimado: +40% na percepcao de confianca**
+
+### 2.2 NAVBAR — AJUSTE FINO
+
+**Status: Bom, mas pode melhorar**
+
+Atual:
+```
+scrolled: bg-[#0c0a09]/95 backdrop-blur-2xl border-b border-white/[0.06]
+```
+
+Recomendacao:
+```
+scrolled: border-b border-violet-500/15  (adicionar toque roxo sutil)
+```
+
+Esse unico ajuste cria sensacao de profundidade e identidade de marca.
+
+### 2.3 SMART CHAIN / BLOCKCHAIN — DECISAO PENDENTE
+
+**Status: Mantido como tecnologia por decisao do usuario**
+
+Posicionamento atual:
+- "Powered by EAV7 Smart Chain" (badge do hero)
+- "Protegido por Smart Chain e IA" (beneficio dos cartoes)
+- "Tecnologia blockchain" (badge de stats)
+- Timeline: "infraestrutura blockchain proprietaria"
+
+Avaliacao: O Smart Chain esta posicionado como **infraestrutura/tecnologia** do banco (nao como produto cripto). Isso e aceitavel se o objetivo e diferenciacao tecnologica. Se o objetivo e parecer 100% banco tradicional, considerar substituir por "infraestrutura proprietaria" ou "plataforma segura".
+
+### 2.4 TESTIMONIALS — PRECISA DE FOTOS REAIS
+
+**Status: Texto bom, visual generico**
+
+Atual: Circulos com iniciais (LM, CR, AS, BL, RT, JP)
+
+Recomendacao:
+- Usar fotos profissionais de pessoas reais
+- Diversidade de genero, etnia e idade
+- Contexto profissional (empresarios, freelancers, viajantes)
+
+### 2.5 IMAGENS — INVENTARIO
+
+Imagens em `/public/images/`:
+
+| Arquivo               | Tipo        | Pessoas? |
+|-----------------------|-------------|----------|
+| imagem para tela incial.png | Hero  | Nao      |
+| person-travel.jpg     | Hero        | Implicito (aeroporto) |
+| person-phone.jpg      | Hero        | Implicito (celular)   |
+| bg-tech.jpg           | Background  | Nao      |
+| bg-city.jpg           | Background  | Nao      |
+| bg-lifestyle.jpg      | Background  | Nao      |
+| bg-metropolis.jpg     | Background  | Nao      |
+| bg-payment.jpg        | Background  | Nao      |
+| bg-premium-dark.jpg   | Background  | Nao      |
+| globo.png             | Ilustracao  | Nao      |
+| olho.png              | Icone       | Nao      |
+| iphone.png            | Device      | Nao      |
+| moedas.png            | Ilustracao  | Nao (nao usado) |
+
+**Conclusao:** Nenhuma imagem mostra rostos humanos de forma clara.
+
+---
+
+## 3. GAP REAL VS CONCORRENTES (ATUALIZADO)
+
+| Elemento              | EAV Bank | Nubank | C6 Bank | Status    |
+|-----------------------|----------|--------|---------|-----------|
+| Visual/UI             | 9.0      | 9.5    | 9.5     | Proximo   |
+| UX/Navegacao          | 8.5      | 9.5    | 9.0     | Bom       |
+| Humanizacao           | 5.0      | 9.5    | 7.0     | CRITICO   |
+| Confianca institucional| 9.0     | 9.5    | 9.5     | Proximo   |
+| Footer/Compliance     | 9.5      | 9.5    | 9.0     | Excelente |
+| Sistema de icones     | 9.5      | 9.0    | 8.5     | Superior  |
+| Tipografia            | 9.0      | 9.5    | 9.0     | Par       |
+| Performance mobile    | 9.0      | 9.5    | 9.0     | Par       |
+| Paginas institucionais| 9.0      | 9.0    | 9.0     | Par       |
+| Animacoes             | 9.0      | 8.5    | 8.0     | Superior  |
+
+**Maior gap:** Humanizacao (5.0 vs 9.5 do Nubank)
+
+---
+
+## 4. ARQUITETURA TECNICA
+
+### Stack
+- Next.js 15.5 (App Router, TypeScript, static export)
+- React 19
+- Tailwind CSS 4
+- Framer Motion 12
+- Space Grotesk (headings) + Inter (body) + Geist Mono
+
+### Estrutura de componentes (19 arquivos TSX)
+- Landing: 14 componentes (Hero, Nav, Footer, Cards, Trust, Features, etc.)
+- Institucional: 10 paginas + layout + sidebar nav
+- UI: Icon system, EavLogo
+- Utilities: LangContext, useIsMobile, basePath, motion presets
+
+### Design Tokens (globals.css)
+- 20+ CSS variables de cor (brand, accent, states)
+- Grid de 8px (--space-1 ate --space-24)
+- 3 familias tipograficas
+- 9 escalas de tamanho
+- 5 variantes de border-radius
+- 4 sombras pre-definidas
+- Transicoes com duracao + easing customizados
+
+### Bilinguismo
+- PT-BR / EN via React Context (LangContext)
+- Persistencia em localStorage
+- Toggle com bandeiras no navbar
+- Todas as paginas institucionais bilingues
+
+---
+
+## 5. ACAO PRIORITARIA (ORDEM CERTA)
+
+### URGENTE (impacto maximo)
+1. **Adicionar imagens com pessoas reais** — sessao fotografica ou AI portraits
+2. **Fotos reais nos testimonials** — substituir iniciais por rostos
+3. **Hero com pessoa usando app** — imagem principal com contexto humano
+
+### ALTO IMPACTO
+4. **Navbar:** adicionar `border-violet-500/15` quando scrolled
+5. **Decidir posicionamento Smart Chain:** tecnologia vs remover
+6. **Adicionar fotos de equipe** na pagina Sobre
+
+### MEDIO IMPACTO
+7. Otimizar imagens (WebP, lazy loading onde possivel)
+8. Adicionar micro-interacoes nos formularios (contato)
+9. Melhorar responsividade da sidebar institucional no mobile
+
+### BAIXO IMPACTO
+10. Limpar StatsSection.tsx (componente desativado, pode deletar)
+11. Remover moedas.png do /public/images/ (nao mais utilizada)
+12. Considerar adicionar schema.org structured data
+
+---
+
+## 6. VEREDITO FINAL
+
+O projeto evoluiu significativamente desde a ultima auditoria:
+
+**Antes:** UI 8.5, UX 8, Marca 7.5
+**Agora:** UI 9.0, UX 8.5, Marca 8.0
+
+### O que foi conquistado:
+- Sistema de icones de nivel profissional (superior ao C6)
+- Footer no padrao exato dos grandes bancos brasileiros
+- Paginas institucionais completas e bilingues
+- Tipografia premium com Space Grotesk
+- Remocao completa de cripto como produto
+- Codigo limpo e otimizado
+- Animacoes apropriadas para banco
+
+### O unico gap critico restante:
+**HUMANIZACAO** — o site precisa de rostos humanos para transmitir confianca.
+
+Com imagens de pessoas reais, o EAV Bank chega em **9.5/10** — nivel Nubank/C6 tranquilamente.

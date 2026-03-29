@@ -102,7 +102,7 @@ export function CardsShowcase() {
                 width={840}
                 height={530}
                 className="relative h-auto w-full object-contain"
-                style={{ filter: "drop-shadow(0 24px 48px rgba(99,54,196,0.5))" }}
+                style={{ filter: "drop-shadow(0 16px 32px rgba(99,54,196,0.35))" }}
                 sizes="(max-width: 640px) 260px, 500px"
                 priority
               />
