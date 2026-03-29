@@ -406,7 +406,7 @@ export function CompanySection() {
         </motion.div>
 
         {/* Features grid */}
-        <div className="mt-10 grid grid-cols-1 gap-3 sm:grid-cols-2" id="conta">
+        <div className="mt-10 grid grid-cols-1 gap-3 sm:grid-cols-2">
               {b2bFeatures.map((feat, i) => (
                 <motion.div
                   key={feat.title}

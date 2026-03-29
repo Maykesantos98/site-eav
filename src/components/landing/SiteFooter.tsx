@@ -36,8 +36,8 @@ export function SiteFooter() {
       transition={{ duration: 0.5 }}
       className="border-t border-white/[0.06]"
     >
-      {/* CTA Banner */}
-      <div className="relative overflow-hidden bg-gradient-to-r from-[#6336c4]/15 via-[#8e59ff]/10 to-[#b336c1]/15 py-16 sm:py-20">
+      {/* CTA Banner with real signup */}
+      <div id="conta" className="relative overflow-hidden bg-gradient-to-r from-[#6336c4]/15 via-[#8e59ff]/10 to-[#b336c1]/15 py-16 sm:py-20">
         <div className="absolute inset-0 bg-[#0c0a09]/60" />
         <div className="relative mx-auto max-w-3xl px-5 text-center sm:px-8">
           <h3 className="text-2xl font-extrabold text-white sm:text-3xl lg:text-4xl">
@@ -46,17 +46,24 @@ export function SiteFooter() {
           <p className="mt-4 text-sm text-stone-400 sm:text-lg">
             {t.footer.ctaDesc}
           </p>
-          <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
-            <a
-              href="#conta"
-              className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#6336c4] to-[#8e59ff] px-8 py-4 text-base font-bold text-white shadow-xl shadow-violet-950/50 transition-shadow hover:shadow-violet-900/60"
+          {/* Signup form */}
+          <form onSubmit={(e) => e.preventDefault()} className="mx-auto mt-8 flex max-w-md flex-col gap-3 sm:flex-row">
+            <input
+              type="email"
+              placeholder="Seu melhor e-mail"
+              className="flex-1 rounded-full border border-white/10 bg-white/[0.05] px-5 py-3.5 text-sm text-white placeholder-stone-500 outline-none backdrop-blur-sm transition-colors focus:border-violet-500/40 focus:bg-white/[0.08] sm:py-4"
+            />
+            <button
+              type="submit"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#6336c4] to-[#8e59ff] px-7 py-3.5 text-sm font-bold text-white shadow-xl shadow-violet-950/50 transition-all hover:shadow-violet-900/60 hover:scale-[1.02] sm:py-4"
             >
               {t.footer.ctaBtn}
               <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
               </svg>
-            </a>
-          </div>
+            </button>
+          </form>
+          <p className="mt-4 text-xs text-stone-600">Ao se cadastrar, voce concorda com nossos Termos de Uso e Politica de Privacidade.</p>
         </div>
       </div>
 
@@ -143,8 +150,26 @@ export function SiteFooter() {
             ))}
           </div>
 
+          {/* Regulatory & compliance */}
+          <div className="mt-12 rounded-xl border border-white/[0.04] bg-white/[0.01] p-5 sm:p-6">
+            <div className="flex flex-wrap items-center gap-4 text-xs text-stone-500 sm:gap-6">
+              <span className="flex items-center gap-1.5">
+                <svg className="h-4 w-4 text-violet-400/60" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M9.661 2.237a.75.75 0 01.678 0 17.683 17.683 0 006.397 2.01.75.75 0 01.592.726c.147 3.256-.373 5.927-1.534 8.014C14.666 15.063 13.03 16.39 10 18c-3.03-1.61-4.666-2.937-5.794-5.013C3.066 10.9 2.546 8.229 2.672 4.973a.75.75 0 01.592-.726 17.683 17.683 0 006.397-2.01z" clipRule="evenodd" /></svg>
+                Instituicao regulada
+              </span>
+              <span>SAC: 0800 123 4567</span>
+              <span>Ouvidoria: 0800 765 4321</span>
+            </div>
+            <p className="mt-3 text-[11px] leading-relaxed text-stone-600">
+              EAV Bank — Servicos financeiros digitais operados pela EAV7 Tecnologia e Pagamentos Ltda. CNPJ: 00.000.000/0001-00.
+              As operacoes de cambio e transferencias internacionais estao sujeitas a regulamentacao vigente.
+              Criptoativos nao sao considerados moeda de curso legal e envolvem riscos. Rentabilidade passada nao garante resultados futuros.
+              Ao utilizar nossos servicos, voce concorda com nossos Termos de Uso e Politica de Privacidade.
+            </p>
+          </div>
+
           {/* Bottom bar */}
-          <div className="mt-14 flex flex-col items-center gap-4 border-t border-white/[0.06] pt-8 sm:flex-row sm:justify-between">
+          <div className="mt-8 flex flex-col items-center gap-4 border-t border-white/[0.06] pt-8 sm:flex-row sm:justify-between">
             <p className="text-xs text-stone-600">
               &copy; {new Date().getFullYear()} EAV Bank. {t.footer.copyright}
             </p>
