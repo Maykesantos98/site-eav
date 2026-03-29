@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Icon } from "@/components/ui/Icon";
 
 export function ScrollToTop() {
   const [visible, setVisible] = useState(false);
@@ -25,9 +26,7 @@ export function ScrollToTop() {
           className="fixed bottom-5 right-4 z-40 flex h-11 w-11 items-center justify-center rounded-full bg-gradient-to-r from-[#6336c4] to-[#8e59ff] text-white shadow-xl shadow-violet-950/40 transition-shadow hover:shadow-violet-900/50 sm:bottom-6 sm:right-6 sm:h-12 sm:w-12"
           aria-label="Voltar ao topo"
         >
-          <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-            <path strokeLinecap="round" strokeLinejoin="round" d="M5 15l7-7 7 7" />
-          </svg>
+          <Icon name="chevron-up" size="md" className="stroke-[2.5]" />
         </motion.button>
       )}
     </AnimatePresence>

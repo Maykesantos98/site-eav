@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { fadeUp } from "./motion";
 import { useLang } from "@/constants/LangContext";
+import { Icon } from "@/components/ui/Icon";
 
 function FaqItem({ faq, index }: { faq: { q: string; a: string }; index: number }) {
   const [open, setOpen] = useState(false);
@@ -28,15 +29,7 @@ function FaqItem({ faq, index }: { faq: { q: string; a: string }; index: number 
           transition={{ duration: 0.2 }}
           className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] transition-colors duration-200 hover:border-violet-500/30 hover:bg-violet-500/10"
         >
-          <svg
-            className="h-4 w-4 text-violet-400"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            strokeWidth={2}
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12M6 12h12" />
-          </svg>
+          <Icon name="plus" size="sm" className="text-violet-400" />
         </motion.div>
       </button>
       <AnimatePresence initial={false}>

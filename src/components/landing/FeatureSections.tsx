@@ -8,16 +8,17 @@ import { fadeUp } from "./motion";
 import { useLang } from "@/constants/LangContext";
 import { asset } from "@/constants/basePath";
 import { useIsMobile } from "@/constants/useIsMobile";
+import { Icon, type IconName } from "@/components/ui/Icon";
 
 /* ─── Data ─── */
 
-/* Heroicons 20 solid — world/globe feature icons */
-const worldCardIcons = [
-  "M2.5 4A1.5 1.5 0 001 5.5V6h18v-.5A1.5 1.5 0 0017.5 4h-15zM19 8.5H1v6A1.5 1.5 0 002.5 16h15a1.5 1.5 0 001.5-1.5v-6zM3 13.25a.75.75 0 01.75-.75h1.5a.75.75 0 010 1.5h-1.5a.75.75 0 01-.75-.75zm4.75-.75a.75.75 0 000 1.5h3.5a.75.75 0 000-1.5h-3.5z",
-  "M9.69 18.933l.003.001C9.89 19.02 10 19 10 19s.11.02.308-.066l.002-.001.006-.003.018-.008a5.741 5.741 0 00.281-.145c.182-.1.422-.244.703-.433a13.07 13.07 0 002.196-1.886C15.11 14.78 16.5 12.37 16.5 9.5a6.5 6.5 0 00-13 0c0 2.87 1.39 5.28 2.986 6.958a13.07 13.07 0 002.196 1.886 8.25 8.25 0 00.985.578l.018.008.006.003zM10 11.25a1.75 1.75 0 100-3.5 1.75 1.75 0 000 3.5z",
-  "M10 18a8 8 0 100-16 8 8 0 000 16zM8.798 7.45c.512-.67 1.135-.95 1.702-.95s1.19.28 1.702.95a.75.75 0 001.192-.91C12.637 5.55 11.596 5 10.5 5s-2.137.55-2.894 1.54A5.205 5.205 0 006.83 8H5.75a.75.75 0 000 1.5h.77a6.333 6.333 0 000 1h-.77a.75.75 0 000 1.5h1.08c.183.528.442 1.023.776 1.46C8.363 14.45 9.404 15 10.5 15s2.137-.55 2.894-1.54a.75.75 0 00-1.192-.91c-.512.67-1.135.95-1.702.95s-1.19-.28-1.702-.95a3.505 3.505 0 01-.343-.55h1.795a.75.75 0 000-1.5H8.026a4.835 4.835 0 010-1h2.224a.75.75 0 000-1.5H8.455c.098-.195.212-.38.343-.55z",
-  "M9.661 2.237a.75.75 0 01.678 0 17.683 17.683 0 006.397 2.01.75.75 0 01.592.726c.147 3.256-.373 5.927-1.534 8.014C14.666 15.063 13.03 16.39 10 18c-3.03-1.61-4.666-2.937-5.794-5.013C3.066 10.9 2.546 8.229 2.672 4.973a.75.75 0 01.592-.726 17.683 17.683 0 006.397-2.01z",
-  "M11.983 1.907a.75.75 0 00-1.292-.657l-8.5 9.5A.75.75 0 002.75 12h6.572l-1.305 6.093a.75.75 0 001.292.657l8.5-9.5A.75.75 0 0017.25 8h-6.572l1.305-6.093z",
+/* World/globe feature icons — using unified Icon system */
+const worldCardIconNames: IconName[] = [
+  "credit-card",
+  "map-pin",
+  "banknotes",
+  "shield",
+  "bolt",
 ];
 
 /* ─── World Globe Section ─── */
@@ -26,7 +27,7 @@ export function WorldGlobeSection() {
   const reduce = useReducedMotion();
   const { t } = useLang();
   const isMobile = useIsMobile();
-  const worldCards = t.globe.features.map((label, i) => ({ label, icon: worldCardIcons[i] }));
+  const worldCards = t.globe.features.map((label, i) => ({ label, iconName: worldCardIconNames[i] }));
   return (
     <section className="relative overflow-hidden py-28 sm:py-36">
       {/* Background — desaturated city, strong overlay */}
@@ -97,9 +98,7 @@ export function WorldGlobeSection() {
                   className="eav-feature-card"
                 >
                   <div className="eav-icon-box eav-icon-box-md">
-                    <svg className="h-5 w-5 text-violet-400" viewBox="0 0 20 20" fill="currentColor">
-                      <path fillRule="evenodd" d={card.icon} clipRule="evenodd" />
-                    </svg>
+                    <Icon name={card.iconName} size="md" className="text-violet-400" />
                   </div>
                   <span className="text-sm font-medium leading-snug text-stone-300">{card.label}</span>
                 </motion.div>
@@ -119,12 +118,7 @@ export function SecuritySection() {
   const { t } = useLang();
   const isMobile = useIsMobile();
 
-  const securityIcons = [
-    "M10 1a4.5 4.5 0 00-4.5 4.5V9H5a2 2 0 00-2 2v6a2 2 0 002 2h10a2 2 0 002-2v-6a2 2 0 00-2-2h-.5V5.5A4.5 4.5 0 0010 1zm3 8V5.5a3 3 0 10-6 0V9h6z",
-    "M9.661 2.237a.75.75 0 01.678 0 17.683 17.683 0 006.397 2.01.75.75 0 01.592.726c.147 3.256-.373 5.927-1.534 8.014C14.666 15.063 13.03 16.39 10 18c-3.03-1.61-4.666-2.937-5.794-5.013C3.066 10.9 2.546 8.229 2.672 4.973a.75.75 0 01.592-.726 17.683 17.683 0 006.397-2.01z",
-    "M4.25 2A2.25 2.25 0 002 4.25v2.5A2.25 2.25 0 004.25 9h2.5A2.25 2.25 0 009 6.75v-2.5A2.25 2.25 0 006.75 2h-2.5zm0 9A2.25 2.25 0 002 13.25v2.5A2.25 2.25 0 004.25 18h2.5A2.25 2.25 0 009 15.75v-2.5A2.25 2.25 0 006.75 11h-2.5zm9-9A2.25 2.25 0 0011 4.25v2.5A2.25 2.25 0 0013.25 9h2.5A2.25 2.25 0 0018 6.75v-2.5A2.25 2.25 0 0015.75 2h-2.5zm0 9A2.25 2.25 0 0011 13.25v2.5A2.25 2.25 0 0013.25 18h2.5A2.25 2.25 0 0018 15.75v-2.5A2.25 2.25 0 0015.75 11h-2.5z",
-    "M11.983 1.907a.75.75 0 00-1.292-.657l-8.5 9.5A.75.75 0 002.75 12h6.572l-1.305 6.093a.75.75 0 001.292.657l8.5-9.5A.75.75 0 0017.25 8h-6.572l1.305-6.093z",
-  ];
+  const securityIconNames: IconName[] = ["lock", "shield", "cpu-chip", "bolt"];
 
   return (
     <section id="seguranca" className="relative overflow-hidden py-28 sm:py-36">
@@ -170,7 +164,7 @@ export function SecuritySection() {
             custom={0}
           >
             <span className="eav-badge">
-              <svg className="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M9.661 2.237a.75.75 0 01.678 0 17.683 17.683 0 006.397 2.01.75.75 0 01.592.726c.147 3.256-.373 5.927-1.534 8.014C14.666 15.063 13.03 16.39 10 18c-3.03-1.61-4.666-2.937-5.794-5.013C3.066 10.9 2.546 8.229 2.672 4.973a.75.75 0 01.592-.726 17.683 17.683 0 006.397-2.01z" clipRule="evenodd" /></svg>
+              <Icon name="shield" size="xs" />
               {t.security.label}
             </span>
             <h2 className="mt-5 text-2xl font-extrabold leading-[1.12] tracking-tight text-white sm:text-3xl lg:text-4xl lg:tracking-[-0.02em]">
@@ -191,9 +185,7 @@ export function SecuritySection() {
                 className="group eav-feature-card p-5"
               >
                 <div className="eav-icon-box eav-icon-box-md text-violet-400">
-                  <svg className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                    <path fillRule="evenodd" d={securityIcons[i]} clipRule="evenodd" />
-                  </svg>
+                  <Icon name={securityIconNames[i]} size="md" />
                 </div>
                 <div>
                   <span className="font-semibold text-white">{item.text}</span>
@@ -312,9 +304,7 @@ export function BeyondFinanceSection() {
             <div className="mt-7 grid grid-cols-1 gap-2.5 sm:mt-9 sm:grid-cols-2 sm:gap-3">
               {t.beyond.items.map((item) => (
                 <div key={item} className="flex items-center gap-2.5 text-sm text-stone-300">
-                  <svg className="h-4 w-4 flex-shrink-0 text-violet-400" viewBox="0 0 20 20" fill="currentColor">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clipRule="evenodd" />
-                  </svg>
+                  <Icon name="check-circle" size="sm" className="flex-shrink-0 text-violet-400" />
                   {item}
                 </div>
               ))}
@@ -351,19 +341,19 @@ export function BeyondFinanceSection() {
 
 /* ─── Company / B2B Section ─── */
 
-const b2bIcons = [
-  "M4 16.5v-13h-.25a.75.75 0 010-1.5h12.5a.75.75 0 010 1.5H16v13h.25a.75.75 0 010 1.5h-3.5a.75.75 0 01-.75-.75v-2.5a.75.75 0 00-.75-.75h-2.5a.75.75 0 00-.75.75v2.5a.75.75 0 01-.75.75h-3.5a.75.75 0 010-1.5H4z",
-  "M1 4.75C1 3.784 1.784 3 2.75 3h14.5c.966 0 1.75.784 1.75 1.75v10.515a1.75 1.75 0 01-1.75 1.75h-1.5v1.19l1.72-.19a.75.75 0 01.166 1.49l-4.25.472a.75.75 0 01-.166-1.49l1.03-.114v-1.358H5.75A1.75 1.75 0 014 15.265V4.75z",
-  "M1 4a1 1 0 011-1h16a1 1 0 011 1v8a1 1 0 01-1 1H2a1 1 0 01-1-1V4zm12 7a3 3 0 100-6 3 3 0 000 6zM2 3.75a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 012 3.75z",
-  "M10 18a8 8 0 100-16 8 8 0 000 16zM8.798 7.45c.512-.67 1.135-.95 1.702-.95s1.19.28 1.702.95a.75.75 0 001.192-.91C12.637 5.55 11.596 5 10.5 5s-2.137.55-2.894 1.54A5.205 5.205 0 006.83 8H5.75a.75.75 0 000 1.5h.77a6.333 6.333 0 000 1h-.77a.75.75 0 000 1.5h1.08c.183.528.442 1.023.776 1.46C8.363 14.45 9.404 15 10.5 15s2.137-.55 2.894-1.54a.75.75 0 00-1.192-.91c-.512.67-1.135.95-1.702.95s-1.19-.28-1.702-.95a3.505 3.505 0 01-.343-.55h1.795a.75.75 0 000-1.5H8.026a4.835 4.835 0 010-1h2.224a.75.75 0 000-1.5H8.455c.098-.195.212-.38.343-.55z",
+const b2bIconNames: (IconName | "PIX_ICON")[] = [
+  "building",
+  "users",
+  "document",
+  "banknotes",
   "PIX_ICON",
-  "M9.661 2.237a.75.75 0 01.678 0 17.683 17.683 0 006.397 2.01.75.75 0 01.592.726c.147 3.256-.373 5.927-1.534 8.014C14.666 15.063 13.03 16.39 10 18c-3.03-1.61-4.666-2.937-5.794-5.013C3.066 10.9 2.546 8.229 2.672 4.973a.75.75 0 01.592-.726 17.683 17.683 0 006.397-2.01z",
+  "shield",
 ];
 
 export function CompanySection() {
   const reduce = useReducedMotion();
   const { t } = useLang();
-  const b2bFeatures = t.company.features.map((feat, i) => ({ icon: b2bIcons[i], title: feat.title, desc: feat.desc }));
+  const b2bFeatures = t.company.features.map((feat, i) => ({ iconName: b2bIconNames[i], title: feat.title, desc: feat.desc }));
   return (
     <section id="empresas" className="relative py-28 sm:py-36 overflow-hidden">
       {/* Background: metropolis — desaturated, heavy overlay */}
@@ -411,12 +401,10 @@ export function CompanySection() {
               className="group eav-feature-card"
             >
               <div className="eav-icon-box eav-icon-box-sm">
-                {feat.icon === "PIX_ICON" ? (
+                {feat.iconName === "PIX_ICON" ? (
                   <Image src={asset("/images/pix sem fundo.png")} alt="Pix" width={20} height={20} className="h-5 w-5 object-contain" />
                 ) : (
-                  <svg className="h-4 w-4 text-violet-400" viewBox="0 0 20 20" fill="currentColor">
-                    <path fillRule="evenodd" d={feat.icon} clipRule="evenodd" />
-                  </svg>
+                  <Icon name={feat.iconName as IconName} size="sm" className="text-violet-400" />
                 )}
               </div>
               <div>
@@ -472,9 +460,7 @@ export function CompanySection() {
             className="eav-btn-primary sm:px-8 sm:py-4 sm:text-base"
           >
             {t.company.cta}
-            <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-            </svg>
+            <Icon name="arrow-right" size="sm" className="stroke-[2]" />
           </motion.a>
         </motion.div>
       </div>

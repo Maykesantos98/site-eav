@@ -6,6 +6,7 @@ import { EavRemoteImage } from "@/components/EavRemoteImage";
 import { fadeUp } from "./motion";
 import { useLang } from "@/constants/LangContext";
 import { useIsMobile } from "@/constants/useIsMobile";
+import { Icon } from "@/components/ui/Icon";
 
 export function AppDownloadSection() {
   const reduce = useReducedMotion();
@@ -40,9 +41,7 @@ export function AppDownloadSection() {
           <div className="mt-8 grid grid-cols-2 gap-3">
             {t.app.features.map((feat) => (
               <div key={feat} className="flex items-center gap-2 text-sm text-stone-300">
-                <svg className="h-4 w-4 flex-shrink-0 text-violet-400" viewBox="0 0 20 20" fill="currentColor">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clipRule="evenodd" />
-                </svg>
+                <Icon name="check-circle" size="sm" className="flex-shrink-0 text-violet-400" />
                 {feat}
               </div>
             ))}
