@@ -5,6 +5,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import { publicAssets } from "@/constants/publicAssets";
 import { fadeUp } from "./motion";
 import { useLang } from "@/constants/LangContext";
+import { useIsMobile } from "@/constants/useIsMobile";
 
 const benefitIcons = [
   "M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z",
@@ -18,6 +19,7 @@ const benefitIcons = [
 export function CardsShowcase() {
   const reduce = useReducedMotion();
   const { t } = useLang();
+  const isMobile = useIsMobile();
 
   const benefits = t.cards.benefits.map((text, i) => ({ icon: benefitIcons[i], text }));
 
@@ -104,7 +106,7 @@ export function CardsShowcase() {
 
               {/* Graphene — back, tilted left */}
               <motion.div
-                animate={reduce ? {} : { y: [0, -8, 0], rotate: [-8, -7, -8] }}
+                animate={reduce || isMobile ? {} : { y: [0, -8, 0], rotate: [-8, -7, -8] }}
                 transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut" }}
                 className="absolute left-[2%] top-0 z-[1] w-[88%] sm:w-[90%]"
               >
@@ -121,7 +123,7 @@ export function CardsShowcase() {
 
               {/* EAV Bank — middle */}
               <motion.div
-                animate={reduce ? {} : { y: [0, -12, 0], rotate: [3, 4, 3] }}
+                animate={reduce || isMobile ? {} : { y: [0, -12, 0], rotate: [3, 4, 3] }}
                 transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 0.4 }}
                 className="absolute left-[6%] top-[24%] z-[2] w-[90%] sm:w-[92%]"
               >
@@ -138,7 +140,7 @@ export function CardsShowcase() {
 
               {/* Grabtium — front, tilted right */}
               <motion.div
-                animate={reduce ? {} : { y: [0, -10, 0], rotate: [10, 9, 10] }}
+                animate={reduce || isMobile ? {} : { y: [0, -10, 0], rotate: [10, 9, 10] }}
                 transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.8 }}
                 className="absolute left-[1%] top-[46%] z-[3] w-[86%] sm:w-[88%]"
               >

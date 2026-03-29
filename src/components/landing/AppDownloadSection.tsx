@@ -5,10 +5,12 @@ import { eavImages } from "@/constants/eavMedia";
 import { EavRemoteImage } from "@/components/EavRemoteImage";
 import { fadeUp } from "./motion";
 import { useLang } from "@/constants/LangContext";
+import { useIsMobile } from "@/constants/useIsMobile";
 
 export function AppDownloadSection() {
   const reduce = useReducedMotion();
   const { t } = useLang();
+  const isMobile = useIsMobile();
 
   return (
     <section className="relative overflow-hidden py-20 sm:py-28">
@@ -106,7 +108,7 @@ export function AppDownloadSection() {
           <div className="relative">
             <div className="absolute inset-0 -m-8 sm:-m-12 rounded-full bg-[#8e59ff]/10 blur-[80px]" aria-hidden />
             <motion.div
-              animate={reduce ? {} : { y: [0, -12, 0] }}
+              animate={reduce || isMobile ? {} : { y: [0, -12, 0] }}
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
             >
               <EavRemoteImage

@@ -39,12 +39,25 @@
 @media (max-width: 768px) {
   ::-webkit-scrollbar { width: 4px; }
 
-  /* Reduce heavy effects on mobile for performance */
-  .eav-hero-glow { animation: none; opacity: 0.2; }
+  /* Kill heavy effects on mobile */
+  .eav-hero-glow { animation: none; opacity: 0.15; }
   .eav-noise::before { display: none; }
+  .eav-shimmer { animation: none; }
 
-  /* Smoother scrolling on mobile */
-  * { -webkit-tap-highlight-color: transparent; }
+  /* Remove all drop-shadows on mobile — major perf killer */
+  img { filter: none !important; }
+
+  /* Disable blur backgrounds on mobile */
+  [aria-hidden="true"] > .blur-\[80px\],
+  [aria-hidden="true"] > .blur-\[100px\],
+  [aria-hidden="true"] > .blur-\[120px\] {
+    display: none;
+  }
+
+  /* Smoother scrolling */
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
 }
 
 /* GPU acceleration for animated elements */

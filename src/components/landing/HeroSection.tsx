@@ -6,6 +6,7 @@ import { eavImages } from "@/constants/eavMedia";
 import { EavRemoteImage } from "@/components/EavRemoteImage";
 import { useLang } from "@/constants/LangContext";
 import { asset } from "@/constants/basePath";
+import { useIsMobile } from "@/constants/useIsMobile";
 
 export function HeroIntro() {
   const reduce = useReducedMotion();
@@ -112,6 +113,7 @@ export function HeroIntro() {
 export function MoedasLibertySection() {
   const reduce = useReducedMotion();
   const { t } = useLang();
+  const isMobile = useIsMobile();
 
   return (
     <section id="solucoes" className="relative mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24">
@@ -125,7 +127,7 @@ export function MoedasLibertySection() {
         >
           <div className="absolute inset-0 -m-8 rounded-full bg-[#6336c4]/12 blur-[60px]" aria-hidden />
           <motion.div
-            animate={reduce ? {} : { y: [0, -12, 0] }}
+            animate={reduce || isMobile ? {} : { y: [0, -12, 0] }}
             transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
           >
             <EavRemoteImage

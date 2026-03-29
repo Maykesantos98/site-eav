@@ -7,6 +7,7 @@ import { EavRemoteImage } from "@/components/EavRemoteImage";
 import { fadeUp } from "./motion";
 import { useLang } from "@/constants/LangContext";
 import { asset } from "@/constants/basePath";
+import { useIsMobile } from "@/constants/useIsMobile";
 
 /* ─── Data ─── */
 
@@ -23,6 +24,7 @@ const worldCardIcons = [
 export function WorldGlobeSection() {
   const reduce = useReducedMotion();
   const { t } = useLang();
+  const isMobile = useIsMobile();
   const worldCards = t.globe.features.map((label, i) => ({ label, icon: worldCardIcons[i] }));
   return (
     <section className="relative overflow-hidden py-16 sm:py-24">
@@ -51,7 +53,7 @@ export function WorldGlobeSection() {
           >
             <div className="absolute inset-0 -m-10 rounded-full bg-[#6336c4]/12 blur-[80px] sm:-m-16 sm:blur-[100px]" aria-hidden />
             <motion.div
-              animate={reduce ? {} : { y: [0, -12, 0], rotateZ: [0, 2, 0] }}
+              animate={reduce || isMobile ? {} : { y: [0, -12, 0], rotateZ: [0, 2, 0] }}
               transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
             >
               <EavRemoteImage
@@ -114,6 +116,7 @@ export function WorldGlobeSection() {
 export function SecuritySection() {
   const reduce = useReducedMotion();
   const { t } = useLang();
+  const isMobile = useIsMobile();
   return (
     <section id="seguranca" className="relative overflow-hidden py-20 sm:py-28">
       {/* Background: tech network */}
@@ -141,7 +144,7 @@ export function SecuritySection() {
         >
           <div className="absolute inset-0 -m-6 rounded-full bg-[#8e59ff]/10 blur-[40px] sm:-m-12 sm:blur-[80px]" aria-hidden />
           <motion.div
-            animate={reduce ? {} : { scale: [1, 1.03, 1] }}
+            animate={reduce || isMobile ? {} : { scale: [1, 1.03, 1] }}
             transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
           >
             <EavRemoteImage
@@ -205,6 +208,7 @@ export function SecuritySection() {
 export function SpeedCirclesSection() {
   const reduce = useReducedMotion();
   const { t } = useLang();
+  const isMobile = useIsMobile();
   const circles = [
     { src: eavImages.circleTransacoes, alt: "Transações", label: t.speed.circles[0] },
     { src: eavImages.circleVelocidade, alt: "Velocidade", label: t.speed.circles[1] },
@@ -247,7 +251,7 @@ export function SpeedCirclesSection() {
               <div className="relative">
                 <div className="absolute inset-0 -m-6 rounded-full bg-[#6336c4]/12 opacity-0 blur-[40px] transition-opacity duration-500 group-hover:opacity-100" />
                 <motion.div
-                  animate={reduce ? {} : { y: [0, -6, 0] }}
+                  animate={reduce || isMobile ? {} : { y: [0, -6, 0] }}
                   transition={{ duration: 4 + i * 0.5, repeat: Infinity, ease: "easeInOut" }}
                 >
                   <EavRemoteImage
@@ -275,6 +279,7 @@ export function SpeedCirclesSection() {
 export function BeyondFinanceSection() {
   const reduce = useReducedMotion();
   const { t } = useLang();
+  const isMobile = useIsMobile();
   return (
     <section className="relative overflow-hidden py-16 sm:py-24">
       {/* Background: chicara faded */}
@@ -327,7 +332,7 @@ export function BeyondFinanceSection() {
             <div className="relative">
               <div className="absolute inset-0 -m-10 rounded-3xl bg-[#6336c4]/8 blur-[60px]" aria-hidden />
               <motion.div
-                animate={reduce ? {} : { y: [0, -10, 0] }}
+                animate={reduce || isMobile ? {} : { y: [0, -10, 0] }}
                 transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
               >
                 <EavRemoteImage
