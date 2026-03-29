@@ -15,6 +15,7 @@ import { SiteNav } from "@/components/landing/SiteNav";
 import { SiteFooter } from "@/components/landing/SiteFooter";
 import { ScrollToTop } from "@/components/landing/ScrollToTop";
 import { WhatsAppButton } from "@/components/landing/WhatsAppButton";
+import { CookieBanner } from "@/components/landing/CookieBanner";
 
 export default function Home() {
   return (
@@ -37,6 +38,7 @@ export default function Home() {
       <SiteFooter />
       <ScrollToTop />
       <WhatsAppButton />
+      <CookieBanner />
     </>
   );
 }
