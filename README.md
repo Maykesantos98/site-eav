@@ -1,36 +1,60 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# EAV Bank — Banco Digital Global
 
-## Getting Started
+Plataforma de servicos financeiros digitais. Conta digital, cartao internacional Visa, transferencias para 150+ paises em ate 3 segundos, Pix, cambio e conta PJ.
 
-First, run the development server:
+**Powered by EAV7 Smart Chain**
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+---
+
+## Stack
+
+- **Framework:** Next.js 15.5 (App Router, TypeScript)
+- **UI:** Tailwind CSS 4, Framer Motion 12
+- **Fontes:** Space Grotesk (headings), Inter (body)
+- **Deploy:** Static export (GitHub Pages)
+
+## Estrutura
+
+```
+src/
+  app/
+    page.tsx                  # Landing page
+    layout.tsx                # Root layout + metadata
+    globals.css               # Design system
+    institucional/            # 10 paginas institucionais
+  components/
+    landing/                  # Secoes da landing (Hero, Cards, Trust, FAQ...)
+    institucional/            # Navegacao institucional
+    ui/                       # Sistema de icones (Icon.tsx)
+    EavLogo.tsx
+  constants/
+    translations.ts           # PT-BR / EN
+    LangContext.tsx            # Bilinguismo via React Context
+    eavMedia.ts               # Assets remotos
+    basePath.ts               # Helper de path para deploy
+public/
+  images/                     # Imagens e assets estaticos
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Desenvolvimento
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm install
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Acesse `http://localhost:3000`
 
-## Learn More
+## Build & Deploy
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run build
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Gera export estatico em `/out` pronto para GitHub Pages.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Dados da empresa
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**EAV7 Tecnologia e Pagamentos Ltda.**
+CNPJ: 65.789.137/0001-12
+Av. Brig. Faria Lima, 3.144 — Jardim Paulistano, Sao Paulo — SP
