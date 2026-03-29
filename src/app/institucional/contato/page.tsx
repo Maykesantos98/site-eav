@@ -20,7 +20,8 @@ export default function ContatoPage() {
     e.preventDefault();
     if (sending) return;
     setSending(true);
-    // Simula envio
+    // TODO: Integrar com backend real (Formspree, Resend, etc.)
+    // Por enquanto, simula envio para demonstracao
     setTimeout(() => {
       setSending(false);
       setSent(true);

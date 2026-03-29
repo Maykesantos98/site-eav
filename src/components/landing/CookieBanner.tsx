@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
 
 const COOKIE_KEY = "eav-cookie-consent";
 
@@ -38,9 +39,9 @@ export function CookieBanner() {
               <p className="text-sm leading-relaxed text-stone-300">
                 Utilizamos cookies para melhorar sua experiencia, personalizar conteudo e analisar nosso trafego.
                 Ao continuar navegando, voce concorda com nossa{" "}
-                <a href="https://eav7.com/" target="_blank" rel="noopener noreferrer" className="text-violet-400 underline underline-offset-2 hover:text-violet-300">
+                <Link href="/institucional/privacidade" className="text-violet-400 underline underline-offset-2 hover:text-violet-300">
                   Politica de Privacidade
-                </a>{" "}
+                </Link>{" "}
                 e o uso de cookies conforme a LGPD.
               </p>
             </div>
