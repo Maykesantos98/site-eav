@@ -5,6 +5,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import { eavImages } from "@/constants/eavMedia";
 import { EavRemoteImage } from "@/components/EavRemoteImage";
 import { useLang } from "@/constants/LangContext";
+import { asset } from "@/constants/basePath";
 
 export function HeroIntro() {
   const reduce = useReducedMotion();
@@ -15,7 +16,7 @@ export function HeroIntro() {
       {/* Background: mão com celular do eav7.com */}
       <div className="pointer-events-none absolute inset-0" aria-hidden>
         <Image
-          src="/images/imagem para tela incial.png"
+          src={asset("/images/imagem para tela incial.png")}
           alt=""
           fill
           className="object-cover object-[75%_30%] opacity-[0.25] sm:opacity-[0.35] lg:opacity-[0.45]"

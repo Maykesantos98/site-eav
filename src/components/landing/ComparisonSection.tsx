@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 import { fadeUp } from "./motion";
+import { asset } from "@/constants/basePath";
 
 const rows = [
   { feature: "IOF em transferências", eav: "0%", trad: "Até 6,38%", eavWins: true },
@@ -23,7 +24,7 @@ export function ComparisonSection() {
       {/* Background: abstract gradient */}
       <div className="pointer-events-none absolute inset-0" aria-hidden>
         <Image
-          src="/images/bg-abstract.jpg"
+          src={asset("/images/bg-abstract.jpg")}
           alt=""
           fill
           className="object-cover object-center opacity-[0.08] sm:opacity-[0.12]"

@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 import { fadeUp } from "./motion";
+import { asset } from "@/constants/basePath";
 
 const testimonials = [
   {
@@ -74,7 +75,7 @@ export function TestimonialsSection() {
       {/* Background */}
       <div className="pointer-events-none absolute inset-0" aria-hidden>
         <Image
-          src="/images/bg-payment.jpg"
+          src={asset("/images/bg-payment.jpg")}
           alt=""
           fill
           className="object-cover object-center opacity-[0.04] sm:opacity-[0.06]"

@@ -6,6 +6,7 @@ import { eavImages } from "@/constants/eavMedia";
 import { EavRemoteImage } from "@/components/EavRemoteImage";
 import { fadeUp } from "./motion";
 import { useLang } from "@/constants/LangContext";
+import { asset } from "@/constants/basePath";
 
 /* ─── Data ─── */
 
@@ -28,7 +29,7 @@ export function WorldGlobeSection() {
       {/* Background */}
       <div className="pointer-events-none absolute inset-0" aria-hidden>
         <Image
-          src="/images/bg-city.jpg"
+          src={asset("/images/bg-city.jpg")}
           alt=""
           fill
           className="object-cover object-center opacity-[0.05] sm:opacity-[0.08]"
@@ -118,7 +119,7 @@ export function SecuritySection() {
       {/* Background: tech network */}
       <div className="pointer-events-none absolute inset-0" aria-hidden>
         <Image
-          src="/images/bg-tech.jpg"
+          src={asset("/images/bg-tech.jpg")}
           alt=""
           fill
           className="object-cover object-center opacity-[0.06] sm:opacity-[0.09]"
