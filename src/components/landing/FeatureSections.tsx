@@ -412,9 +412,7 @@ export function CompanySection() {
             >
               <div className="eav-icon-box eav-icon-box-sm">
                 {feat.icon === "PIX_ICON" ? (
-                  <svg className="h-4 w-4 text-violet-400" viewBox="0 0 512 512" fill="currentColor">
-                    <path d="M389.2 233.6c-14.8 0-28.7 5.8-39.2 16.2l-75.4 75.4c-5.4 5.4-12.6 8.4-20.2 8.4s-14.8-3-20.2-8.4L159 250c-10.5-10.5-24.4-16.3-39.2-16.3s-28.7 5.8-39.2 16.3l-44.3 44.3 90.4 90.4c21.6 21.6 50.3 33.5 80.9 33.5s59.3-11.9 80.9-33.5l90.4-90.4-44.3-44.3c-10.5-10.6-24.5-16.4-39.4-16.4zM389.2 127.7c-14.8 0-28.7 5.8-39.2 16.3L274.6 219.4c-5.4 5.4-12.6 8.4-20.2 8.4s-14.8-3-20.2-8.4L159 144c-10.5-10.5-24.4-16.3-39.2-16.3s-28.7 5.8-39.2 16.3l-44.3 44.3 90.4 90.4c21.6 21.6 50.3 33.5 80.9 33.5s59.3-11.9 80.9-33.5l90.4-90.4-44.3-44.3c-10.5-10.5-24.5-16.3-39.4-16.3z" />
-                  </svg>
+                  <Image src={asset("/images/pix sem fundo.png")} alt="Pix" width={20} height={20} className="h-5 w-5 object-contain" />
                 ) : (
                   <svg className="h-4 w-4 text-violet-400" viewBox="0 0 20 20" fill="currentColor">
                     <path fillRule="evenodd" d={feat.icon} clipRule="evenodd" />
