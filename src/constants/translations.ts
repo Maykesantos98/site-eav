@@ -4,8 +4,11 @@ export const translations = {
     nav: {
       inicio: "Início",
       solucoes: "Soluções",
+      cartoes: "Cartões",
       seguranca: "Segurança",
       empresas: "Empresas",
+      app: "App",
+      faq: "FAQ",
       abrirConta: "Abrir conta",
     },
     // Hero
@@ -13,9 +16,6 @@ export const translations = {
       badge: "Powered by EAV7 Smart Chain",
       cta1: "Abrir conta gratuita",
       cta2: "Explorar soluções",
-      trust1: "Criptografia avançada",
-      trust2: "Sem taxas ocultas",
-      trust3: "24/7",
       slides: [
         {
           title1: "Sua conta digital ",
@@ -49,9 +49,9 @@ export const translations = {
     },
     // Moedas
     moedas: {
-      title1: "A liberdade que você sempre imaginou, ",
-      titleHighlight: "agora está nas suas mãos",
-      desc: "Apenas no EAV Bank você é capaz de simular e escolher qual meio de pagamento (moeda fiduciária, cripto, token, etc.) você deseja enviar dinheiro como também qual deles a pessoa vai receber o valor equivalente.",
+      title1: "Você escolhe como enviar. ",
+      titleHighlight: "Quem recebe escolhe como receber.",
+      desc: "Na EAV Bank, você decide o meio de pagamento — cripto, token ou moeda fiduciária — e quem recebe escolhe em qual ativo quer receber o valor equivalente. Total liberdade nas duas pontas da transação.",
       tags: ["Cripto", "Tokens", "Moedas fiduciárias", "Ativos digitais"],
     },
     // Stats
@@ -168,6 +168,20 @@ export const translations = {
         { q: "Como abro minha conta?", a: "Cadastre seu e-mail em nosso site ou baixe o app na App Store ou Google Play. O processo é 100% digital e leva poucos minutos." },
       ],
     },
+    // Trust
+    trust: {
+      label: "Por que confiar",
+      title1: "Seu dinheiro em ",
+      titleHighlight: "boas mãos",
+      items: [
+        { icon: "shield", title: "Conformidade regulatória", desc: "Operamos em conformidade com a legislação vigente e melhores práticas do setor financeiro." },
+        { icon: "lock", title: "LGPD & Privacidade", desc: "Dados protegidos de ponta a ponta, em total conformidade com a Lei Geral de Proteção de Dados." },
+        { icon: "eye", title: "Monitoramento 24/7", desc: "Inteligência artificial detecta e bloqueia atividades suspeitas em tempo real, 24 horas por dia." },
+        { icon: "key", title: "Criptografia avançada", desc: "Protocolos bancários de última geração para todas as suas transações e dados pessoais." },
+        { icon: "check", title: "Autenticação multifator", desc: "Biometria, PIN e validação em dois fatores para garantir que só você acessa sua conta." },
+        { icon: "globe", title: "Infraestrutura global", desc: "Servidores distribuídos com redundância, garantindo alta disponibilidade e resiliência." },
+      ],
+    },
     // Footer
     footer: {
       ctaTitle1: "Pronto para o ",
@@ -207,17 +221,17 @@ export const translations = {
     nav: {
       inicio: "Home",
       solucoes: "Solutions",
+      cartoes: "Cards",
       seguranca: "Security",
       empresas: "Business",
+      app: "App",
+      faq: "FAQ",
       abrirConta: "Open account",
     },
     hero: {
       badge: "Powered by EAV7 Smart Chain",
       cta1: "Open free account",
       cta2: "Explore solutions",
-      trust1: "Advanced encryption",
-      trust2: "No hidden fees",
-      trust3: "24/7",
       slides: [
         {
           title1: "Your digital account ",
@@ -250,9 +264,9 @@ export const translations = {
       ],
     },
     moedas: {
-      title1: "The freedom you always imagined, ",
-      titleHighlight: "now in your hands",
-      desc: "Only at EAV Bank you can simulate and choose which payment method (fiat currency, crypto, token, etc.) you want to send money with, and which one the recipient will receive the equivalent value in.",
+      title1: "You choose how to send. ",
+      titleHighlight: "The receiver chooses how to get paid.",
+      desc: "At EAV Bank, you pick the payment method — crypto, token, or fiat — and the recipient chooses which asset they want to receive the equivalent value in. Full freedom on both sides of every transaction.",
       tags: ["Crypto", "Tokens", "Fiat currencies", "Digital assets"],
     },
     stats: {
@@ -358,6 +372,19 @@ export const translations = {
         { q: "How long does an international transfer take?", a: "International transfers are processed in up to 3 seconds. The service is available 24 hours a day, 7 days a week, including holidays." },
         { q: "Can businesses use EAV Bank?", a: "Yes. We offer business accounts with payroll, invoice generation, financial management, business Pix and corporate cards. Contact our sales team." },
         { q: "How do I open my account?", a: "Register your email on our website or download the app from the App Store or Google Play. The process is 100% digital and takes just a few minutes." },
+      ],
+    },
+    trust: {
+      label: "Why trust us",
+      title1: "Your money in ",
+      titleHighlight: "safe hands",
+      items: [
+        { icon: "shield", title: "Regulatory compliance", desc: "We operate in full compliance with current legislation and financial industry best practices." },
+        { icon: "lock", title: "Data privacy", desc: "End-to-end data protection, fully compliant with data protection regulations." },
+        { icon: "eye", title: "24/7 Monitoring", desc: "AI-powered detection blocks suspicious activity in real time, around the clock." },
+        { icon: "key", title: "Advanced encryption", desc: "State-of-the-art banking protocols for all your transactions and personal data." },
+        { icon: "check", title: "Multi-factor auth", desc: "Biometrics, PIN and two-factor validation to ensure only you access your account." },
+        { icon: "globe", title: "Global infrastructure", desc: "Distributed servers with redundancy, ensuring high availability and resilience." },
       ],
     },
     footer: {

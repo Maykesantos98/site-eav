@@ -26,11 +26,11 @@ export function CardsShowcase() {
   const benefits = t.cards.benefits.map((text, i) => ({ ...benefitData[i], text }));
 
   return (
-    <section className="relative overflow-hidden py-24 sm:py-32 lg:py-40">
+    <section id="cartoes" className="relative overflow-hidden py-28 sm:py-36 lg:py-44">
       {/* ── Premium deep background ── */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#0c0a09] via-[#150a28] to-[#0c0a09]" aria-hidden />
       <div className="pointer-events-none absolute inset-0" aria-hidden>
-        <Image src={asset("/images/bg-premium-dark.jpg")} alt="" fill className="object-cover opacity-[0.12] mix-blend-overlay" sizes="100vw" />
+        <Image src={asset("/images/bg-premium-dark.jpg")} alt="" fill className="object-cover opacity-[0.20] mix-blend-overlay" sizes="100vw" />
       </div>
       {/* Purple glow orbs */}
       <div className="pointer-events-none absolute top-1/4 left-1/2 -translate-x-1/2 h-[300px] w-[400px] rounded-full bg-[#6336c4]/12 blur-[100px] sm:h-[500px] sm:w-[700px] sm:blur-[160px]" aria-hidden />
@@ -50,14 +50,14 @@ export function CardsShowcase() {
           custom={0}
           className="text-center"
         >
-          <span className="inline-flex items-center gap-2 rounded-full border border-violet-500/20 bg-violet-500/10 px-4 py-1.5 text-xs font-semibold tracking-wider text-violet-300 uppercase">
+          <span className="eav-badge">
             <svg className="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor"><path d="M2.5 4A1.5 1.5 0 001 5.5V6h18v-.5A1.5 1.5 0 0017.5 4h-15zM19 8.5H1v6A1.5 1.5 0 002.5 16h15a1.5 1.5 0 001.5-1.5v-6z" /></svg>
             {t.cards.label}
           </span>
-          <h2 className="mx-auto mt-6 max-w-3xl text-3xl font-extrabold leading-[1.1] text-white sm:text-4xl md:text-5xl lg:text-[3.5rem]">
+          <h2 className="mx-auto mt-6 max-w-3xl text-3xl font-extrabold leading-[1.08] tracking-tight text-white sm:text-4xl md:text-5xl lg:text-[3.5rem] lg:tracking-[-0.025em]">
             {t.cards.title1}<span className="eav-gradient-text">{t.cards.titleHighlight}</span>
           </h2>
-          <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-stone-400 sm:text-lg">
+          <p className="mx-auto mt-5 max-w-xl text-base leading-[1.75] text-stone-400 sm:text-lg">
             {t.cards.desc}
           </p>
         </motion.div>
@@ -137,7 +137,7 @@ export function CardsShowcase() {
               viewport={{ once: true }}
               variants={fadeUp}
               custom={i + 1}
-              className="group flex items-start gap-3 rounded-2xl border border-white/[0.06] bg-white/[0.02] p-4 backdrop-blur-sm transition-all duration-300 hover:border-violet-500/20 hover:bg-violet-500/5"
+              className="group flex items-start gap-3.5 rounded-2xl border border-white/[0.06] bg-white/[0.02] p-4 backdrop-blur-sm transition-all duration-250 hover:border-violet-500/20 hover:bg-violet-500/5 hover:shadow-lg hover:shadow-violet-950/10"
             >
               <div className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-xl bg-violet-500/10 text-violet-400 transition-all duration-300 group-hover:bg-violet-500/20 group-hover:scale-110">
                 <svg className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
@@ -162,7 +162,7 @@ export function CardsShowcase() {
             href="#conta"
             whileHover={reduce ? {} : { scale: 1.03 }}
             whileTap={reduce ? {} : { scale: 0.97 }}
-            className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#6336c4] to-[#8e59ff] px-8 py-4 text-base font-bold text-white shadow-xl shadow-violet-950/50 transition-shadow hover:shadow-violet-900/60"
+            className="eav-btn-primary px-8 py-4 text-base"
           >
             {t.cards.cta}
             <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>

@@ -1,11 +1,9 @@
 "use client";
 
-import Image from "next/image";
 import { useState } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { fadeUp } from "./motion";
 import { useLang } from "@/constants/LangContext";
-import { asset } from "@/constants/basePath";
 
 function FaqItem({ faq, index }: { faq: { q: string; a: string }; index: number }) {
   const [open, setOpen] = useState(false);
@@ -22,13 +20,13 @@ function FaqItem({ faq, index }: { faq: { q: string; a: string }; index: number 
     >
       <button
         onClick={() => setOpen(!open)}
-        className="flex w-full items-center justify-between gap-4 py-5 text-left transition-colors hover:text-violet-300"
+        className="flex w-full items-center justify-between gap-4 py-5 text-left transition-colors duration-200 hover:text-violet-300"
       >
-        <span className="text-base font-semibold text-white sm:text-lg">{faq.q}</span>
+        <span className="text-[15px] font-semibold leading-snug text-white sm:text-lg">{faq.q}</span>
         <motion.div
           animate={{ rotate: open ? 45 : 0 }}
           transition={{ duration: 0.2 }}
-          className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/[0.03]"
+          className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] transition-colors duration-200 hover:border-violet-500/30 hover:bg-violet-500/10"
         >
           <svg
             className="h-4 w-4 text-violet-400"
@@ -65,7 +63,7 @@ export function FaqSection() {
   const { t } = useLang();
 
   return (
-    <section className="eav-section-violet relative py-20 sm:py-28 overflow-hidden">
+    <section id="faq" className="eav-section-violet relative py-20 sm:py-28 overflow-hidden">
       <div className="relative mx-auto max-w-3xl px-5 sm:px-8">
       <motion.div
         initial={reduce ? false : "hidden"}
@@ -75,11 +73,11 @@ export function FaqSection() {
         custom={0}
         className="text-center"
       >
-        <span className="text-sm font-semibold tracking-wider text-violet-400 uppercase">{t.faq.label}</span>
-        <h2 className="mt-3 text-2xl sm:text-3xl font-extrabold text-white md:text-4xl">
+        <span className="text-xs font-semibold tracking-[0.15em] text-violet-400 uppercase">{t.faq.label}</span>
+        <h2 className="mt-4 text-2xl sm:text-3xl font-extrabold leading-[1.15] tracking-tight text-white md:text-4xl md:tracking-[-0.015em]">
           {t.faq.title1}<span className="eav-gradient-text">{t.faq.titleHighlight}</span>
         </h2>
-        <p className="mt-4 text-stone-400">{t.faq.desc}</p>
+        <p className="mt-4 leading-[1.7] text-stone-400">{t.faq.desc}</p>
       </motion.div>
 
       <div className="mt-12">

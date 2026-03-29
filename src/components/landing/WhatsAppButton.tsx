@@ -13,7 +13,7 @@ export function WhatsAppButton() {
       transition={{ delay: 1.5 }}
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.95 }}
-      className="fixed bottom-[88px] right-4 z-40 flex h-12 w-12 items-center justify-center rounded-full bg-[#25D366] text-white shadow-xl shadow-emerald-900/30 transition-shadow hover:shadow-emerald-800/40 sm:bottom-24 sm:right-6 sm:h-14 sm:w-14"
+      className="fixed bottom-20 right-4 z-40 flex h-12 w-12 items-center justify-center rounded-full bg-[#25D366] text-white shadow-xl shadow-emerald-900/30 transition-shadow hover:shadow-emerald-800/40 sm:bottom-24 sm:right-6 sm:h-14 sm:w-14"
       aria-label="Fale conosco pelo WhatsApp"
     >
       <svg className="h-6 w-6 sm:h-7 sm:w-7" fill="currentColor" viewBox="0 0 24 24">

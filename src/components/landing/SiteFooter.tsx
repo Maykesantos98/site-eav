@@ -40,10 +40,10 @@ export function SiteFooter() {
       <div id="conta" className="relative overflow-hidden bg-gradient-to-r from-[#6336c4]/15 via-[#8e59ff]/10 to-[#b336c1]/15 py-16 sm:py-20">
         <div className="absolute inset-0 bg-[#0c0a09]/60" />
         <div className="relative mx-auto max-w-3xl px-5 text-center sm:px-8">
-          <h3 className="text-2xl font-extrabold text-white sm:text-3xl lg:text-4xl">
+          <h3 className="text-2xl font-extrabold leading-[1.15] tracking-tight text-white sm:text-3xl lg:text-4xl lg:tracking-[-0.015em]">
             {t.footer.ctaTitle1}<span className="eav-gradient-text">{t.footer.ctaTitleHighlight}</span>?
           </h3>
-          <p className="mt-4 text-sm text-stone-400 sm:text-lg">
+          <p className="mt-4 text-sm leading-[1.7] text-stone-400 sm:text-lg">
             {t.footer.ctaDesc}
           </p>
           {/* Signup form */}
@@ -51,11 +51,11 @@ export function SiteFooter() {
             <input
               type="email"
               placeholder="Seu melhor e-mail"
-              className="flex-1 rounded-full border border-white/10 bg-white/[0.05] px-5 py-3.5 text-sm text-white placeholder-stone-500 outline-none backdrop-blur-sm transition-colors focus:border-violet-500/40 focus:bg-white/[0.08] sm:py-4"
+              className="eav-input flex-1 sm:py-4"
             />
             <button
               type="submit"
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#6336c4] to-[#8e59ff] px-7 py-3.5 text-sm font-bold text-white shadow-xl shadow-violet-950/50 transition-all hover:shadow-violet-900/60 hover:scale-[1.02] sm:py-4"
+              className="eav-btn-primary px-7 py-3.5 sm:py-4"
             >
               {t.footer.ctaBtn}
               <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
@@ -74,7 +74,7 @@ export function SiteFooter() {
             {/* Brand */}
             <div className="lg:col-span-2">
               <EavLogo height={48} />
-              <p className="mt-4 max-w-xs text-sm leading-relaxed text-stone-500">
+              <p className="mt-4 max-w-xs text-sm leading-[1.7] text-stone-500">
                 {t.footer.brandDesc}
               </p>
               {/* Social links */}
@@ -89,7 +89,7 @@ export function SiteFooter() {
                     href="https://eav7.com/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex h-9 w-9 items-center justify-center rounded-full border border-white/[0.08] bg-white/[0.03] text-stone-500 transition-all hover:border-violet-500/30 hover:bg-violet-500/10 hover:text-violet-400"
+                    className="flex h-9 w-9 items-center justify-center rounded-full border border-white/[0.08] bg-white/[0.03] text-stone-500 transition-all duration-200 hover:border-violet-500/30 hover:bg-violet-500/10 hover:text-violet-400 hover:scale-105"
                     aria-label={social.label}
                   >
                     {social.svg}
@@ -109,7 +109,7 @@ export function SiteFooter() {
                     <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
                   </svg>
                   <div>
-                    <div className="text-[10px] leading-tight text-stone-500">{t.app.availableOn1}</div>
+                    <div className="text-[11px] leading-tight text-stone-500">{t.app.availableOn1}</div>
                     <div className="text-xs font-bold leading-tight text-white">{t.app.appStore}</div>
                   </div>
                 </a>
@@ -123,7 +123,7 @@ export function SiteFooter() {
                     <path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.302 2.302a1 1 0 010 1.38l-2.302 2.302L15.396 12l2.302-2.492zM5.864 2.658L16.8 9.09l-2.302 2.303L5.864 2.658z" />
                   </svg>
                   <div>
-                    <div className="text-[10px] leading-tight text-stone-500">{t.app.availableOn2}</div>
+                    <div className="text-[11px] leading-tight text-stone-500">{t.app.availableOn2}</div>
                     <div className="text-xs font-bold leading-tight text-white">{t.app.googlePlay}</div>
                   </div>
                 </a>
@@ -133,7 +133,7 @@ export function SiteFooter() {
             {/* Links */}
             {Object.entries(footerLinks).map(([title, links]) => (
               <div key={title}>
-                <h4 className="text-sm font-semibold text-white">{title}</h4>
+                <h4 className="text-xs font-semibold tracking-[0.1em] text-white uppercase">{title}</h4>
                 <ul className="mt-4 space-y-3">
                   {links.map((link) => (
                     <li key={link.label}>

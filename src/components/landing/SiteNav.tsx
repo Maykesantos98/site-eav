@@ -42,8 +42,11 @@ export function SiteNav() {
   const navLinks = [
     { label: t.nav.inicio, href: "#inicio" },
     { label: t.nav.solucoes, href: "#solucoes" },
+    { label: t.nav.cartoes, href: "#cartoes" },
     { label: t.nav.seguranca, href: "#seguranca" },
     { label: t.nav.empresas, href: "#empresas" },
+    { label: t.nav.app, href: "#app" },
+    { label: t.nav.faq, href: "#faq" },
   ];
 
   useEffect(() => {
@@ -64,60 +67,42 @@ export function SiteNav() {
   return (
     <>
       <motion.header
-        initial={{ opacity: 0, y: -12 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-400 ${
           scrolled
-            ? "border-b border-violet-500/[0.08] bg-[#0c0a09]/85 backdrop-blur-2xl backdrop-saturate-[1.8] shadow-lg shadow-black/30"
-            : "bg-gradient-to-b from-[#0c0a09]/60 to-transparent"
+            ? "bg-[#0c0a09]/95 backdrop-blur-2xl border-b border-white/[0.06] shadow-lg shadow-black/20"
+            : "bg-[#0c0a09]/70 backdrop-blur-md border-b border-transparent"
         }`}
       >
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-3 sm:px-8 sm:py-4">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-5 sm:px-8 h-16">
           {/* Logo */}
           <Link
             href="/"
-            className="flex items-center gap-2 outline-none focus-visible:ring-2 focus-visible:ring-violet-500 rounded-lg"
+            className="flex-shrink-0 outline-none focus-visible:ring-2 focus-visible:ring-violet-500 rounded-lg"
           >
-            <EavLogo height={40} />
+            <EavLogo height={36} />
           </Link>
 
-          {/* Desktop nav */}
+          {/* Desktop nav — centered links */}
           <nav className="hidden items-center gap-0.5 lg:flex">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="group relative rounded-lg px-3.5 py-2 text-[13px] font-medium text-stone-400 transition-colors hover:text-[#8e59ff]"
+                className="relative px-4 py-2 text-[13px] font-medium text-stone-400 transition-colors duration-200 hover:text-white"
               >
                 {link.label}
-                <span className="absolute bottom-1 left-1/2 h-[2px] w-0 -translate-x-1/2 rounded-full bg-[#8e59ff] transition-all duration-300 group-hover:w-2/3" />
               </a>
             ))}
           </nav>
 
-          {/* Desktop right side: Login + CTA + Lang */}
-          <div className="hidden items-center gap-2 lg:flex">
-            <a
-              href="https://eav7.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-lg px-4 py-2 text-[13px] font-medium text-stone-400 transition-colors hover:text-white"
-            >
-              Login
-            </a>
-            <motion.a
-              href="#conta"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.97 }}
-              className="rounded-full bg-gradient-to-r from-[#6336c4] to-[#8e59ff] px-5 py-2.5 text-[13px] font-bold text-white shadow-lg shadow-violet-950/30 transition-shadow hover:shadow-violet-900/40"
-            >
-              {t.nav.abrirConta}
-            </motion.a>
-            <div className="ml-1 h-5 w-px bg-white/10" />
+          {/* Desktop right — two buttons + lang */}
+          <div className="hidden items-center gap-3 lg:flex">
             <button
               onClick={toggle}
-              className="ml-1 flex items-center gap-1.5 rounded-lg px-2.5 py-2 text-xs font-bold text-stone-500 transition-colors hover:text-white"
+              className="flex items-center gap-1.5 px-2 py-1.5 text-xs font-semibold text-stone-500 transition-colors hover:text-stone-300"
               aria-label="Trocar idioma"
             >
               {lang === "pt" ? (
@@ -126,13 +111,31 @@ export function SiteNav() {
                 <><FlagBR className="h-3.5 w-auto rounded-[2px]" /> PT</>
               )}
             </button>
+
+            <div className="h-5 w-px bg-white/8" />
+
+            <a
+              href="https://eav7.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-lg border border-white/15 px-5 py-2 text-[13px] font-medium text-stone-400 transition-all duration-200 hover:border-white/25 hover:text-white hover:bg-white/[0.04]"
+            >
+              Internet Banking
+            </a>
+
+            <a
+              href="#conta"
+              className="rounded-lg bg-white px-6 py-2.5 text-[13px] font-bold text-[#0c0a09] transition-all duration-200 hover:bg-stone-100 shadow-sm"
+            >
+              {t.nav.abrirConta}
+            </a>
           </div>
 
-          {/* Mobile right side */}
+          {/* Mobile right */}
           <div className="flex items-center gap-2 lg:hidden">
             <button
               onClick={toggle}
-              className="flex items-center gap-1.5 rounded-lg px-2.5 py-2 text-xs font-bold text-stone-500"
+              className="flex items-center gap-1.5 px-2 py-1.5 text-xs font-bold text-stone-500"
               aria-label="Trocar idioma"
             >
               {lang === "pt" ? (
@@ -143,7 +146,7 @@ export function SiteNav() {
             </button>
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="relative z-[60] flex h-10 w-10 flex-col items-center justify-center gap-[5px]"
+              className="relative z-[60] flex h-11 w-11 flex-col items-center justify-center gap-[5px]"
               aria-label={mobileOpen ? "Fechar menu" : "Abrir menu"}
             >
               <motion.span
@@ -180,15 +183,15 @@ export function SiteNav() {
                   href={link.href}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: i * 0.07 }}
+                  transition={{ delay: i * 0.06 }}
                   onClick={() => setMobileOpen(false)}
-                  className="text-lg font-semibold text-white transition-colors hover:text-[#8e59ff]"
+                  className="text-lg font-semibold text-stone-300 transition-colors hover:text-white"
                 >
                   {link.label}
                 </motion.a>
               ))}
 
-              <div className="my-2 h-px w-16 bg-white/10" />
+              <div className="my-3 h-px w-12 bg-white/10" />
 
               <motion.a
                 href="https://eav7.com/"
@@ -196,20 +199,20 @@ export function SiteNav() {
                 rel="noopener noreferrer"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: navLinks.length * 0.07 }}
+                transition={{ delay: navLinks.length * 0.06 }}
                 onClick={() => setMobileOpen(false)}
-                className="text-base font-medium text-stone-400 transition-colors hover:text-white"
+                className="rounded-lg border border-white/15 px-8 py-3 text-base font-medium text-stone-400 transition-all hover:border-white/30 hover:text-white"
               >
-                Login
+                Internet Banking
               </motion.a>
 
               <motion.a
                 href="#conta"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: (navLinks.length + 1) * 0.07 }}
+                transition={{ delay: (navLinks.length + 1) * 0.06 }}
                 onClick={() => setMobileOpen(false)}
-                className="mt-2 rounded-full bg-gradient-to-r from-[#6336c4] to-[#8e59ff] px-7 py-3.5 text-base font-bold text-white shadow-lg shadow-violet-950/40"
+                className="rounded-lg bg-white px-8 py-3.5 text-base font-bold text-[#0c0a09] shadow-sm"
               >
                 {t.nav.abrirConta}
               </motion.a>

@@ -57,13 +57,12 @@ export function StatsSection() {
 
   return (
     <section className="relative overflow-hidden py-16 sm:py-20">
-      {/* Background photo */}
+      {/* Background photo — desaturated, strong overlay for readability */}
       <div className="pointer-events-none absolute inset-0" aria-hidden>
-        <Image src={asset("/images/person-travel.jpg")} alt="" fill className="object-cover opacity-[0.18] sm:opacity-[0.25] lg:opacity-[0.30]" sizes="100vw" />
-        <div className="absolute inset-0 bg-[#0c0a09]/55" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0c0a09]/60 via-transparent to-[#0c0a09]/70" />
+        <Image src={asset("/images/person-travel.jpg")} alt="" fill className="object-cover opacity-[0.18] saturate-[0.6] sm:opacity-[0.25] lg:opacity-[0.30]" sizes="100vw" />
+        <div className="eav-bg-overlay-dark" />
+        <div className="eav-bg-overlay-gradient" />
       </div>
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-violet-950/5 to-transparent" aria-hidden />
 
       <div className="eav-divider mx-auto max-w-4xl" />
 
@@ -83,10 +82,10 @@ export function StatsSection() {
                   <path fillRule="evenodd" d={stat.icon} clipRule="evenodd" />
                 </svg>
               </div>
-              <div className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
+              <div className="text-3xl font-extrabold tracking-[-0.02em] text-white sm:text-4xl">
                 <AnimatedNumber end={stat.end} suffix={stat.suffix} prefix={stat.prefix} />
               </div>
-              <div className="mt-2 text-sm text-stone-400">{stat.label}</div>
+              <div className="mt-2 text-sm leading-snug text-stone-400">{stat.label}</div>
             </motion.div>
           ))}
         </div>

@@ -9,6 +9,7 @@ import {
   SpeedCirclesSection,
   WorldGlobeSection,
 } from "@/components/landing/FeatureSections";
+import { TrustSection } from "@/components/landing/TrustSection";
 import { AppDownloadSection } from "@/components/landing/AppDownloadSection";
 import { FaqSection } from "@/components/landing/FaqSection";
 import { SiteNav } from "@/components/landing/SiteNav";
@@ -29,6 +30,7 @@ export default function Home() {
         <CardsShowcase />
         <WorldGlobeSection />
         <SecuritySection />
+        <TrustSection />
         <SpeedCirclesSection />
         <BeyondFinanceSection />
         <CompanySection />

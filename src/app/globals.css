@@ -1,6 +1,12 @@
 @import "tailwindcss";
 
+/* ══════════════════════════════════════════════════════════
+   EAV Bank — Design System v2.0
+   Premium fintech aesthetic (Nubank, Inter, C6, Revolut)
+   ══════════════════════════════════════════════════════════ */
+
 :root {
+  /* ── Brand colors ── */
   --eav-purple: #6336c4;
   --eav-purple-magenta: #b336c1;
   --eav-purple-dark: #5228a8;
@@ -10,6 +16,67 @@
   --eav-bg-elevated: #1c1917;
   --eav-foreground: #fafafa;
   --eav-muted: #a8a29e;
+
+  /* ── Extended palette (hover / active / disabled states) ── */
+  --eav-purple-hover: #7344d8;
+  --eav-purple-active: #5228a8;
+  --eav-purple-disabled: #3d2570;
+  --eav-accent-hover: #a07aff;
+  --eav-surface-hover: rgba(255, 255, 255, 0.06);
+  --eav-surface-active: rgba(255, 255, 255, 0.09);
+  --eav-border-subtle: rgba(255, 255, 255, 0.06);
+  --eav-border-hover: rgba(142, 89, 255, 0.2);
+
+  /* ── Spacing scale (8px grid) ── */
+  --space-1: 0.25rem;   /* 4px */
+  --space-2: 0.5rem;    /* 8px */
+  --space-3: 0.75rem;   /* 12px */
+  --space-4: 1rem;      /* 16px */
+  --space-5: 1.25rem;   /* 20px */
+  --space-6: 1.5rem;    /* 24px */
+  --space-8: 2rem;      /* 32px */
+  --space-10: 2.5rem;   /* 40px */
+  --space-12: 3rem;     /* 48px */
+  --space-16: 4rem;     /* 64px */
+  --space-20: 5rem;     /* 80px */
+  --space-24: 6rem;     /* 96px */
+
+  /* ── Typography ── */
+  --font-body: var(--font-inter), "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: var(--font-geist-mono), "SF Mono", "Fira Code", monospace;
+
+  /* ── Type scale ── */
+  --text-xs: 0.75rem;     /* 12px */
+  --text-sm: 0.875rem;    /* 14px */
+  --text-base: 1rem;      /* 16px */
+  --text-lg: 1.125rem;    /* 18px */
+  --text-xl: 1.25rem;     /* 20px */
+  --text-2xl: 1.5rem;     /* 24px */
+  --text-3xl: 1.875rem;   /* 30px */
+  --text-4xl: 2.25rem;    /* 36px */
+  --text-5xl: 3rem;       /* 48px */
+
+  /* ── Border radius ── */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.25rem;
+  --radius-2xl: 1.5rem;
+  --radius-full: 9999px;
+
+  /* ── Transitions ── */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --duration-fast: 150ms;
+  --duration-normal: 250ms;
+  --duration-slow: 400ms;
+
+  /* ── Shadows ── */
+  --shadow-card: 0 8px 32px -8px rgba(0, 0, 0, 0.3);
+  --shadow-card-hover: 0 12px 40px -8px rgba(99, 54, 196, 0.15);
+  --shadow-glow: 0 0 20px rgba(142, 89, 255, 0.15);
+  --shadow-btn: 0 4px 16px -4px rgba(99, 54, 196, 0.4);
+  --shadow-btn-hover: 0 8px 24px -4px rgba(99, 54, 196, 0.5);
 }
 
 @theme inline {
@@ -17,13 +84,53 @@
   --color-eav-purple-dark: var(--eav-purple-dark);
   --color-eav-purple-light: var(--eav-purple-light);
   --color-eav-bg: var(--eav-bg);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-body);
+  --font-mono: var(--font-mono);
 }
 
-/* ── Scrollbar personalizada (estilo eav7.com) ── */
+/* ══════════════════════════════════════════════════════════
+   Base styles
+   ══════════════════════════════════════════════════════════ */
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-color: #6336c4 #0c0a09;
+  scrollbar-width: thin;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background: var(--eav-bg);
+  color: var(--eav-foreground);
+  font-family: var(--font-body);
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  overflow-x: hidden;
+  line-height: 1.65;
+  letter-spacing: -0.011em;
+}
+
+/* ── Institutional typography — "banco confiável" ── */
+h1, h2, h3 {
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.08;
+}
+
+h1 {
+  font-weight: 900;
+  letter-spacing: -0.035em;
+}
+
+p {
+  color: #a8a29e;
+  line-height: 1.75;
+}
+
+/* ── Scrollbar ── */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 ::-webkit-scrollbar-track {
   background: #0c0a09;
@@ -36,51 +143,16 @@
   background: linear-gradient(180deg, #8e59ff, #b336c1);
 }
 
-@media (max-width: 768px) {
-  ::-webkit-scrollbar { width: 4px; }
-
-  /* Kill heavy effects on mobile */
-  .eav-hero-glow { animation: none; opacity: 0.15; }
-  .eav-noise::before { display: none; }
-  .eav-shimmer { animation: none; }
-
-  /* Remove all drop-shadows on mobile — major perf killer */
-  img { filter: none !important; }
-
-  /* Disable blur backgrounds on mobile */
-  [aria-hidden="true"] > .blur-\[80px\],
-  [aria-hidden="true"] > .blur-\[100px\],
-  [aria-hidden="true"] > .blur-\[120px\] {
-    display: none;
-  }
-
-  /* Smoother scrolling */
-  * {
-    -webkit-tap-highlight-color: transparent;
-  }
+/* ── Text selection ── */
+::selection {
+  background: rgba(142, 89, 255, 0.35);
+  color: #fff;
 }
 
-/* GPU acceleration for animated elements */
-.eav-card-glass,
-.eav-card-gradient {
-  transform: translateZ(0);
-  backface-visibility: hidden;
-}
+/* ══════════════════════════════════════════════════════════
+   Typography utilities
+   ══════════════════════════════════════════════════════════ */
 
-html {
-  scroll-behavior: smooth;
-  scrollbar-color: #6336c4 #0c0a09;
-  scrollbar-width: thin;
-}
-
-body {
-  background: var(--eav-bg);
-  color: var(--eav-foreground);
-  font-family: var(--font-geist-sans), system-ui, sans-serif;
-  overflow-x: hidden;
-}
-
-/* ── Gradiente de texto ── */
 .eav-gradient-text {
   background: linear-gradient(135deg, #8e59ff 0%, #b336c1 50%, #6336c4 100%);
   -webkit-background-clip: text;
@@ -89,55 +161,151 @@ body {
   color: transparent;
 }
 
-/* ── Cards com glassmorphism ── */
+/* Section label — consistent uppercase label across all sections */
+.eav-section-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #a78bfa; /* violet-400 */
+}
+
+/* Section heading — consistent H2 across all sections */
+.eav-section-heading {
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.015em;
+  color: #fff;
+}
+
+/* ══════════════════════════════════════════════════════════
+   Component styles — Cards
+   ══════════════════════════════════════════════════════════ */
+
 .eav-card-gradient {
   background: linear-gradient(135deg, rgba(99, 54, 196, 0.6) 0%, rgba(179, 54, 193, 0.3) 100%);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(142, 89, 255, 0.15);
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
 .eav-card-glass {
   background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--eav-border-subtle);
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  transition: background var(--duration-normal) var(--ease-out),
+              border-color var(--duration-normal) var(--ease-out),
+              box-shadow var(--duration-normal) var(--ease-out);
 }
 
 .eav-card-glass:hover {
-  background: rgba(255, 255, 255, 0.06);
-  border-color: rgba(142, 89, 255, 0.2);
+  background: var(--eav-surface-hover);
+  border-color: var(--eav-border-hover);
+  box-shadow: var(--shadow-card-hover);
 }
 
-/* ── Glow do hero ── */
-@keyframes eav-pulse-glow {
-  0%, 100% {
-    opacity: 0.3;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.5;
-    transform: scale(1.08);
-  }
+/* Feature card — reusable pattern for feature items */
+.eav-feature-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.875rem;
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--eav-border-subtle);
+  background: rgba(255, 255, 255, 0.02);
+  padding: 1rem;
+  backdrop-filter: blur(4px);
+  transition: all var(--duration-normal) var(--ease-out);
 }
 
-.eav-hero-glow {
-  animation: eav-pulse-glow 5s ease-in-out infinite;
+.eav-feature-card:hover {
+  border-color: rgba(142, 89, 255, 0.18);
+  background: rgba(139, 92, 246, 0.05);
+  box-shadow: var(--shadow-card-hover);
 }
 
-/* ── Gradiente de borda animada ── */
-@keyframes border-rotate {
-  0% { --angle: 0deg; }
-  100% { --angle: 360deg; }
+/* ══════════════════════════════════════════════════════════
+   Component styles — Buttons
+   ══════════════════════════════════════════════════════════ */
+
+/* Primary CTA button */
+.eav-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: var(--radius-full);
+  background: linear-gradient(135deg, #6336c4, #8e59ff);
+  padding: 0.875rem 2rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: #fff;
+  box-shadow: var(--shadow-btn);
+  transition: all var(--duration-normal) var(--ease-out);
 }
 
-/* ── Seleção de texto ── */
-::selection {
-  background: rgba(142, 89, 255, 0.35);
+.eav-btn-primary:hover {
+  box-shadow: var(--shadow-btn-hover);
+  filter: brightness(1.1);
+}
+
+.eav-btn-primary:active {
+  transform: scale(0.98);
+}
+
+/* Ghost / outline button */
+.eav-btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.03);
+  padding: 0.875rem 1.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: #d6d3d1; /* stone-300 */
+  backdrop-filter: blur(4px);
+  transition: all var(--duration-normal) var(--ease-out);
+}
+
+.eav-btn-ghost:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+  background: var(--eav-surface-hover);
   color: #fff;
 }
 
-/* ── Botão com brilho ── */
+/* Accent / secondary filled button */
+.eav-btn-accent {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: var(--radius-full);
+  background: rgba(139, 92, 246, 0.12);
+  border: 1px solid rgba(139, 92, 246, 0.25);
+  padding: 0.875rem 2rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: #c4b5fd;
+  backdrop-filter: blur(4px);
+  transition: all var(--duration-normal) var(--ease-out);
+}
+
+.eav-btn-accent:hover {
+  background: rgba(139, 92, 246, 0.2);
+  border-color: rgba(139, 92, 246, 0.4);
+  color: #fff;
+  box-shadow: 0 0 20px rgba(142, 89, 255, 0.15);
+}
+
 .eav-btn-glow {
   position: relative;
   overflow: hidden;
@@ -150,51 +318,190 @@ body {
   border-radius: inherit;
   z-index: -1;
   opacity: 0;
-  transition: opacity 0.3s;
+  transition: opacity var(--duration-normal);
 }
 .eav-btn-glow:hover::after {
   opacity: 1;
 }
 
-/* ── Divider com gradiente ── */
+/* ══════════════════════════════════════════════════════════
+   Component styles — Inputs
+   ══════════════════════════════════════════════════════════ */
+
+.eav-input {
+  width: 100%;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.875rem 1.25rem;
+  font-size: 0.875rem;
+  color: #fff;
+  backdrop-filter: blur(4px);
+  transition: all var(--duration-normal) var(--ease-out);
+}
+
+.eav-input::placeholder {
+  color: #78716c; /* stone-500 */
+}
+
+.eav-input:focus {
+  border-color: rgba(139, 92, 246, 0.4);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.15);
+  outline: none;
+}
+
+/* ══════════════════════════════════════════════════════════
+   Component styles — Badges / Tags
+   ══════════════════════════════════════════════════════════ */
+
+.eav-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  background: rgba(139, 92, 246, 0.1);
+  padding: 0.375rem 1rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #c4b5fd; /* violet-300 */
+}
+
+.eav-tag {
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  background: rgba(139, 92, 246, 0.1);
+  padding: 0.375rem 0.875rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: #c4b5fd;
+  transition: all var(--duration-fast);
+}
+
+.eav-tag:hover {
+  border-color: rgba(139, 92, 246, 0.3);
+  background: rgba(139, 92, 246, 0.15);
+}
+
+/* ══════════════════════════════════════════════════════════
+   Component styles — Icon containers
+   ══════════════════════════════════════════════════════════ */
+
+.eav-icon-box {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md);
+  background: rgba(139, 92, 246, 0.1);
+  transition: all var(--duration-normal) var(--ease-out);
+}
+
+.eav-icon-box-sm {
+  width: 2rem;
+  height: 2rem;
+}
+
+.eav-icon-box-md {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.eav-icon-box-lg {
+  width: 3rem;
+  height: 3rem;
+}
+
+.group:hover .eav-icon-box,
+.eav-feature-card:hover .eav-icon-box {
+  background: rgba(139, 92, 246, 0.2);
+  transform: scale(1.08);
+}
+
+/* ══════════════════════════════════════════════════════════
+   Accessibility — Focus states
+   ══════════════════════════════════════════════════════════ */
+
+:focus-visible {
+  outline: 2px solid rgba(142, 89, 255, 0.7);
+  outline-offset: 2px;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid rgba(142, 89, 255, 0.7);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+input:focus-visible,
+textarea:focus-visible {
+  outline-offset: 0;
+}
+
+/* ══════════════════════════════════════════════════════════
+   Background image treatment — Premium overlays
+   ══════════════════════════════════════════════════════════ */
+
+/* Standard section background container */
+.eav-bg-photo {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.eav-bg-photo img {
+  object-fit: cover;
+  filter: saturate(0.7) contrast(1.05);
+}
+
+/* Overlay layers for text readability */
+.eav-bg-overlay-dark {
+  position: absolute;
+  inset: 0;
+  background: rgba(12, 10, 9, 0.55);
+}
+
+.eav-bg-overlay-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(12, 10, 9, 0.7) 0%,
+    rgba(12, 10, 9, 0.35) 40%,
+    rgba(12, 10, 9, 0.35) 60%,
+    rgba(12, 10, 9, 0.75) 100%
+  );
+}
+
+/* Gradient-left variant for hero-style sections */
+.eav-bg-overlay-left {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(12, 10, 9, 0.85) 0%,
+    rgba(12, 10, 9, 0.5) 40%,
+    transparent 100%
+  );
+}
+
+/* ══════════════════════════════════════════════════════════
+   Decorative elements
+   ══════════════════════════════════════════════════════════ */
+
 .eav-divider {
   height: 1px;
   background: linear-gradient(90deg, transparent, rgba(142, 89, 255, 0.3), transparent);
 }
 
-/* ── Float animation para imagens ── */
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-12px); }
-}
-.eav-float {
-  animation: float 6s ease-in-out infinite;
-}
-
-/* ── Shimmer loading ── */
-@keyframes shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
-}
-.eav-shimmer {
-  background: linear-gradient(90deg, transparent, rgba(142, 89, 255, 0.08), transparent);
-  background-size: 200% 100%;
-  animation: shimmer 3s ease-in-out infinite;
-}
-
-/* ── Noise texture removed — was creating crypto/Web3 aesthetic ── */
-
-/* ── Violet gradient section (warm dark variation) ── */
-.eav-section-violet {
-  background: linear-gradient(180deg, #1a0e2e 0%, #0f0a1a 50%, #0c0a09 100%);
-}
-
-/* ── Deep purple premium section ── */
-.eav-section-premium {
-  background: linear-gradient(135deg, #1a0533 0%, #0f0620 50%, #150a28 100%);
-}
-
-/* ── Section separator glow line ── */
 .eav-glow-line {
   height: 1px;
   background: linear-gradient(
@@ -206,4 +513,147 @@ body {
     transparent 100%
   );
   box-shadow: 0 0 12px rgba(142, 89, 255, 0.15);
+}
+
+/* Section separator — top/bottom glow lines */
+.eav-section-line-top,
+.eav-section-line-bottom {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  pointer-events: none;
+}
+
+.eav-section-line-top {
+  top: 0;
+  background: linear-gradient(90deg, transparent, rgba(142, 89, 255, 0.2), transparent);
+}
+
+.eav-section-line-bottom {
+  bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(99, 54, 196, 0.15), transparent);
+}
+
+/* ══════════════════════════════════════════════════════════
+   Section backgrounds
+   ══════════════════════════════════════════════════════════ */
+
+.eav-section-violet {
+  background: linear-gradient(180deg, #1a0e2e 0%, #0f0a1a 50%, #0c0a09 100%);
+}
+
+.eav-section-premium {
+  background: linear-gradient(135deg, #1a0533 0%, #0f0620 50%, #150a28 100%);
+}
+
+/* ══════════════════════════════════════════════════════════
+   Animations
+   ══════════════════════════════════════════════════════════ */
+
+@keyframes eav-pulse-glow {
+  0%, 100% {
+    opacity: 0.25;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.45;
+    transform: scale(1.06);
+  }
+}
+
+.eav-hero-glow {
+  animation: eav-pulse-glow 6s ease-in-out infinite;
+}
+
+@keyframes border-rotate {
+  0% { --angle: 0deg; }
+  100% { --angle: 360deg; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+.eav-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.eav-shimmer {
+  background: linear-gradient(90deg, transparent, rgba(142, 89, 255, 0.08), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+/* Subtle grain texture for premium feel */
+@keyframes grain {
+  0%, 100% { transform: translate(0, 0); }
+  10% { transform: translate(-2%, -2%); }
+  30% { transform: translate(1%, -3%); }
+  50% { transform: translate(-1%, 2%); }
+  70% { transform: translate(3%, 1%); }
+  90% { transform: translate(2%, -1%); }
+}
+
+/* ══════════════════════════════════════════════════════════
+   Mobile performance optimizations
+   ══════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+  ::-webkit-scrollbar { width: 3px; }
+
+  .eav-hero-glow { animation: none; opacity: 0.12; }
+  .eav-shimmer { animation: none; }
+
+  /* Remove heavy filters on mobile */
+  img { filter: none !important; }
+
+  /* Disable blur backgrounds on mobile */
+  [aria-hidden="true"] > .blur-\[80px\],
+  [aria-hidden="true"] > .blur-\[100px\],
+  [aria-hidden="true"] > .blur-\[120px\],
+  [aria-hidden="true"] > .blur-\[160px\] {
+    display: none;
+  }
+
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Tighter spacing on mobile */
+  body {
+    letter-spacing: -0.006em;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ══════════════════════════════════════════════════════════
+   Print styles
+   ══════════════════════════════════════════════════════════ */
+
+@media print {
+  body {
+    background: white;
+    color: black;
+  }
+  .eav-card-glass,
+  .eav-card-gradient {
+    backdrop-filter: none;
+    background: white;
+    border: 1px solid #ccc;
+  }
 }
