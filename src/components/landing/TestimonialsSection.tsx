@@ -4,6 +4,7 @@ import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 import { fadeUp } from "./motion";
 import { asset } from "@/constants/basePath";
+import { Icon } from "@/components/ui/Icon";
 
 const testimonials = [
   {
@@ -11,42 +12,48 @@ const testimonials = [
     role: "Empresário",
     text: "Transferi para a Europa sem pagar IOF. Em menos de 3 segundos o dinheiro já estava lá. Nunca vi nada parecido.",
     stars: 5,
-    avatar: "LM",
+    initials: "LM",
+    gradient: "from-violet-600 to-indigo-500",
   },
   {
     name: "Camila R.",
     role: "Investidora",
     text: "Fazer câmbio pelo app em segundos e sem taxas absurdas mudou completamente a forma como gerencio meu dinheiro.",
     stars: 5,
-    avatar: "CR",
+    initials: "CR",
+    gradient: "from-fuchsia-600 to-pink-500",
   },
   {
     name: "André S.",
     role: "Freelancer",
     text: "Recebo de clientes internacionais direto no app. Sem burocracia, sem banco intermediário, sem dor de cabeça.",
     stars: 5,
-    avatar: "AS",
+    initials: "AS",
+    gradient: "from-emerald-600 to-teal-500",
   },
   {
     name: "Beatriz L.",
     role: "CEO — Startup",
     text: "A folha de pagamento internacionalizada do EAV Bank simplificou toda nossa operação com o time remoto.",
     stars: 5,
-    avatar: "BL",
+    initials: "BL",
+    gradient: "from-amber-600 to-orange-500",
   },
   {
     name: "Rafael T.",
     role: "Empresário",
     text: "A infraestrutura do EAV Bank garante execução instantânea. Já testei transferências em horários de pico e nunca falhou.",
     stars: 5,
-    avatar: "RT",
+    initials: "RT",
+    gradient: "from-sky-600 to-cyan-500",
   },
   {
     name: "Juliana P.",
     role: "Nômade Digital",
     text: "Viajo por 12 países ao ano e o cartão internacional do EAV é o único que funciona em todos sem cobrar absurdos.",
     stars: 4,
-    avatar: "JP",
+    initials: "JP",
+    gradient: "from-rose-600 to-red-400",
   },
 ];
 
@@ -54,14 +61,12 @@ function Stars({ count }: { count: number }) {
   return (
     <div className="flex gap-0.5">
       {Array.from({ length: 5 }).map((_, i) => (
-        <svg
+        <Icon
           key={i}
-          className={`h-4 w-4 ${i < count ? "text-amber-400" : "text-stone-700"}`}
-          fill="currentColor"
-          viewBox="0 0 20 20"
-        >
-          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-        </svg>
+          name="star"
+          size="sm"
+          className={i < count ? "text-amber-400 fill-amber-400 stroke-amber-400" : "text-stone-800 stroke-stone-800"}
+        />
       ))}
     </div>
   );
@@ -141,8 +146,17 @@ export function TestimonialsSection() {
                 &ldquo;{t.text}&rdquo;
               </p>
               <div className="mt-5 flex items-center gap-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-[#6336c4] to-[#8e59ff] text-xs font-bold text-white">
-                  {t.avatar}
+                {/* Avatar with unique gradient per person + ring */}
+                <div className="relative">
+                  <div className={`flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br ${t.gradient} text-xs font-bold text-white ring-2 ring-white/10 ring-offset-2 ring-offset-[#0c0a09]`}>
+                    {t.initials}
+                  </div>
+                  {/* Verified dot */}
+                  <div className="absolute -bottom-0.5 -right-0.5 flex h-3.5 w-3.5 items-center justify-center rounded-full bg-emerald-500 ring-2 ring-[#0c0a09]">
+                    <svg className="h-2 w-2 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                    </svg>
+                  </div>
                 </div>
                 <div>
                   <div className="text-sm font-semibold text-white">{t.name}</div>

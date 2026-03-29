@@ -1,7 +1,9 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { useLang } from "@/constants/LangContext";
+import { Icon } from "@/components/ui/Icon";
 
 const fade = {
   hidden: { opacity: 0, y: 16 },
@@ -11,6 +13,21 @@ const fade = {
 export default function ContatoPage() {
   const { lang } = useLang();
   const isPt = lang === "pt";
+  const [sending, setSending] = useState(false);
+  const [sent, setSent] = useState(false);
+
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    if (sending) return;
+    setSending(true);
+    // Simula envio
+    setTimeout(() => {
+      setSending(false);
+      setSent(true);
+      (e.target as HTMLFormElement).reset();
+      setTimeout(() => setSent(false), 4000);
+    }, 1500);
+  }
 
   const channels = isPt
     ? [
@@ -63,23 +80,75 @@ export default function ContatoPage() {
         <h2 className="text-xl font-extrabold tracking-tight text-white sm:text-2xl">
           {isPt ? "Envie uma mensagem" : "Send a message"}
         </h2>
-        <form onSubmit={(e) => e.preventDefault()} className="mt-6 max-w-lg space-y-4">
+
+        {/* Success banner */}
+        <AnimatePresence>
+          {sent && (
+            <motion.div
+              initial={{ opacity: 0, y: -8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              className="mt-4 flex items-center gap-2 rounded-xl border border-emerald-500/20 bg-emerald-500/5 px-4 py-3"
+            >
+              <Icon name="check-circle" size="sm" className="text-emerald-400" />
+              <span className="text-sm text-emerald-300">
+                {isPt ? "Mensagem enviada com sucesso!" : "Message sent successfully!"}
+              </span>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        <form onSubmit={handleSubmit} className="mt-6 max-w-lg space-y-4">
           <div className="grid gap-4 sm:grid-cols-2">
             <div>
               <label className="mb-1.5 block text-[11px] font-semibold text-stone-500">{isPt ? "Nome" : "Name"}</label>
-              <input type="text" className="eav-input rounded-xl" placeholder={isPt ? "Seu nome" : "Your name"} />
+              <input
+                type="text"
+                required
+                minLength={2}
+                className="eav-input rounded-xl"
+                placeholder={isPt ? "Seu nome" : "Your name"}
+              />
             </div>
             <div>
               <label className="mb-1.5 block text-[11px] font-semibold text-stone-500">E-mail</label>
-              <input type="email" className="eav-input rounded-xl" placeholder={isPt ? "Seu e-mail" : "Your email"} />
+              <input
+                type="email"
+                required
+                className="eav-input rounded-xl"
+                placeholder={isPt ? "Seu e-mail" : "Your email"}
+              />
             </div>
           </div>
           <div>
             <label className="mb-1.5 block text-[11px] font-semibold text-stone-500">{isPt ? "Mensagem" : "Message"}</label>
-            <textarea rows={4} className="eav-input rounded-xl resize-none" placeholder={isPt ? "Escreva sua mensagem..." : "Write your message..."} />
+            <textarea
+              rows={4}
+              required
+              minLength={10}
+              className="eav-input rounded-xl resize-none"
+              placeholder={isPt ? "Escreva sua mensagem..." : "Write your message..."}
+            />
           </div>
-          <button type="submit" className="eav-btn-primary text-sm">
-            {isPt ? "Enviar" : "Send"}
+          <button
+            type="submit"
+            disabled={sending}
+            className="eav-btn-primary text-sm disabled:opacity-60 disabled:cursor-not-allowed"
+          >
+            {sending ? (
+              <>
+                <svg className="h-4 w-4 animate-spin" viewBox="0 0 24 24" fill="none">
+                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="3" />
+                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                </svg>
+                {isPt ? "Enviando..." : "Sending..."}
+              </>
+            ) : (
+              <>
+                {isPt ? "Enviar" : "Send"}
+                <Icon name="paper-airplane" size="sm" />
+              </>
+            )}
           </button>
         </form>
       </motion.div>
