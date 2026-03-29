@@ -139,7 +139,7 @@ export function SecuritySection() {
           transition={{ duration: 0.7 }}
           className="relative mx-auto max-w-[480px] lg:mx-0"
         >
-          <div className="absolute inset-0 -m-12 rounded-full bg-[#8e59ff]/10 blur-[80px]" aria-hidden />
+          <div className="absolute inset-0 -m-6 rounded-full bg-[#8e59ff]/10 blur-[40px] sm:-m-12 sm:blur-[80px]" aria-hidden />
           <motion.div
             animate={reduce ? {} : { scale: [1, 1.03, 1] }}
             transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
@@ -214,7 +214,7 @@ export function SpeedCirclesSection() {
   return (
     <section className="relative overflow-hidden py-20 sm:py-28">
       {/* Background glow */}
-      <div className="absolute left-1/2 top-1/2 h-[400px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#6336c4]/5 blur-[120px]" aria-hidden />
+      <div className="absolute left-1/2 top-1/2 h-[250px] w-[300px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#6336c4]/5 blur-[60px] sm:h-[400px] sm:w-[600px] sm:blur-[120px]" aria-hidden />
 
       <div className="relative mx-auto max-w-6xl px-5 sm:px-8">
         <motion.div

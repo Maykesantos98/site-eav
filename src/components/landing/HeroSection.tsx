@@ -28,7 +28,7 @@ export function HeroIntro() {
       </div>
 
       {/* Glow orbs */}
-      <div className="pointer-events-none absolute -top-40 left-1/4 h-[250px] w-[250px] rounded-full bg-[#6336c4]/10 blur-[80px] eav-hero-glow sm:h-[400px] sm:w-[500px] sm:blur-[120px]" aria-hidden />
+      <div className="pointer-events-none absolute -top-40 left-1/4 h-[200px] w-[200px] rounded-full bg-[#6336c4]/10 blur-[50px] eav-hero-glow sm:h-[400px] sm:w-[500px] sm:blur-[120px]" aria-hidden />
 
       <div className="relative z-[1] mx-auto max-w-6xl px-5 sm:px-8">
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-12">

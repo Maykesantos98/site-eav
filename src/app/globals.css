@@ -38,6 +38,20 @@
 
 @media (max-width: 768px) {
   ::-webkit-scrollbar { width: 4px; }
+
+  /* Reduce heavy effects on mobile for performance */
+  .eav-hero-glow { animation: none; opacity: 0.2; }
+  .eav-noise::before { display: none; }
+
+  /* Smoother scrolling on mobile */
+  * { -webkit-tap-highlight-color: transparent; }
+}
+
+/* GPU acceleration for animated elements */
+.eav-card-glass,
+.eav-card-gradient {
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
 html {
