@@ -279,65 +279,7 @@ export function SpeedCirclesSection() {
 
 /* ─── Beyond Finance Section ─── */
 
-export function BeyondFinanceSection() {
-  const reduce = useReducedMotion();
-  const { t } = useLang();
-  const isMobile = useIsMobile();
-  return (
-    <section className="relative overflow-hidden py-28 sm:py-36">
-      <div className="relative mx-auto max-w-6xl px-5 sm:px-8">
-        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
-          <motion.div
-            initial={reduce ? false : { opacity: 0, x: -16 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="order-2 lg:order-1"
-          >
-            <span className="eav-section-label">{t.beyond.label}</span>
-            <h2 className="mt-4 text-2xl font-extrabold leading-[1.12] tracking-tight text-white sm:text-3xl lg:text-4xl lg:tracking-[-0.02em]">
-              {t.beyond.title1}<span className="eav-gradient-text">{t.beyond.titleHighlight}</span>
-            </h2>
-            <p className="mt-6 text-base leading-[1.75] text-stone-400 sm:text-lg">
-              {t.beyond.desc}
-            </p>
-            <div className="mt-7 grid grid-cols-1 gap-2.5 sm:mt-9 sm:grid-cols-2 sm:gap-3">
-              {t.beyond.items.map((item) => (
-                <div key={item} className="flex items-center gap-2.5 text-sm text-stone-300">
-                  <Icon name="check-circle" size="sm" className="flex-shrink-0 text-violet-400" />
-                  {item}
-                </div>
-              ))}
-            </div>
-          </motion.div>
-          <motion.div
-            initial={reduce ? false : { opacity: 0, x: 16 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="order-1 flex justify-center lg:order-2"
-          >
-            <div className="relative">
-              <div className="absolute inset-0 -m-10 rounded-3xl bg-[#6336c4]/6 blur-[60px]" aria-hidden />
-              <motion.div
-                animate={reduce || isMobile ? {} : { y: [0, -10, 0] }}
-                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-              >
-                <EavRemoteImage
-                  src={eavImages.chicara}
-                  alt="Experiência digital EAV Bank"
-                  width={585}
-                  height={539}
-                  className="relative h-auto w-full max-w-full sm:max-w-[400px] lg:max-w-[500px] object-contain drop-shadow-[0_0_50px_rgba(99,54,196,0.15)]"
-                />
-              </motion.div>
-            </div>
-          </motion.div>
-        </div>
-      </div>
-    </section>
-  );
-}
+/* BeyondFinanceSection removed — replaced by ProductsSection */
 
 /* ─── Company / B2B Section ─── */
 

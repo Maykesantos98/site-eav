@@ -10,10 +10,9 @@ const WorldGlobeSection = dynamic(() => import("@/components/landing/FeatureSect
 const SecuritySection = dynamic(() => import("@/components/landing/FeatureSections").then(m => m.SecuritySection));
 const TrustSection = dynamic(() => import("@/components/landing/TrustSection").then(m => m.TrustSection));
 const SpeedCirclesSection = dynamic(() => import("@/components/landing/FeatureSections").then(m => m.SpeedCirclesSection));
-const BeyondFinanceSection = dynamic(() => import("@/components/landing/FeatureSections").then(m => m.BeyondFinanceSection));
+const ProductsSection = dynamic(() => import("@/components/landing/ProductsSection").then(m => m.ProductsSection));
 const CompanySection = dynamic(() => import("@/components/landing/FeatureSections").then(m => m.CompanySection));
 const AppDownloadSection = dynamic(() => import("@/components/landing/AppDownloadSection").then(m => m.AppDownloadSection));
-const FaqSection = dynamic(() => import("@/components/landing/FaqSection").then(m => m.FaqSection));
 const ScrollToTop = dynamic(() => import("@/components/landing/ScrollToTop").then(m => m.ScrollToTop));
 const WhatsAppButton = dynamic(() => import("@/components/landing/WhatsAppButton").then(m => m.WhatsAppButton));
 const CookieBanner = dynamic(() => import("@/components/landing/CookieBanner").then(m => m.CookieBanner));
@@ -34,10 +33,10 @@ export default function Home() {
         <SecuritySection />
         <TrustSection />
         <SpeedCirclesSection />
-        <BeyondFinanceSection />
+        <ProductsSection />
         <CompanySection />
         <AppDownloadSection />
-        <FaqSection />
+
       </main>
       <SiteFooter />
       <ScrollToTop />

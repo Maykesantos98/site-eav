@@ -68,18 +68,36 @@ export const translations = {
     // Cards
     cards: {
       label: "Cartões",
-      title1: "Conheça nossos ",
-      titleHighlight: "cartões",
+      title1: "Escolha seu ",
+      titleHighlight: "cartão",
       desc: "Do essencial ao premium, todos projetados para quem não aceita menos que o melhor.",
-      benefits: [
-        "Visa internacional aceita em 150+ países",
-        "Zero anuidade em todos os planos",
-        "Pagamento por aproximação",
-        "Protegido por Smart Chain e IA",
-        "Cashback em todas as compras",
-        "Câmbio direto no cartão",
+      cta: "Quero este cartão",
+      tiers: [
+        {
+          id: "graphene",
+          name: "EAV Black",
+          tagline: "Em breve",
+          popular: false,
+          comingSoon: true,
+          benefits: [],
+        },
+        {
+          id: "eav",
+          name: "EAV Bank",
+          tagline: "Mais popular",
+          popular: true,
+          comingSoon: true,
+          benefits: [],
+        },
+        {
+          id: "grabtium",
+          name: "EAV Premium",
+          tagline: "Em breve",
+          popular: false,
+          comingSoon: true,
+          benefits: [],
+        },
       ],
-      cta: "Solicitar meu cartão",
     },
     // Globe
     globe: {
@@ -115,13 +133,74 @@ export const translations = {
       titleHighlight: "até 3 segundos",
       circles: ["Transações ilimitadas", "Velocidade máxima", "Disponível 24/7"],
     },
-    // Beyond
-    beyond: {
-      label: "Além",
-      title1: "A liberdade vai ",
-      titleHighlight: "além das finanças",
-      desc: "O EAV Bank facilita a gestão completa do seu patrimônio, desde investimentos tradicionais até câmbio internacional.",
-      items: ["Câmbio", "Investimentos", "Seguros", "Previdência"],
+    // Products
+    products: {
+      title: "Nossos produtos",
+      desc: "Soluções completas para todas as suas necessidades financeiras",
+      tabs: [
+        { id: "voce", label: "Para você" },
+        { id: "empresas", label: "Para empresas" },
+      ],
+      voce: [
+        {
+          icon: "credit-card",
+          title: "Conta Digital",
+          description: "Conta completa, gratuita e sem burocracia. Pix, transferências e pagamentos na palma da mão.",
+          features: ["Sem taxas de manutenção", "Pix 24h ilimitado", "Cartão de débito grátis"],
+          cta: "Abrir conta",
+        },
+        {
+          icon: "banknotes",
+          title: "Cartão Internacional",
+          description: "Visa internacional aceito em 150+ países. Sem anuidade e com cashback real.",
+          features: ["Zero anuidade", "Cashback em compras", "Pagamento por aproximação"],
+          cta: "Pedir cartão",
+        },
+        {
+          icon: "chart-bar",
+          title: "Câmbio Digital",
+          description: "Envie e receba em qualquer moeda com taxas competitivas e sem IOF.",
+          features: ["Câmbio em tempo real", "Zero IOF", "150+ países disponíveis"],
+          cta: "Enviar dinheiro",
+        },
+        {
+          icon: "shield",
+          title: "Segurança Avançada",
+          description: "Criptografia de ponta, biometria facial e monitoramento 24/7 com IA.",
+          features: ["Biometria facial", "Alertas em tempo real", "Bloqueio instantâneo"],
+          cta: "Saiba mais",
+        },
+      ],
+      empresas: [
+        {
+          icon: "building",
+          title: "Conta PJ",
+          description: "Conta empresarial completa com gestão financeira integrada e tarifas reduzidas.",
+          features: ["Múltiplos usuários", "Integração contábil", "Relatórios gerenciais"],
+          cta: "Abrir conta PJ",
+        },
+        {
+          icon: "banknotes",
+          title: "Folha de Pagamentos",
+          description: "Pague funcionários em qualquer moeda e em qualquer país pelo app.",
+          features: ["Pagamento internacional", "Múltiplas moedas", "Relatórios automáticos"],
+          cta: "Conhecer",
+        },
+        {
+          icon: "globe",
+          title: "Câmbio Empresarial",
+          description: "Taxas exclusivas para operações de câmbio B2B e comércio exterior.",
+          features: ["Taxas exclusivas", "Swift disponível", "Conta em dólar e euro"],
+          cta: "Simular câmbio",
+        },
+        {
+          icon: "lock",
+          title: "Segurança Corporativa",
+          description: "Múltiplos níveis de aprovação e auditoria em tempo real para sua empresa.",
+          features: ["Aprovação multinível", "Auditoria em tempo real", "Compliance integrado"],
+          cta: "Saiba mais",
+        },
+      ],
     },
     // Company
     company: {
@@ -281,18 +360,36 @@ export const translations = {
     },
     cards: {
       label: "Cards",
-      title1: "Discover our ",
-      titleHighlight: "cards",
+      title1: "Choose your ",
+      titleHighlight: "card",
       desc: "From essential to premium, all designed for those who accept nothing but the best.",
-      benefits: [
-        "International Visa accepted in 150+ countries",
-        "Zero annual fee on all plans",
-        "Contactless payment",
-        "Protected by Smart Chain and AI",
-        "Cashback on all purchases",
-        "FX directly on the card",
+      cta: "I want this card",
+      tiers: [
+        {
+          id: "graphene",
+          name: "EAV Black",
+          tagline: "Coming soon",
+          popular: false,
+          comingSoon: true,
+          benefits: [],
+        },
+        {
+          id: "eav",
+          name: "EAV Bank",
+          tagline: "Most popular",
+          popular: true,
+          comingSoon: true,
+          benefits: [],
+        },
+        {
+          id: "grabtium",
+          name: "EAV Premium",
+          tagline: "Coming soon",
+          popular: false,
+          comingSoon: true,
+          benefits: [],
+        },
       ],
-      cta: "Request my card",
     },
     globe: {
       label: "Global",
@@ -325,12 +422,73 @@ export const translations = {
       titleHighlight: "up to 3 seconds",
       circles: ["Unlimited transactions", "Maximum speed", "Available 24/7"],
     },
-    beyond: {
-      label: "Beyond",
-      title1: "Freedom goes ",
-      titleHighlight: "beyond finance",
-      desc: "EAV Bank facilitates the complete management of your assets, from traditional investments to international FX.",
-      items: ["FX Exchange", "Investments", "Insurance", "Pension"],
+    products: {
+      title: "Our products",
+      desc: "Complete solutions for all your financial needs",
+      tabs: [
+        { id: "voce", label: "For you" },
+        { id: "empresas", label: "For business" },
+      ],
+      voce: [
+        {
+          icon: "credit-card",
+          title: "Digital Account",
+          description: "Complete, free and hassle-free account. Pix, transfers and payments at your fingertips.",
+          features: ["No maintenance fees", "Unlimited 24h Pix", "Free debit card"],
+          cta: "Open account",
+        },
+        {
+          icon: "banknotes",
+          title: "International Card",
+          description: "International Visa accepted in 150+ countries. No annual fee and real cashback.",
+          features: ["Zero annual fee", "Cashback on purchases", "Contactless payment"],
+          cta: "Request card",
+        },
+        {
+          icon: "chart-bar",
+          title: "Digital FX",
+          description: "Send and receive in any currency with competitive rates and no taxes.",
+          features: ["Real-time exchange", "Zero taxes", "150+ countries available"],
+          cta: "Send money",
+        },
+        {
+          icon: "shield",
+          title: "Advanced Security",
+          description: "End-to-end encryption, facial biometrics and 24/7 AI monitoring.",
+          features: ["Facial biometrics", "Real-time alerts", "Instant block"],
+          cta: "Learn more",
+        },
+      ],
+      empresas: [
+        {
+          icon: "building",
+          title: "Business Account",
+          description: "Complete business account with integrated financial management and reduced fees.",
+          features: ["Multiple users", "Accounting integration", "Management reports"],
+          cta: "Open business account",
+        },
+        {
+          icon: "banknotes",
+          title: "Payroll",
+          description: "Pay employees in any currency and in any country through the app.",
+          features: ["International payment", "Multiple currencies", "Automatic reports"],
+          cta: "Learn more",
+        },
+        {
+          icon: "globe",
+          title: "Business FX",
+          description: "Exclusive rates for B2B foreign exchange and international trade.",
+          features: ["Exclusive rates", "Swift available", "Dollar and euro accounts"],
+          cta: "Simulate FX",
+        },
+        {
+          icon: "lock",
+          title: "Corporate Security",
+          description: "Multiple approval levels and real-time auditing for your company.",
+          features: ["Multi-level approval", "Real-time auditing", "Integrated compliance"],
+          cta: "Learn more",
+        },
+      ],
     },
     company: {
       label: "For business",

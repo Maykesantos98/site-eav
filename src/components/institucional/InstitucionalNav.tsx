@@ -13,6 +13,7 @@ const links = [
   { href: "/institucional/ouvidoria", labelPt: "Ouvidoria", labelEn: "Ombudsman" },
   { href: "/institucional/termos", labelPt: "Termos", labelEn: "Terms" },
   { href: "/institucional/privacidade", labelPt: "Privacidade", labelEn: "Privacy" },
+  { href: "/institucional/faq", labelPt: "Perguntas frequentes", labelEn: "FAQ" },
 ];
 
 export function InstitucionalNav() {
