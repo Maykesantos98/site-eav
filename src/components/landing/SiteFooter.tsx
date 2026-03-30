@@ -4,9 +4,11 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { EavLogo } from "@/components/EavLogo";
 import { useLang } from "@/constants/LangContext";
+import basePath from "@/constants/basePath";
 
 export function SiteFooter() {
   const { t } = useLang();
+  const home = basePath || "/";
 
   return (
     <motion.footer
@@ -120,10 +122,10 @@ export function SiteFooter() {
                 <h4 className="text-[10px] font-bold tracking-[0.15em] text-stone-400 uppercase">{t.footer.produto}</h4>
                 <ul className="mt-4 space-y-2.5">
                   {[
-                    { label: t.footer.links.contaDigital, href: "/#conta" },
-                    { label: t.footer.links.cartao, href: "/#cartoes" },
-                    { label: t.footer.links.contaPJ, href: "/#empresas" },
-                    { label: t.footer.links.empresas, href: "/#empresas" },
+                    { label: t.footer.links.contaDigital, href: `${home}#conta` },
+                    { label: t.footer.links.cartao, href: `${home}#cartoes` },
+                    { label: t.footer.links.contaPJ, href: `${home}#empresas` },
+                    { label: t.footer.links.empresas, href: `${home}#empresas` },
                   ].map((link) => (
                     <li key={link.label}>
                       <Link href={link.href} className="text-[13px] text-stone-600 transition-colors hover:text-stone-300">{link.label}</Link>
@@ -137,10 +139,10 @@ export function SiteFooter() {
                 <h4 className="text-[10px] font-bold tracking-[0.15em] text-stone-400 uppercase">{t.footer.recursos}</h4>
                 <ul className="mt-4 space-y-2.5">
                   {[
-                    { label: t.footer.links.pix, href: "/#solucoes" },
-                    { label: t.footer.links.transferencias, href: "/#solucoes" },
-                    { label: t.footer.links.investimentos, href: "/#solucoes" },
-                    { label: t.footer.links.cambio, href: "/#solucoes" },
+                    { label: t.footer.links.pix, href: `${home}#solucoes` },
+                    { label: t.footer.links.transferencias, href: `${home}#solucoes` },
+                    { label: t.footer.links.investimentos, href: `${home}#solucoes` },
+                    { label: t.footer.links.cambio, href: `${home}#solucoes` },
                   ].map((link) => (
                     <li key={link.label}>
                       <Link href={link.href} className="text-[13px] text-stone-600 transition-colors hover:text-stone-300">{link.label}</Link>

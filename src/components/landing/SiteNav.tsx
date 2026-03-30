@@ -6,6 +6,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { EavLogo } from "@/components/EavLogo";
 import { useLang } from "@/constants/LangContext";
+import basePath from "@/constants/basePath";
 
 function FlagBR({ className = "" }: { className?: string }) {
   return (
@@ -42,12 +43,13 @@ export function SiteNav() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const isHome = pathname === "/";
 
+  const home = basePath || "/";
   const navLinks = [
-    { label: t.nav.inicio, href: "/#inicio" },
-    { label: t.nav.cartoes, href: "/#cartoes" },
-    { label: t.nav.seguranca, href: "/#seguranca" },
-    { label: t.nav.empresas, href: "/#empresas" },
-    { label: t.nav.app, href: "/#app" },
+    { label: t.nav.inicio, href: `${home}#inicio` },
+    { label: t.nav.cartoes, href: `${home}#cartoes` },
+    { label: t.nav.seguranca, href: `${home}#seguranca` },
+    { label: t.nav.empresas, href: `${home}#empresas` },
+    { label: t.nav.app, href: `${home}#app` },
   ];
 
   useEffect(() => {
@@ -122,7 +124,7 @@ export function SiteNav() {
             </a>
 
             <a
-              href={isHome ? "#conta" : "/#conta"}
+              href={isHome ? "#conta" : `${home}#conta`}
               className="rounded-full bg-gradient-to-r from-[#6336c4] to-[#8e59ff] px-6 py-2 text-[13px] font-bold text-white transition-all duration-200 hover:shadow-lg hover:shadow-[#6336c4]/30 hover:brightness-110"
             >
               {t.nav.abrirConta}
@@ -205,7 +207,7 @@ export function SiteNav() {
               </motion.a>
 
               <motion.a
-                href={isHome ? "#conta" : "/#conta"}
+                href={isHome ? "#conta" : `${home}#conta`}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: (navLinks.length + 1) * 0.06 }}
