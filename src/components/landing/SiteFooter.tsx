@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { EavLogo } from "@/components/EavLogo";
@@ -9,6 +10,7 @@ import basePath from "@/constants/basePath";
 export function SiteFooter() {
   const { t } = useLang();
   const home = basePath || "/";
+  const [submitted, setSubmitted] = useState(false);
 
   return (
     <motion.footer
@@ -32,24 +34,23 @@ export function SiteFooter() {
           <form
             onSubmit={(e) => {
               e.preventDefault();
-              const btn = e.currentTarget.querySelector("button");
-              if (btn) {
-                btn.textContent = "Em breve!";
-                btn.classList.add("opacity-60", "cursor-not-allowed");
-                setTimeout(() => {
-                  btn.innerHTML = `${t.footer.ctaBtn} <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>`;
-                  btn.classList.remove("opacity-60", "cursor-not-allowed");
-                }, 2000);
-              }
+              setSubmitted(true);
+              setTimeout(() => setSubmitted(false), 2000);
             }}
             className="mx-auto mt-8 flex max-w-md flex-col gap-3 sm:flex-row"
           >
             <input type="email" required placeholder="Seu melhor e-mail" className="eav-input flex-1 sm:py-4" />
-            <button type="submit" className="eav-btn-primary px-7 py-3.5 sm:py-4">
-              {t.footer.ctaBtn}
-              <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-              </svg>
+            <button
+              type="submit"
+              disabled={submitted}
+              className={`eav-btn-primary px-7 py-3.5 sm:py-4 ${submitted ? "opacity-60 cursor-not-allowed" : ""}`}
+            >
+              {submitted ? "Em breve!" : t.footer.ctaBtn}
+              {!submitted && (
+                <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+              )}
             </button>
           </form>
           <p className="mt-4 text-[11px] text-stone-600">

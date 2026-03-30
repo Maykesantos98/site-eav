@@ -70,6 +70,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
+      <head>
+        <meta httpEquiv="X-Content-Type-Options" content="nosniff" />
+        <meta httpEquiv="X-Frame-Options" content="DENY" />
+        <meta name="referrer" content="strict-origin-when-cross-origin" />
+      </head>
       <body
         className={`${inter.variable} ${spaceGrotesk.variable} ${geistMono.variable} antialiased min-h-screen bg-[#0c0a09] text-zinc-50`}
       >
