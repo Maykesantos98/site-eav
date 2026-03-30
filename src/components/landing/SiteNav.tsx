@@ -174,7 +174,7 @@ export function SiteNav() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.25 }}
-            className="fixed inset-0 z-[55] bg-[#0c0a09]/98 backdrop-blur-2xl lg:hidden"
+            className="fixed inset-0 z-[55] bg-[#0c0a09]/[0.97] lg:hidden"
           >
             <nav className="flex h-full flex-col items-center justify-center gap-6">
               {navLinks.map((link, i) => (

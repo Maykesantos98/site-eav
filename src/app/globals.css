@@ -645,25 +645,53 @@ header {
 @media (max-width: 768px) {
   ::-webkit-scrollbar { width: 3px; }
 
-  .eav-hero-glow { animation: none; opacity: 0.12; }
+  .eav-hero-glow { animation: none; opacity: 0.1; }
   .eav-shimmer { animation: none; }
 
   /* Remove heavy filters on mobile */
   img { filter: none !important; }
 
-  /* Disable blur backgrounds on mobile */
-  [aria-hidden="true"] > .blur-\[80px\],
-  [aria-hidden="true"] > .blur-\[100px\],
-  [aria-hidden="true"] > .blur-\[120px\],
-  [aria-hidden="true"] > .blur-\[160px\] {
-    display: none;
+  /* Kill ALL heavy blur decorations on mobile */
+  .blur-\[30px\],
+  .blur-\[40px\],
+  .blur-\[50px\],
+  .blur-\[60px\],
+  .blur-\[80px\],
+  .blur-\[100px\],
+  .blur-\[120px\],
+  .blur-\[160px\] {
+    display: none !important;
+  }
+
+  /* Reduce backdrop-blur intensity on mobile */
+  .backdrop-blur-xl,
+  .backdrop-blur-2xl {
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+  }
+
+  .backdrop-blur-sm {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  /* Disable hover-only effects on touch */
+  .hover\:shadow-xl:hover,
+  .hover\:shadow-lg:hover {
+    box-shadow: none !important;
+  }
+
+  /* Disable card glass blur on mobile */
+  .eav-card-glass,
+  .eav-card-gradient {
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
   }
 
   * {
     -webkit-tap-highlight-color: transparent;
   }
 
-  /* Tighter spacing on mobile */
   body {
     letter-spacing: -0.006em;
   }

@@ -25,12 +25,13 @@ const cardGlow: Record<string, string> = {
 export function CardsShowcase() {
   const reduce = useReducedMotion();
   const { t } = useLang();
+  const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
   const [hoveredCard, setHoveredCard] = useState<string | null>(null);
 
   const tiers = t.cards.tiers;
 
   return (
-    <section id="cartoes" className="relative overflow-hidden py-28 sm:py-36 lg:py-44">
+    <section id="cartoes" className="relative overflow-hidden py-16 sm:py-28 lg:py-44">
       {/* ── Premium deep background ── */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#0c0a09] via-[#150a28] to-[#0c0a09]" aria-hidden />
       <div className="pointer-events-none absolute top-1/4 left-1/2 -translate-x-1/2 h-[300px] w-[400px] rounded-full bg-[#6336c4]/12 blur-[100px] sm:h-[500px] sm:w-[700px] sm:blur-[160px]" aria-hidden />
@@ -99,7 +100,7 @@ export function CardsShowcase() {
                 {/* ── Card Image — large, horizontal ── */}
                 <motion.div
                   animate={
-                    reduce
+                    reduce || isMobile
                       ? {}
                       : isHovered
                         ? { scale: 1.05, rotate: -2 }

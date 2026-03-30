@@ -15,7 +15,7 @@ export function ProductsSection() {
   const items = activeTab === "empresas" ? t.products.empresas : t.products.voce;
 
   return (
-    <section id="produtos" className="relative overflow-hidden py-28 sm:py-36 lg:py-44">
+    <section id="produtos" className="relative overflow-hidden py-16 sm:py-28 lg:py-44">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#0c0a09] via-[#0f0c18] to-[#0c0a09]" aria-hidden />
       <div className="pointer-events-none absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#8e59ff]/20 to-transparent" aria-hidden />
@@ -71,7 +71,7 @@ export function ProductsSection() {
         </motion.div>
 
         {/* ── Products Grid ── */}
-        <div className="mx-auto mt-12 grid max-w-6xl gap-5 sm:mt-14 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
+        <div className="mx-auto mt-12 grid max-w-6xl gap-3 sm:mt-14 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4 lg:gap-6">
           {items.map((product, i) => (
             <motion.div
               key={`${activeTab}-${i}`}
