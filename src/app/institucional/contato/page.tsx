@@ -16,16 +16,31 @@ export default function ContatoPage() {
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
 
+  function sanitize(val: string) {
+    return val.replace(/<[^>]*>/g, "").trim();
+  }
+
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     if (sending) return;
+
+    const form = e.currentTarget;
+    const honeypot = (form.elements.namedItem("website") as HTMLInputElement)?.value;
+    if (honeypot) return; // bot detected
+
+    const name = sanitize((form.elements.namedItem("name") as HTMLInputElement)?.value ?? "");
+    const email = sanitize((form.elements.namedItem("email") as HTMLInputElement)?.value ?? "");
+    const message = sanitize((form.elements.namedItem("message") as HTMLTextAreaElement)?.value ?? "");
+
+    if (!name || !email || !message) return;
+    if (/<script|javascript:|on\w+=/i.test(name + email + message)) return;
+
     setSending(true);
     // TODO: Integrar com backend real (Formspree, Resend, etc.)
-    // Por enquanto, simula envio para demonstracao
     setTimeout(() => {
       setSending(false);
       setSent(true);
-      (e.target as HTMLFormElement).reset();
+      form.reset();
       setTimeout(() => setSent(false), 4000);
     }, 1500);
   }
@@ -100,13 +115,19 @@ export default function ContatoPage() {
         </AnimatePresence>
 
         <form onSubmit={handleSubmit} className="mt-6 max-w-lg space-y-4">
+          {/* Honeypot anti-spam — hidden from real users */}
+          <input type="text" name="website" autoComplete="off" tabIndex={-1} aria-hidden="true" className="absolute -left-[9999px] h-0 w-0 overflow-hidden opacity-0" />
+
           <div className="grid gap-4 sm:grid-cols-2">
             <div>
               <label className="mb-1.5 block text-[11px] font-semibold text-stone-500">{isPt ? "Nome" : "Name"}</label>
               <input
+                name="name"
                 type="text"
                 required
                 minLength={2}
+                maxLength={100}
+                pattern="[^<>]*"
                 className="eav-input rounded-xl"
                 placeholder={isPt ? "Seu nome" : "Your name"}
               />
@@ -114,8 +135,10 @@ export default function ContatoPage() {
             <div>
               <label className="mb-1.5 block text-[11px] font-semibold text-stone-500">E-mail</label>
               <input
+                name="email"
                 type="email"
                 required
+                maxLength={254}
                 className="eav-input rounded-xl"
                 placeholder={isPt ? "Seu e-mail" : "Your email"}
               />
@@ -124,9 +147,11 @@ export default function ContatoPage() {
           <div>
             <label className="mb-1.5 block text-[11px] font-semibold text-stone-500">{isPt ? "Mensagem" : "Message"}</label>
             <textarea
+              name="message"
               rows={4}
               required
               minLength={10}
+              maxLength={2000}
               className="eav-input rounded-xl resize-none"
               placeholder={isPt ? "Escreva sua mensagem..." : "Write your message..."}
             />

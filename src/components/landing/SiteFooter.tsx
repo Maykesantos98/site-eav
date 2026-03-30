@@ -34,12 +34,15 @@ export function SiteFooter() {
           <form
             onSubmit={(e) => {
               e.preventDefault();
+              const hp = (e.currentTarget.elements.namedItem("company") as HTMLInputElement)?.value;
+              if (hp) return;
               setSubmitted(true);
               setTimeout(() => setSubmitted(false), 2000);
             }}
             className="mx-auto mt-8 flex max-w-md flex-col gap-3 sm:flex-row"
           >
-            <input type="email" required placeholder="Seu melhor e-mail" className="eav-input flex-1 sm:py-4" />
+            <input type="text" name="company" autoComplete="off" tabIndex={-1} aria-hidden="true" className="absolute -left-[9999px] h-0 w-0 overflow-hidden opacity-0" />
+            <input type="email" required maxLength={254} placeholder="Seu melhor e-mail" className="eav-input flex-1 sm:py-4" />
             <button
               type="submit"
               disabled={submitted}

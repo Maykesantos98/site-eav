@@ -6,22 +6,31 @@ import Link from "next/link";
 
 const COOKIE_KEY = "eav-cookie-consent";
 
+/** Returns current consent status */
+export function getCookieConsent(): "accepted" | "declined" | null {
+  if (typeof window === "undefined") return null;
+  const val = localStorage.getItem(COOKIE_KEY);
+  if (val === "accepted" || val === "declined") return val;
+  return null;
+}
+
 export function CookieBanner() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const consent = localStorage.getItem(COOKIE_KEY);
-    if (!consent) setVisible(true);
+    if (!getCookieConsent()) setVisible(true);
   }, []);
 
   function accept() {
     localStorage.setItem(COOKIE_KEY, "accepted");
     setVisible(false);
+    // Future: load analytics scripts here only when accepted
   }
 
   function decline() {
     localStorage.setItem(COOKIE_KEY, "declined");
     setVisible(false);
+    // Future: ensure no tracking scripts are loaded
   }
 
   return (
