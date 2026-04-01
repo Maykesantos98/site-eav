@@ -4,7 +4,6 @@ import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 import { fadeUp } from "./motion";
 import { asset } from "@/constants/basePath";
-import { Icon } from "@/components/ui/Icon";
 
 const testimonials = [
   {
@@ -59,14 +58,9 @@ const testimonials = [
 
 function Stars({ count }: { count: number }) {
   return (
-    <div className="flex gap-0.5">
+    <div className="flex gap-0.5 text-amber-400">
       {Array.from({ length: 5 }).map((_, i) => (
-        <Icon
-          key={i}
-          name="star"
-          size="sm"
-          className={i < count ? "text-amber-400 fill-amber-400 stroke-amber-400" : "text-stone-800 stroke-stone-800"}
-        />
+        <span key={i} className={`text-sm ${i < count ? "opacity-100" : "opacity-20"}`}>&#9733;</span>
       ))}
     </div>
   );
@@ -77,15 +71,8 @@ export function TestimonialsSection() {
 
   return (
     <section className="relative overflow-hidden py-20 sm:py-28">
-      {/* Background */}
       <div className="pointer-events-none absolute inset-0" aria-hidden>
-        <Image
-          src={asset("/images/bg-payment.jpg")}
-          alt=""
-          fill
-          className="object-cover object-center opacity-[0.04] sm:opacity-[0.06]"
-          sizes="100vw"
-        />
+        <Image src={asset("/images/bg-payment.jpg")} alt="" fill className="object-cover object-center opacity-[0.04] sm:opacity-[0.06]" sizes="100vw" />
         <div className="absolute inset-0 bg-gradient-to-b from-[#0c0a09]/90 via-[#0c0a09]/60 to-[#0c0a09]/90" />
       </div>
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-violet-950/5 to-transparent" aria-hidden />
@@ -99,9 +86,7 @@ export function TestimonialsSection() {
           custom={0}
           className="text-center"
         >
-          <span className="text-sm font-semibold tracking-wider text-violet-400 uppercase">
-            Depoimentos
-          </span>
+          <span className="eav-section-label">Depoimentos</span>
           <h2 className="mx-auto mt-3 max-w-2xl text-3xl font-extrabold text-white sm:text-4xl lg:text-[2.75rem]">
             Quem usa, <span className="eav-gradient-text">recomenda</span>
           </h2>
@@ -110,7 +95,6 @@ export function TestimonialsSection() {
           </p>
         </motion.div>
 
-        {/* Rating summary */}
         <motion.div
           initial={reduce ? false : "hidden"}
           whileInView="visible"
@@ -129,7 +113,6 @@ export function TestimonialsSection() {
           </span>
         </motion.div>
 
-        {/* Testimonial cards */}
         <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {testimonials.map((t, i) => (
             <motion.div
@@ -146,17 +129,8 @@ export function TestimonialsSection() {
                 &ldquo;{t.text}&rdquo;
               </p>
               <div className="mt-5 flex items-center gap-3">
-                {/* Avatar with unique gradient per person + ring */}
-                <div className="relative">
-                  <div className={`flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br ${t.gradient} text-xs font-bold text-white ring-2 ring-white/10 ring-offset-2 ring-offset-[#0c0a09]`}>
-                    {t.initials}
-                  </div>
-                  {/* Verified dot */}
-                  <div className="absolute -bottom-0.5 -right-0.5 flex h-3.5 w-3.5 items-center justify-center rounded-full bg-emerald-500 ring-2 ring-[#0c0a09]">
-                    <svg className="h-2 w-2 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                    </svg>
-                  </div>
+                <div className={`flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br ${t.gradient} text-xs font-bold text-white ring-2 ring-white/10 ring-offset-2 ring-offset-[#0c0a09]`}>
+                  {t.initials}
                 </div>
                 <div>
                   <div className="text-sm font-semibold text-white">{t.name}</div>

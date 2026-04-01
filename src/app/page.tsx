@@ -9,7 +9,6 @@ const CardsShowcase = dynamic(() => import("@/components/landing/CardsShowcase")
 const WorldGlobeSection = dynamic(() => import("@/components/landing/FeatureSections").then(m => m.WorldGlobeSection));
 const SecuritySection = dynamic(() => import("@/components/landing/FeatureSections").then(m => m.SecuritySection));
 const TrustSection = dynamic(() => import("@/components/landing/TrustSection").then(m => m.TrustSection));
-const SpeedCirclesSection = dynamic(() => import("@/components/landing/FeatureSections").then(m => m.SpeedCirclesSection));
 const ProductsSection = dynamic(() => import("@/components/landing/ProductsSection").then(m => m.ProductsSection));
 const CompanySection = dynamic(() => import("@/components/landing/FeatureSections").then(m => m.CompanySection));
 const AppDownloadSection = dynamic(() => import("@/components/landing/AppDownloadSection").then(m => m.AppDownloadSection));
@@ -32,7 +31,6 @@ export default function Home() {
         <WorldGlobeSection />
         <SecuritySection />
         <TrustSection />
-        <SpeedCirclesSection />
         <ProductsSection />
         <CompanySection />
         <AppDownloadSection />

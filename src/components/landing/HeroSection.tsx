@@ -56,9 +56,8 @@ export function HeroIntro() {
       {/* Purple tint overlay for brand cohesion */}
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-[#1a0e2e]/10 via-transparent to-[#150a28]/10" aria-hidden />
 
-      {/* Glow orbs — softer, more diffuse */}
-      <div className="pointer-events-none absolute -top-40 left-1/4 h-[180px] w-[180px] rounded-full bg-[#6336c4]/8 blur-[60px] eav-hero-glow sm:h-[350px] sm:w-[450px] sm:blur-[120px]" aria-hidden />
-      <div className="pointer-events-none absolute -bottom-20 right-1/4 h-[130px] w-[130px] rounded-full bg-[#b336c1]/6 blur-[50px] eav-hero-glow sm:h-[250px] sm:w-[350px] sm:blur-[100px]" aria-hidden />
+      {/* Brand glow */}
+      <div className="pointer-events-none absolute -top-32 left-[15%] h-[200px] w-[300px] rounded-full bg-[#6336c4]/8 blur-[80px] sm:h-[350px] sm:w-[500px] sm:blur-[140px]" aria-hidden />
 
       {/* ── Content ── */}
       <div className="relative z-[1] mx-auto w-full max-w-6xl px-5 pt-32 pb-16 sm:px-8 sm:pt-40 sm:pb-20 lg:pt-48 lg:pb-32">
@@ -72,12 +71,12 @@ export function HeroIntro() {
               exit={{ opacity: 0, y: -12 }}
               transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
             >
-              <h1 className="text-[2rem] font-black leading-[1.05] tracking-[-0.03em] text-white sm:text-[2.75rem] md:text-[3.25rem] lg:text-[4rem] lg:leading-[1.02] lg:tracking-[-0.04em]">
+              <h1 className="text-[2.25rem] font-bold leading-[1.06] tracking-[-0.025em] text-white sm:text-[3rem] md:text-[3.5rem] lg:text-[4.25rem] lg:leading-[1.02] lg:tracking-[-0.035em]">
                 {slide.title1}
                 <span className="eav-gradient-text">{slide.titleHighlight}</span>
                 {slide.title2}
               </h1>
-              <p className="mt-6 max-w-lg text-[15px] leading-[1.75] text-stone-300/90 sm:text-lg sm:leading-[1.7]">
+              <p className="mt-7 max-w-lg text-base leading-[1.7] text-stone-300 sm:text-lg sm:leading-[1.65]">
                 {slide.desc}
               </p>
             </motion.div>
@@ -89,18 +88,16 @@ export function HeroIntro() {
               href="#conta"
               whileHover={reduce ? {} : { scale: 1.03 }}
               whileTap={reduce ? {} : { scale: 0.97 }}
-              className="group inline-flex items-center justify-center gap-2.5 rounded-full bg-gradient-to-r from-[#6336c4] to-[#8e59ff] px-7 py-3.5 text-sm font-semibold tracking-wide text-white shadow-xl shadow-violet-950/50 transition-all duration-250 hover:shadow-violet-900/60 hover:brightness-110 sm:px-9 sm:py-4 sm:text-base"
+              className="group inline-flex items-center justify-center gap-2.5 rounded-full bg-[#6336c4] px-8 py-4 text-sm font-semibold tracking-wide text-white shadow-2xl shadow-[#6336c4]/40 transition-all duration-250 hover:bg-[#7344d8] hover:shadow-[#6336c4]/50 sm:px-10 sm:py-4.5 sm:text-base"
             >
               {t.hero.cta1}
-              <svg className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-              </svg>
+              <span className="transition-transform duration-200 group-hover:translate-x-0.5">&rarr;</span>
             </motion.a>
             <motion.a
               href="#solucoes"
               whileHover={reduce ? {} : { scale: 1.02 }}
               whileTap={reduce ? {} : { scale: 0.98 }}
-              className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/[0.04] px-6 py-3.5 text-sm font-semibold tracking-wide text-stone-200 backdrop-blur-sm transition-all duration-250 hover:border-white/20 hover:bg-white/[0.08] hover:text-white sm:px-8 sm:py-4 sm:text-base"
+              className="inline-flex items-center justify-center rounded-full border border-white/15 px-7 py-4 text-sm font-semibold tracking-wide text-white backdrop-blur-sm transition-all duration-250 hover:border-white/30 hover:bg-white/[0.06] sm:px-9 sm:py-4.5 sm:text-base"
             >
               {t.hero.cta2}
             </motion.a>
@@ -113,9 +110,9 @@ export function HeroIntro() {
             <button
               key={i}
               onClick={() => setCurrent(i)}
-              className={`h-1.5 rounded-full transition-all duration-500 ${
+              className={`h-1 rounded-full transition-all duration-500 ${
                 i === current
-                  ? "w-10 bg-gradient-to-r from-[#6336c4] to-[#8e59ff]"
+                  ? "w-8 bg-white"
                   : "w-1.5 bg-white/20 hover:bg-white/40"
               }`}
               aria-label={`Slide ${i + 1}`}
@@ -150,9 +147,8 @@ export function MoedasLibertySection() {
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             className="relative mx-auto w-full max-w-[320px] sm:max-w-[380px] lg:mx-0"
           >
-            <div className="absolute inset-0 -m-8 rounded-full bg-[#6336c4]/10 blur-[60px]" aria-hidden />
             <motion.div
-              animate={reduce || isMobile ? {} : { y: [0, -10, 0] }}
+              animate={{}}
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
               className="relative"
             >
@@ -163,7 +159,7 @@ export function MoedasLibertySection() {
                   { symbol: "€", label: "Euro" },
                   { symbol: "$", label: "Dólar" },
                 ].map((c) => (
-                  <div key={c.symbol} className="flex aspect-square flex-col items-center justify-center rounded-2xl border border-violet-500/20 bg-gradient-to-br from-[#6336c4]/30 to-[#8e59ff]/10 backdrop-blur-sm">
+                  <div key={c.symbol} className="flex aspect-square flex-col items-center justify-center rounded-2xl border border-[#6336c4]/15 bg-[#6336c4]/[0.06] transition-all duration-300 hover:border-[#6336c4]/25 hover:bg-[#6336c4]/[0.1]">
                     <span className="text-3xl font-bold text-white sm:text-4xl" style={{ fontFamily: "var(--font-display)" }}>{c.symbol}</span>
                     <span className="mt-1 text-[10px] font-medium text-stone-500">{c.label}</span>
                   </div>
@@ -172,13 +168,13 @@ export function MoedasLibertySection() {
 
               {/* Exchange arrows */}
               <div className="my-3 flex items-center justify-center gap-2 sm:my-4">
-                <div className="h-px flex-1 bg-gradient-to-r from-transparent to-violet-500/30" />
-                <div className="flex h-8 w-8 items-center justify-center rounded-full border border-violet-500/30 bg-violet-500/10">
-                  <svg className="h-4 w-4 text-violet-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <div className="h-px flex-1 bg-gradient-to-r from-transparent to-[#6336c4]/20" />
+                <div className="flex h-9 w-9 items-center justify-center rounded-full border border-[#6336c4]/20 bg-[#6336c4]/10">
+                  <svg className="h-4 w-4 text-[#a78bfa]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M7.5 21L3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5" />
                   </svg>
                 </div>
-                <div className="h-px flex-1 bg-gradient-to-l from-transparent to-violet-500/30" />
+                <div className="h-px flex-1 bg-gradient-to-l from-transparent to-[#6336c4]/20" />
               </div>
 
               {/* Second row */}
@@ -188,7 +184,7 @@ export function MoedasLibertySection() {
                   { symbol: "¥", label: "Iene" },
                   { symbol: "Fr", label: "Franco" },
                 ].map((c) => (
-                  <div key={c.symbol} className="flex aspect-square flex-col items-center justify-center rounded-2xl border border-violet-500/20 bg-gradient-to-br from-[#8e59ff]/15 to-[#b336c1]/10 backdrop-blur-sm">
+                  <div key={c.symbol} className="flex aspect-square flex-col items-center justify-center rounded-2xl border border-[#6336c4]/15 bg-[#6336c4]/[0.06] transition-all duration-300 hover:border-[#6336c4]/25 hover:bg-[#6336c4]/[0.1]">
                     <span className="text-3xl font-bold text-white sm:text-4xl" style={{ fontFamily: "var(--font-display)" }}>{c.symbol}</span>
                     <span className="mt-1 text-[10px] font-medium text-stone-500">{c.label}</span>
                   </div>
@@ -203,7 +199,7 @@ export function MoedasLibertySection() {
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.6, delay: 0.08 }}
           >
-            <h2 className="text-2xl font-extrabold leading-[1.12] tracking-tight text-white sm:text-3xl lg:text-4xl lg:tracking-[-0.02em]">
+            <h2 className="text-2xl font-bold leading-[1.15] tracking-tight text-white sm:text-3xl lg:text-[2.25rem]">
               {t.moedas.title1}<span className="eav-gradient-text">{t.moedas.titleHighlight}</span>
             </h2>
             <p className="mt-5 text-sm leading-[1.75] text-stone-400 sm:text-base lg:text-lg lg:leading-[1.7]">

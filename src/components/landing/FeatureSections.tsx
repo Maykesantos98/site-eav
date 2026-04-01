@@ -8,18 +8,6 @@ import { fadeUp } from "./motion";
 import { useLang } from "@/constants/LangContext";
 import { asset } from "@/constants/basePath";
 import { useIsMobile } from "@/constants/useIsMobile";
-import { Icon, type IconName } from "@/components/ui/Icon";
-
-/* ─── Data ─── */
-
-/* World/globe feature icons — using unified Icon system */
-const worldCardIconNames: IconName[] = [
-  "credit-card",
-  "map-pin",
-  "banknotes",
-  "shield",
-  "bolt",
-];
 
 /* ─── World Globe Section ─── */
 
@@ -27,25 +15,17 @@ export function WorldGlobeSection() {
   const reduce = useReducedMotion();
   const { t } = useLang();
   const isMobile = useIsMobile();
-  const worldCards = t.globe.features.map((label, i) => ({ label, iconName: worldCardIconNames[i] }));
+
   return (
     <section className="relative overflow-hidden py-28 sm:py-36">
-      {/* Background — desaturated city, strong overlay */}
       <div className="pointer-events-none absolute inset-0" aria-hidden>
-        <Image
-          src={asset("/images/bg-city.jpg")}
-          alt=""
-          fill
-          className="object-cover object-center opacity-[0.20] saturate-[0.65] sm:opacity-[0.28] lg:opacity-[0.35]"
-          sizes="100vw"
-        />
+        <Image src={asset("/images/bg-city.jpg")} alt="" fill className="object-cover object-center opacity-[0.20] saturate-[0.65] sm:opacity-[0.28] lg:opacity-[0.35]" sizes="100vw" />
         <div className="eav-bg-overlay-dark" />
         <div className="eav-bg-overlay-gradient" />
       </div>
 
       <div className="relative mx-auto max-w-6xl px-5 sm:px-8">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
-          {/* Left: globe */}
           <motion.div
             initial={reduce ? false : { opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -53,9 +33,8 @@ export function WorldGlobeSection() {
             transition={{ duration: 0.8 }}
             className="relative flex justify-center"
           >
-            <div className="absolute inset-0 -m-10 rounded-full bg-[#6336c4]/10 blur-[80px] sm:-m-16 sm:blur-[100px]" aria-hidden />
             <motion.div
-              animate={reduce || isMobile ? {} : { y: [0, -12, 0], rotateZ: [0, 2, 0] }}
+              animate={{}}
               transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
             >
               <EavRemoteImage
@@ -68,7 +47,6 @@ export function WorldGlobeSection() {
             </motion.div>
           </motion.div>
 
-          {/* Right: text + features */}
           <div>
             <motion.div
               initial={reduce ? false : "hidden"}
@@ -78,7 +56,7 @@ export function WorldGlobeSection() {
               custom={0}
             >
               <span className="eav-section-label">{t.globe.label}</span>
-              <h2 className="mt-4 text-2xl font-extrabold leading-[1.12] tracking-tight text-white sm:text-3xl lg:text-4xl lg:tracking-[-0.02em]">
+              <h2 className="mt-4 text-2xl font-bold leading-[1.15] tracking-tight text-white sm:text-3xl lg:text-[2.5rem]">
                 {t.globe.title1}<span className="eav-gradient-text">{t.globe.titleHighlight}</span>
               </h2>
               <p className="mt-5 text-sm leading-[1.75] text-stone-400 sm:text-base">
@@ -87,20 +65,18 @@ export function WorldGlobeSection() {
             </motion.div>
 
             <div className="mt-8 space-y-3 sm:mt-10">
-              {worldCards.map((card, i) => (
+              {t.globe.features.map((label, i) => (
                 <motion.div
-                  key={card.label}
+                  key={label}
                   initial={reduce ? false : "hidden"}
                   whileInView="visible"
                   viewport={{ once: true }}
                   variants={fadeUp}
                   custom={i + 1}
-                  className="eav-feature-card"
+                  className="group flex items-center gap-3 rounded-xl border border-white/[0.06] bg-white/[0.02] px-4 py-3.5 transition-all duration-200 hover:border-[#6336c4]/20 hover:bg-[#6336c4]/[0.04]"
                 >
-                  <div className="eav-icon-box eav-icon-box-md">
-                    <Icon name={card.iconName} size="md" className="text-violet-400" />
-                  </div>
-                  <span className="text-sm font-medium leading-snug text-stone-300">{card.label}</span>
+                  <span className="h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#6336c4]" />
+                  <span className="text-sm font-medium leading-snug text-stone-300">{label}</span>
                 </motion.div>
               ))}
             </div>
@@ -118,20 +94,16 @@ export function SecuritySection() {
   const { t } = useLang();
   const isMobile = useIsMobile();
 
-  const securityIconNames: IconName[] = ["lock", "shield", "cpu-chip", "bolt"];
-
   return (
     <section id="seguranca" className="relative overflow-hidden py-28 sm:py-36">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0c0a09] via-[#150a28] to-[#0c0a09]" aria-hidden />
-      {/* Glow orb */}
-      <div className="pointer-events-none absolute top-1/3 left-1/2 -translate-x-1/2 h-[250px] w-[350px] rounded-full bg-[#8e59ff]/6 blur-[100px] sm:h-[400px] sm:w-[600px]" aria-hidden />
-      {/* Glow lines */}
-      <div className="eav-section-line-top" aria-hidden />
-      <div className="eav-section-line-bottom" aria-hidden />
+      {/* Background */}
+      <div className="pointer-events-none absolute inset-0" aria-hidden>
+        <Image src={asset("/images/bg-abstract.jpg")} alt="" fill className="object-cover opacity-[0.06] saturate-[0.4] sm:opacity-[0.1]" sizes="100vw" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0c0a09] via-[#0c0a09]/85 to-[#0c0a09]" />
+      </div>
+      <div className="pointer-events-none absolute top-1/3 left-1/2 -translate-x-1/2 h-[200px] w-[300px] rounded-full bg-[#6336c4]/5 blur-[100px] sm:h-[350px] sm:w-[500px]" aria-hidden />
 
       <div className="relative mx-auto grid max-w-6xl items-center gap-14 px-5 sm:px-8 lg:grid-cols-2 lg:gap-20">
-        {/* Left: Eye illustration */}
         <motion.div
           initial={reduce ? false : { opacity: 0, scale: 0.93 }}
           whileInView={{ opacity: 1, scale: 1 }}
@@ -139,9 +111,8 @@ export function SecuritySection() {
           transition={{ duration: 0.7 }}
           className="relative mx-auto max-w-[480px] lg:mx-0"
         >
-          <div className="absolute inset-0 -m-8 rounded-full bg-[#8e59ff]/10 blur-[50px] sm:-m-14 sm:blur-[90px]" aria-hidden />
           <motion.div
-            animate={reduce || isMobile ? {} : { scale: [1, 1.03, 1] }}
+            animate={{}}
             transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
           >
             <EavRemoteImage
@@ -154,7 +125,6 @@ export function SecuritySection() {
           </motion.div>
         </motion.div>
 
-        {/* Right: text + premium cards */}
         <div>
           <motion.div
             initial={reduce ? false : "hidden"}
@@ -163,11 +133,8 @@ export function SecuritySection() {
             variants={fadeUp}
             custom={0}
           >
-            <span className="eav-badge">
-              <Icon name="shield" size="xs" />
-              {t.security.label}
-            </span>
-            <h2 className="mt-5 text-2xl font-extrabold leading-[1.12] tracking-tight text-white sm:text-3xl lg:text-4xl lg:tracking-[-0.02em]">
+            <span className="text-xs font-medium tracking-[0.06em] uppercase text-stone-500">{t.security.label}</span>
+            <h2 className="mt-5 text-2xl font-bold leading-[1.15] tracking-tight text-white sm:text-3xl lg:text-[2.5rem]">
               {t.security.title1}<span className="eav-gradient-text">{t.security.titleHighlight}</span>{t.security.title2}
             </h2>
           </motion.div>
@@ -182,15 +149,10 @@ export function SecuritySection() {
                 variants={fadeUp}
                 custom={i + 1}
                 whileHover={reduce ? {} : { x: 4 }}
-                className="group eav-feature-card p-5"
+                className="group rounded-xl border-l-2 border-[#6336c4]/25 bg-white/[0.02] px-5 py-4 transition-all duration-200 hover:border-[#6336c4]/50 hover:bg-[#6336c4]/[0.04]"
               >
-                <div className="eav-icon-box eav-icon-box-md text-violet-400">
-                  <Icon name={securityIconNames[i]} size="md" />
-                </div>
-                <div>
-                  <span className="font-semibold text-white">{item.text}</span>
-                  <p className="mt-1.5 text-sm leading-[1.6] text-stone-400">{item.detail}</p>
-                </div>
+                <span className="font-semibold text-white">{item.text}</span>
+                <p className="mt-1.5 text-sm leading-[1.6] text-stone-400">{item.detail}</p>
               </motion.div>
             ))}
           </div>
@@ -214,13 +176,11 @@ export function SpeedCirclesSection() {
 
   return (
     <section className="eav-section-violet relative overflow-hidden py-28 sm:py-36">
-      {/* Background photo — heavily desaturated */}
       <div className="pointer-events-none absolute inset-0" aria-hidden>
         <Image src={asset("/images/bg-abstract.jpg")} alt="" fill className="object-cover opacity-[0.18] saturate-[0.6] sm:opacity-[0.25] lg:opacity-[0.32]" sizes="100vw" />
         <div className="eav-bg-overlay-dark" />
         <div className="absolute inset-0 bg-gradient-to-b from-[#1a0e2e]/50 via-transparent to-[#0c0a09]/70" />
       </div>
-      {/* Background glow */}
       <div className="absolute left-1/2 top-1/2 h-[200px] w-[250px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#6336c4]/6 blur-[60px] sm:h-[350px] sm:w-[500px] sm:blur-[120px]" aria-hidden />
 
       <div className="relative mx-auto max-w-6xl px-5 sm:px-8">
@@ -277,28 +237,14 @@ export function SpeedCirclesSection() {
   );
 }
 
-/* ─── Beyond Finance Section ─── */
-
-/* BeyondFinanceSection removed — replaced by ProductsSection */
-
 /* ─── Company / B2B Section ─── */
-
-const b2bIconNames: (IconName | "PIX_ICON")[] = [
-  "building",
-  "users",
-  "document",
-  "banknotes",
-  "PIX_ICON",
-  "shield",
-];
 
 export function CompanySection() {
   const reduce = useReducedMotion();
   const { t } = useLang();
-  const b2bFeatures = t.company.features.map((feat, i) => ({ iconName: b2bIconNames[i], title: feat.title, desc: feat.desc }));
+
   return (
     <section id="empresas" className="relative py-28 sm:py-36 overflow-hidden">
-      {/* Background: metropolis — desaturated, heavy overlay */}
       <div className="pointer-events-none absolute inset-0" aria-hidden>
         <Image
           src={asset("/images/bg-metropolis.jpg")}
@@ -312,7 +258,6 @@ export function CompanySection() {
       </div>
 
       <div className="relative mx-auto max-w-6xl px-5 sm:px-8">
-        {/* Header */}
         <motion.div
           initial={reduce ? false : "hidden"}
           whileInView="visible"
@@ -322,7 +267,7 @@ export function CompanySection() {
           className="text-center"
         >
           <span className="eav-section-label">{t.company.label}</span>
-          <h2 className="mx-auto mt-4 max-w-2xl text-2xl font-extrabold leading-[1.12] tracking-tight text-white sm:text-3xl lg:text-4xl lg:tracking-[-0.02em]">
+          <h2 className="mx-auto mt-4 max-w-2xl text-2xl font-bold leading-[1.15] tracking-tight text-white sm:text-3xl lg:text-[2.5rem]">
             {t.company.title1}<span className="eav-gradient-text">{t.company.titleHighlight}</span>
           </h2>
           <p className="mx-auto mt-5 max-w-xl text-sm leading-[1.75] text-stone-400 sm:text-base">
@@ -330,9 +275,8 @@ export function CompanySection() {
           </p>
         </motion.div>
 
-        {/* Features grid */}
         <div className="mt-12 grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4">
-          {b2bFeatures.map((feat, i) => (
+          {t.company.features.map((feat, i) => (
             <motion.div
               key={feat.title}
               initial={reduce ? false : "hidden"}
@@ -340,24 +284,14 @@ export function CompanySection() {
               viewport={{ once: true }}
               variants={fadeUp}
               custom={i + 1}
-              className="group eav-feature-card"
+              className="group rounded-xl border-l-2 border-[#6336c4]/20 bg-white/[0.02] px-5 py-4 transition-all duration-200 hover:border-[#6336c4]/40 hover:bg-[#6336c4]/[0.04]"
             >
-              <div className="eav-icon-box eav-icon-box-sm">
-                {feat.iconName === "PIX_ICON" ? (
-                  <Image src={asset("/images/pix sem fundo.png")} alt="Pix" width={20} height={20} className="h-5 w-5 object-contain" />
-                ) : (
-                  <Icon name={feat.iconName as IconName} size="sm" className="text-violet-400" />
-                )}
-              </div>
-              <div>
-                <div className="text-sm font-semibold text-white">{feat.title}</div>
-                <p className="mt-1 text-xs leading-relaxed text-stone-500">{feat.desc}</p>
-              </div>
+              <div className="text-sm font-semibold text-white">{feat.title}</div>
+              <p className="mt-1 text-xs leading-relaxed text-stone-500">{feat.desc}</p>
             </motion.div>
           ))}
         </div>
 
-        {/* Images — 3 columns */}
         <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-3 sm:gap-6">
           {[
             { src: eavImages.footer1, alt: "Seu próprio sistema de pagamentos" },
@@ -373,18 +307,11 @@ export function CompanySection() {
               whileHover={reduce ? {} : { y: -6 }}
               className="overflow-hidden rounded-2xl border border-white/[0.04] transition-all duration-300 hover:border-violet-500/15 hover:shadow-lg hover:shadow-violet-950/10"
             >
-              <EavRemoteImage
-                src={img.src}
-                alt={img.alt}
-                width={400}
-                height={553}
-                className="h-auto w-full object-cover"
-              />
+              <EavRemoteImage src={img.src} alt={img.alt} width={400} height={553} className="h-auto w-full object-cover" />
             </motion.div>
           ))}
         </div>
 
-        {/* CTA */}
         <motion.div
           initial={reduce ? false : "hidden"}
           whileInView="visible"
@@ -402,7 +329,6 @@ export function CompanySection() {
             className="eav-btn-primary sm:px-8 sm:py-4 sm:text-base"
           >
             {t.company.cta}
-            <Icon name="arrow-right" size="sm" className="stroke-[2]" />
           </motion.a>
         </motion.div>
       </div>

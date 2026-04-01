@@ -2,9 +2,10 @@
 
 import { useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
+import Image from "next/image";
 import { fadeUp } from "./motion";
 import { useLang } from "@/constants/LangContext";
-import { Icon, type IconName } from "@/components/ui/Icon";
+import { asset } from "@/constants/basePath";
 
 export function ProductsSection() {
   const reduce = useReducedMotion();
@@ -16,13 +17,14 @@ export function ProductsSection() {
 
   return (
     <section id="produtos" className="relative overflow-hidden py-16 sm:py-28 lg:py-44">
-      {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0c0a09] via-[#0f0c18] to-[#0c0a09]" aria-hidden />
-      <div className="pointer-events-none absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#8e59ff]/20 to-transparent" aria-hidden />
-      <div className="pointer-events-none absolute bottom-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#6336c4]/15 to-transparent" aria-hidden />
+      <div className="pointer-events-none absolute inset-0" aria-hidden>
+        <Image src={asset("/images/bg-payment.jpg")} alt="" fill className="object-cover opacity-[0.05] saturate-[0.4] sm:opacity-[0.08]" sizes="100vw" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0c0a09] via-[#0c0a09]/85 to-[#0c0a09]" />
+      </div>
+      <div className="pointer-events-none absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#6336c4]/10 to-transparent" aria-hidden />
+      <div className="pointer-events-none absolute bottom-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#6336c4]/8 to-transparent" aria-hidden />
 
       <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
-        {/* ── Header ── */}
         <motion.div
           initial={reduce ? false : "hidden"}
           whileInView="visible"
@@ -31,11 +33,8 @@ export function ProductsSection() {
           custom={0}
           className="text-center"
         >
-          <span className="eav-badge">
-            <Icon name="sparkles" size="xs" />
-            {t.products.title}
-          </span>
-          <h2 className="mx-auto mt-6 max-w-3xl text-3xl font-extrabold leading-[1.08] tracking-tight text-white sm:text-4xl md:text-5xl lg:text-[3.5rem] lg:tracking-[-0.025em]">
+          <span className="eav-section-label">{t.products.title}</span>
+          <h2 className="mx-auto mt-6 max-w-3xl text-3xl font-bold leading-[1.12] tracking-tight text-white sm:text-4xl md:text-[2.75rem]">
             {t.products.title}
           </h2>
           <p className="mx-auto mt-5 max-w-xl text-base leading-[1.75] text-stone-400 sm:text-lg">
@@ -43,7 +42,6 @@ export function ProductsSection() {
           </p>
         </motion.div>
 
-        {/* ── Tabs ── */}
         <motion.div
           initial={reduce ? false : "hidden"}
           whileInView="visible"
@@ -57,20 +55,18 @@ export function ProductsSection() {
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`flex items-center gap-2 rounded-xl px-5 py-2.5 text-sm font-semibold transition-all duration-300 ${
+                className={`rounded-xl px-5 py-2.5 text-sm font-semibold transition-all duration-300 ${
                   activeTab === tab.id
-                    ? "bg-gradient-to-r from-[#6336c4] to-[#8e59ff] text-white shadow-lg shadow-[#6336c4]/30"
+                    ? "bg-[#6336c4] text-white shadow-lg shadow-[#6336c4]/30"
                     : "text-stone-400 hover:text-white hover:bg-white/[0.04]"
                 }`}
               >
-                <Icon name={tab.id === "voce" ? "users" : "building"} size="sm" />
                 {tab.label}
               </button>
             ))}
           </div>
         </motion.div>
 
-        {/* ── Products Grid ── */}
         <div className="mx-auto mt-12 grid max-w-6xl gap-3 sm:mt-14 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4 lg:gap-6">
           {items.map((product, i) => (
             <motion.div
@@ -78,35 +74,29 @@ export function ProductsSection() {
               initial={reduce ? false : { opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.08, duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-              className="group relative flex flex-col rounded-3xl border border-white/[0.06] bg-white/[0.02] p-6 backdrop-blur-sm transition-all duration-300 hover:border-[#8e59ff]/25 hover:bg-white/[0.04] hover:shadow-xl hover:shadow-[#6336c4]/5"
+              className="group relative flex flex-col rounded-3xl border border-white/[0.06] bg-white/[0.02] p-6 transition-all duration-300 hover:border-[#6336c4]/20 hover:bg-[#6336c4]/[0.03] hover:shadow-xl hover:shadow-[#6336c4]/5"
             >
-              {/* Icon */}
-              <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-[#8e59ff]/10 text-[#8e59ff] transition-colors duration-300 group-hover:bg-[#8e59ff]/20">
-                <Icon name={product.icon as IconName} size="lg" />
-              </div>
+              <div className="mb-5 h-0.5 w-8 rounded-full bg-[#6336c4]/30 transition-all duration-300 group-hover:w-12 group-hover:bg-[#6336c4]/60" />
 
-              {/* Content */}
               <h3 className="mb-2 text-lg font-bold text-white">{product.title}</h3>
               <p className="mb-5 text-sm leading-relaxed text-stone-400">{product.description}</p>
 
-              {/* Features */}
               <ul className="mb-6 flex-1 space-y-2">
                 {product.features.map((feature, j) => (
-                  <li key={j} className="flex items-center gap-2 text-sm text-stone-400">
-                    <Icon name="check" size="xs" className="flex-shrink-0 text-[#8e59ff]" />
+                  <li key={j} className="flex items-center gap-2.5 text-sm text-stone-400">
+                    <span className="h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#6336c4]/50" />
                     {feature}
                   </li>
                 ))}
               </ul>
 
-              {/* CTA */}
               <motion.a
                 href="#conta"
                 whileHover={reduce ? {} : { x: 4 }}
-                className="inline-flex items-center gap-2 text-sm font-semibold text-stone-400 transition-colors duration-200 hover:text-white"
+                className="inline-flex items-center gap-1 text-sm font-semibold text-stone-400 transition-colors duration-200 hover:text-white"
               >
                 {product.cta}
-                <Icon name="arrow-right" size="sm" className="stroke-[2]" />
+                <span className="text-[#6336c4] transition-transform duration-200 group-hover:translate-x-0.5">&rarr;</span>
               </motion.a>
             </motion.div>
           ))}

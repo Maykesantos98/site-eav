@@ -125,7 +125,7 @@ export function SiteNav() {
 
             <a
               href={isHome ? "#conta" : `${home}#conta`}
-              className="rounded-full bg-gradient-to-r from-[#6336c4] to-[#8e59ff] px-6 py-2 text-[13px] font-bold text-white transition-all duration-200 hover:shadow-lg hover:shadow-[#6336c4]/30 hover:brightness-110"
+              className="rounded-full bg-[#6336c4] px-6 py-2 text-[13px] font-bold text-white transition-all duration-200 hover:bg-[#7344d8]"
             >
               {t.nav.abrirConta}
             </a>
@@ -212,7 +212,7 @@ export function SiteNav() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: (navLinks.length + 1) * 0.06 }}
                 onClick={() => setMobileOpen(false)}
-                className="rounded-full bg-gradient-to-r from-[#6336c4] to-[#8e59ff] px-8 py-3.5 text-base font-bold text-white shadow-lg shadow-[#6336c4]/30"
+                className="rounded-full bg-[#6336c4] px-8 py-3.5 text-base font-bold text-white"
               >
                 {t.nav.abrirConta}
               </motion.a>

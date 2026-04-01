@@ -1,11 +1,13 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { EavLogo } from "@/components/EavLogo";
 import { useLang } from "@/constants/LangContext";
 import basePath from "@/constants/basePath";
+import { asset } from "@/constants/basePath";
 
 export function SiteFooter() {
   const { t } = useLang();
@@ -22,10 +24,13 @@ export function SiteFooter() {
     >
       {/* ═══ CTA Banner ═══ */}
       <div id="conta" className="relative overflow-hidden py-20 sm:py-24">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#6336c4]/12 via-[#0c0a09] to-[#b336c1]/8" />
-        <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[300px] w-[500px] rounded-full bg-[#8e59ff]/8 blur-[120px]" aria-hidden />
+        <div className="pointer-events-none absolute inset-0" aria-hidden>
+          <Image src={asset("/images/bg-city.jpg")} alt="" fill className="object-cover opacity-[0.06] saturate-[0.3] sm:opacity-[0.1]" sizes="100vw" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0c0a09] via-[#0c0a09]/85 to-[#0c0a09]" />
+        </div>
+        <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[200px] w-[400px] rounded-full bg-[#6336c4]/5 blur-[120px]" aria-hidden />
         <div className="relative mx-auto max-w-2xl px-5 text-center sm:px-8">
-          <h3 className="text-2xl font-extrabold leading-[1.12] tracking-tight text-white sm:text-3xl lg:text-4xl">
+          <h3 className="text-2xl font-bold leading-[1.15] tracking-tight text-white sm:text-3xl lg:text-[2.25rem]">
             {t.footer.ctaTitle1}<span className="eav-gradient-text">{t.footer.ctaTitleHighlight}</span>?
           </h3>
           <p className="mt-4 text-sm leading-[1.7] text-stone-400 sm:text-base">
@@ -49,11 +54,7 @@ export function SiteFooter() {
               className={`eav-btn-primary px-7 py-3.5 sm:py-4 ${submitted ? "opacity-60 cursor-not-allowed" : ""}`}
             >
               {submitted ? "Em breve!" : t.footer.ctaBtn}
-              {!submitted && (
-                <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                </svg>
-              )}
+              {!submitted && <span>&rarr;</span>}
             </button>
           </form>
           <p className="mt-4 text-[11px] text-stone-600">
@@ -92,7 +93,7 @@ export function SiteFooter() {
                     href="https://eav7.com/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex h-9 w-9 items-center justify-center rounded-full border border-white/[0.06] bg-white/[0.02] text-stone-500 transition-all duration-200 hover:border-violet-500/20 hover:bg-violet-500/10 hover:text-violet-400"
+                    className="flex h-9 w-9 items-center justify-center rounded-full border border-white/[0.06] bg-white/[0.02] text-stone-500 transition-all duration-200 hover:border-white/[0.12] hover:bg-white/[0.05] hover:text-stone-300"
                     aria-label={social.label}
                   >
                     <svg className="h-[14px] w-[14px]" fill="currentColor" viewBox="0 0 24 24">{social.svg}</svg>
@@ -107,7 +108,7 @@ export function SiteFooter() {
                   { store: t.app.googlePlay, sub: t.app.availableOn2, icon: <path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.302 2.302a1 1 0 010 1.38l-2.302 2.302L15.396 12l2.302-2.492zM5.864 2.658L16.8 9.09l-2.302 2.303L5.864 2.658z" /> },
                 ].map((app) => (
                   <a key={app.store} href="https://eav7.com/" target="_blank" rel="noopener noreferrer"
-                    className="flex items-center gap-2 rounded-xl border border-white/[0.06] bg-white/[0.02] px-3 py-2 transition-all hover:border-violet-500/15 hover:bg-violet-500/[0.03]"
+                    className="flex items-center gap-2 rounded-xl border border-white/[0.06] bg-white/[0.02] px-3 py-2 transition-all hover:border-white/[0.1] hover:bg-white/[0.04]"
                   >
                     <svg className="h-5 w-5 text-white" viewBox="0 0 24 24" fill="currentColor">{app.icon}</svg>
                     <div>
