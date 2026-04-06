@@ -1,40 +1,12 @@
 "use client";
 
 import Image from "next/image";
-import { useState, useEffect, useCallback, useRef } from "react";
-import { motion, AnimatePresence, useReducedMotion, useInView } from "framer-motion";
+import { useState, useEffect, useCallback } from "react";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { useLang } from "@/constants/LangContext";
 import { asset } from "@/constants/basePath";
 
 const AUTOPLAY_MS = 6000;
-
-// Animated counter component
-function AnimatedCounter({ value, suffix = "", duration = 2 }: { value: number; suffix?: string; duration?: number }) {
-  const [count, setCount] = useState(0);
-  const ref = useRef<HTMLSpanElement>(null);
-  const isInView = useInView(ref, { once: true });
-
-  useEffect(() => {
-    if (!isInView) return;
-    
-    const steps = 60;
-    const increment = value / steps;
-    let current = 0;
-    const timer = setInterval(() => {
-      current += increment;
-      if (current >= value) {
-        setCount(value);
-        clearInterval(timer);
-      } else {
-        setCount(Math.floor(current));
-      }
-    }, (duration * 1000) / steps);
-
-    return () => clearInterval(timer);
-  }, [isInView, value, duration]);
-
-  return <span ref={ref} className="metric-value">{count.toLocaleString('pt-BR')}{suffix}</span>;
-}
 
 export function HeroIntro() {
   const reduce = useReducedMotion();
@@ -51,12 +23,12 @@ export function HeroIntro() {
 
   const slide = slides[current];
 
-  // Metrics data - C6 Bank style
-  const metrics = [
-    { value: 1, suffix: "M+", label: "clientes ativos" },
-    { value: 150, suffix: "+", label: "países conectados" },
-    { value: 0, suffix: "%", label: "taxa de abertura", displayValue: "0" },
-    { value: 3, suffix: "s", label: "tempo de transferência" },
+  // Features - informacoes verificaveis
+  const features = [
+    { icon: "globe", label: "Transferencias internacionais" },
+    { icon: "shield", label: "Seguranca de nivel bancario" },
+    { icon: "zap", label: "Pix e TED instantaneos" },
+    { icon: "card", label: "Cartao internacional" },
   ];
 
   return (
@@ -192,35 +164,50 @@ export function HeroIntro() {
             </motion.div>
           </div>
 
-          {/* Right: Metrics Grid - C6 Bank style */}
+          {/* Right: Features Grid - C6 Bank style */}
           <motion.div
             initial={reduce ? false : { opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
             className="hidden lg:grid grid-cols-2 gap-4"
           >
-            {metrics.map((metric, i) => (
+            {features.map((feature, i) => (
               <motion.div
-                key={metric.label}
+                key={feature.label}
                 initial={reduce ? false : { opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.5 + i * 0.1 }}
-                className="glass-card rounded-2xl p-6 text-center"
+                className="glass-card rounded-2xl p-6 flex items-center gap-4"
               >
-                <div className="text-4xl font-bold text-white xl:text-5xl">
-                  {metric.displayValue !== undefined ? (
-                    <span className="metric-value">{metric.displayValue}{metric.suffix}</span>
-                  ) : (
-                    <AnimatedCounter value={metric.value} suffix={metric.suffix} />
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#6336c4]/20">
+                  {feature.icon === "globe" && (
+                    <svg className="h-6 w-6 text-[#8e59ff]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418" />
+                    </svg>
+                  )}
+                  {feature.icon === "shield" && (
+                    <svg className="h-6 w-6 text-[#8e59ff]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+                    </svg>
+                  )}
+                  {feature.icon === "zap" && (
+                    <svg className="h-6 w-6 text-[#8e59ff]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+                    </svg>
+                  )}
+                  {feature.icon === "card" && (
+                    <svg className="h-6 w-6 text-[#8e59ff]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5z" />
+                    </svg>
                   )}
                 </div>
-                <p className="mt-2 text-sm text-neutral-500">{metric.label}</p>
+                <p className="text-sm font-medium text-white">{feature.label}</p>
               </motion.div>
             ))}
           </motion.div>
         </div>
 
-        {/* Mobile Metrics - horizontal scroll */}
+        {/* Mobile Features - horizontal scroll */}
         <motion.div
           initial={reduce ? false : { opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -228,19 +215,34 @@ export function HeroIntro() {
           className="mt-12 lg:hidden"
         >
           <div className="flex gap-3 overflow-x-auto pb-4 scrollbar-none -mx-5 px-5">
-            {metrics.map((metric) => (
+            {features.map((feature) => (
               <div
-                key={metric.label}
-                className="flex-shrink-0 glass-card rounded-xl px-5 py-4 text-center min-w-[140px]"
+                key={feature.label}
+                className="flex-shrink-0 glass-card rounded-xl px-4 py-3 flex items-center gap-3 min-w-[180px]"
               >
-                <div className="text-2xl font-bold text-white">
-                  {metric.displayValue !== undefined ? (
-                    <span>{metric.displayValue}{metric.suffix}</span>
-                  ) : (
-                    <AnimatedCounter value={metric.value} suffix={metric.suffix} />
+                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#6336c4]/20">
+                  {feature.icon === "globe" && (
+                    <svg className="h-4 w-4 text-[#8e59ff]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418" />
+                    </svg>
+                  )}
+                  {feature.icon === "shield" && (
+                    <svg className="h-4 w-4 text-[#8e59ff]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+                    </svg>
+                  )}
+                  {feature.icon === "zap" && (
+                    <svg className="h-4 w-4 text-[#8e59ff]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+                    </svg>
+                  )}
+                  {feature.icon === "card" && (
+                    <svg className="h-4 w-4 text-[#8e59ff]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5z" />
+                    </svg>
                   )}
                 </div>
-                <p className="mt-1 text-xs text-neutral-500">{metric.label}</p>
+                <p className="text-xs font-medium text-white">{feature.label}</p>
               </div>
             ))}
           </div>

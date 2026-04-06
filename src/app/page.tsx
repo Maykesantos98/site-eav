@@ -3,7 +3,6 @@ import { HeroIntro, MoedasLibertySection } from "@/components/landing/HeroSectio
 import { MarqueeSection } from "@/components/landing/MarqueeSection";
 import { SiteNav } from "@/components/landing/SiteNav";
 import { SiteFooter } from "@/components/landing/SiteFooter";
-import { MetricsSection } from "@/components/landing/MetricsSection";
 
 /* ── Lazy-loaded sections (below the fold) ── */
 const CardsShowcase = dynamic(() => import("@/components/landing/CardsShowcase").then(m => m.CardsShowcase));
@@ -25,7 +24,6 @@ export default function Home() {
       <main>
         {/* Above the fold — loaded immediately */}
         <HeroIntro />
-        <MetricsSection />
         <MarqueeSection />
         <MoedasLibertySection />
 
