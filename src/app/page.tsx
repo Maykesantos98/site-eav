@@ -3,11 +3,13 @@ import { HeroIntro, MoedasLibertySection } from "@/components/landing/HeroSectio
 import { MarqueeSection } from "@/components/landing/MarqueeSection";
 import { SiteNav } from "@/components/landing/SiteNav";
 import { SiteFooter } from "@/components/landing/SiteFooter";
+import { MetricsSection } from "@/components/landing/MetricsSection";
 
 /* ── Lazy-loaded sections (below the fold) ── */
 const CardsShowcase = dynamic(() => import("@/components/landing/CardsShowcase").then(m => m.CardsShowcase));
 const WorldGlobeSection = dynamic(() => import("@/components/landing/FeatureSections").then(m => m.WorldGlobeSection));
 const SecuritySection = dynamic(() => import("@/components/landing/FeatureSections").then(m => m.SecuritySection));
+const SpeedCirclesSection = dynamic(() => import("@/components/landing/FeatureSections").then(m => m.SpeedCirclesSection));
 const TrustSection = dynamic(() => import("@/components/landing/TrustSection").then(m => m.TrustSection));
 const ProductsSection = dynamic(() => import("@/components/landing/ProductsSection").then(m => m.ProductsSection));
 const CompanySection = dynamic(() => import("@/components/landing/FeatureSections").then(m => m.CompanySection));
@@ -23,6 +25,7 @@ export default function Home() {
       <main>
         {/* Above the fold — loaded immediately */}
         <HeroIntro />
+        <MetricsSection />
         <MarqueeSection />
         <MoedasLibertySection />
 
@@ -30,11 +33,11 @@ export default function Home() {
         <CardsShowcase />
         <WorldGlobeSection />
         <SecuritySection />
+        <SpeedCirclesSection />
         <TrustSection />
         <ProductsSection />
         <CompanySection />
         <AppDownloadSection />
-
       </main>
       <SiteFooter />
       <ScrollToTop />

@@ -76,7 +76,7 @@ export default function RootLayout({
         <meta name="referrer" content="strict-origin-when-cross-origin" />
       </head>
       <body
-        className={`${inter.variable} ${spaceGrotesk.variable} ${geistMono.variable} antialiased min-h-screen bg-[#0c0a09] text-zinc-50`}
+        className={`${inter.variable} ${spaceGrotesk.variable} ${geistMono.variable} antialiased min-h-screen bg-[#050505] text-neutral-50`}
       >
         <Providers>{children}</Providers>
       </body>
